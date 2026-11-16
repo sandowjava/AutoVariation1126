@@ -1,0 +1,152 @@
+{
+  "size" : 21,
+  "colorPtOstdotArray" : [ {
+    "hueNum" : 1,
+    "column" : 2,
+    "step" : 2,
+    "fillOrderNum" : 12,
+    "seriesW" : 1,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 4,
+    "column" : 5,
+    "step" : 4,
+    "fillOrderNum" : 27,
+    "seriesW" : 3,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 1,
+    "column" : 7,
+    "step" : 6,
+    "fillOrderNum" : 36,
+    "seriesW" : 5,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 3,
+    "column" : 3,
+    "step" : 3,
+    "fillOrderNum" : 13,
+    "seriesW" : 2,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 1,
+    "column" : 4,
+    "step" : 4,
+    "fillOrderNum" : 14,
+    "seriesW" : 3,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 1,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 3,
+    "column" : 5,
+    "step" : 5,
+    "fillOrderNum" : 15,
+    "seriesW" : 4,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 1,
+    "column" : 5,
+    "step" : 5,
+    "fillOrderNum" : 15,
+    "seriesW" : 4,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 1,
+    "column" : 6,
+    "step" : 6,
+    "fillOrderNum" : 16,
+    "seriesW" : 5,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 1,
+    "column" : 6,
+    "step" : 6,
+    "fillOrderNum" : 16,
+    "seriesW" : 5,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 1,
+    "column" : 7,
+    "step" : 6,
+    "fillOrderNum" : 36,
+    "seriesW" : 5,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 2,
+    "column" : 7,
+    "step" : 6,
+    "fillOrderNum" : 36,
+    "seriesW" : 5,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 1,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 2,
+    "column" : 5,
+    "step" : 3,
+    "fillOrderNum" : 26,
+    "seriesW" : 2,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 3,
+    "column" : 5,
+    "step" : 4,
+    "fillOrderNum" : 27,
+    "seriesW" : 3,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 3,
+    "column" : 6,
+    "step" : 5,
+    "fillOrderNum" : 31,
+    "seriesW" : 4,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 12,
+    "column" : 8,
+    "step" : 7,
+    "fillOrderNum" : 42,
+    "seriesW" : 6,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 12,
+    "column" : 9,
+    "step" : 8,
+    "fillOrderNum" : 49,
+    "seriesW" : 7,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 12,
+    "column" : 8,
+    "step" : 6,
+    "fillOrderNum" : 41,
+    "seriesW" : 5,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 12,
+    "column" : 5,
+    "step" : 4,
+    "fillOrderNum" : 27,
+    "seriesW" : 3,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 12,
+    "column" : 6,
+    "step" : 5,
+    "fillOrderNum" : 31,
+    "seriesW" : 4,
+    "seriesB" : 1
+  } ],
+  "paletteName" : "heroEye091826yellosMagntalines-v1"
+}

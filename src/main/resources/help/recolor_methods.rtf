@@ -1,0 +1,148 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Georgia-Bold;\f1\fnil\fcharset0 Georgia;}
+{\colortbl;\red255\green255\blue255;\red0\green51\blue102;\red3\green45\blue153;}
+{\*\expandedcolortbl;;\csgenericrgb\c0\c20000\c40000;\cssrgb\c0\c25950\c66514;}
+\margl1440\margr1440\vieww12300\viewh14900\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs36 \cf2 Recolor Methods\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs28 \cf2 \'93First Things First\'94 (Basic Orientation \'97 what you\'92re seeing in the TemplateWorkFrame)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b0 \cf0 In terms of Java classes, the shapes in the image are \'93DrawObjs\'94 (draw objects) and your image is embodied by a \'93Template\'94. For a shape to be recolored, it needs to be selected. You can select one or more shapes, or all the shapes in the Template. So first select the objects you want to recolor, then use one of the following methods to change its color.  (See \'93Selection Methods\'94)\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b \cf2 Color Palette Concept (in the MonotriWorkFrame)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b0 \cf0 The color palette is NOT a continuous range of colors. Instead, a collection of colors is systematically arranged by hue. There are 36 hues that cover the full range, and in each hue the color samples are arranged the same way, as a system. The system consists of \'93equal-white\'94 series and \'93equal-black\'94 series which form the two diagonals. These series contain colors that are related by containing the same amount of either white or black, and then vertically there are the \'93shadow series\'94 which also contain related colors. For each hue there is a \'93monochrome triangle\'94 that has the pure Hue at one corner (such as a pure Red hue, or a pure Blue hue), with pure Black at the bottom corner, and pure White at the top corner. This systematic arrangement provides a quick way to apply predefined colors, referred to as \'93positions\'94 in the system:\
+\
+\'97 Selection is always fundamentally by shape, not by color. The meaning of this will become clear with use of the app.\
+\'97 The \'93palette\'94 is the current collection of colors for all the shapes in the Template.\
+\'97 The colors of the \'93palette\'94 are in different \'93positions\'94 in the monochrome triangles.\
+\'97 The \'93status icon\'94 is the type of visual square that surrounds some positions in the monochrome triangle. The status icon is a form of high-lighting.\
+\'97 Read this twice: The current status of all color positions always relates to the shapes in the Template. Every shape has a color, and each color is in some \'93position\'94.\
+\'97 Icons clarify selected positions, versus \'93occupied\'94 positions. Selected shapes have selected positions. \
+\'97 An \'93occupied\'94 position is a color that is in use, but it may not be currently selected (this means that no shape with that color is currently selected).\
+\'97 Every selected position is an \'93occupied\'94 position. See the full explanation of this in the last paragraph below.\
+\'97 All \'93occupied\'94 positions and selected positions are shown with status icons, even if they are NOT in the hue currently being displayed.\
+\'97 The status icon is different if the color is in the hue currently being displayed. See the full explanation of this in the last paragraph below.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b \cf2 Color Picker\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b0 \cf0 For more precise color selection:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\pardirnatural\partightenfactor0
+\cf0 1. Select the object(s) to recolor\
+2. Click the Color Picker tool in the toolbar\
+3. Use the color picker dialog to select your desired color\
+4. Choose whether to apply the color to the fill, stroke, or both\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b \cf2 Color Shifting\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b0 \cf0 Color shifting allows you to adjust colors while maintaining relationships between them:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\pardirnatural\partightenfactor0
+\cf0 \'95 
+\f0\b Hue Rotation
+\f1\b0 : Shifts all colors around the color wheel by a specified angle\
+\'95 
+\f0\b Saturation Adjustment
+\f1\b0 : Increases or decreases color intensity\
+\'95 
+\f0\b Brightness Adjustment
+\f1\b0 : Makes colors lighter or darker\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+To use color shifting, select objects and use the Color Shift panel from the View menu.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b \cf2 Color Drag\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b0 \cf0 The color drag feature allows intuitive color adjustment:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\pardirnatural\partightenfactor0
+\cf0 1. Select the objects to recolor\
+2. Enable Color Drag mode from the Tools menu\
+3. Click and drag on the canvas:\
+   \'95 Horizontal movement adjusts hue\
+   \'95 Vertical movement adjusts brightness\
+   \'95 With Shift key: Vertical movement adjusts saturation\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b \cf2 Color Schemes\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b0 \cf0 Apply color harmony rules to create cohesive color schemes:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\pardirnatural\partightenfactor0
+\cf0 \'95 
+\f0\b Complementary
+\f1\b0 : Colors opposite each other on the color wheel\
+\'95 
+\f0\b Analogous
+\f1\b0 : Colors adjacent on the color wheel\
+\'95 
+\f0\b Triadic
+\f1\b0 : Three colors evenly spaced around the color wheel\
+\'95 
+\f0\b Split Complementary
+\f1\b0 : A color and two colors adjacent to its complement\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+Access color schemes from the Color menu after selecting objects.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b \cf2 Color Positions: What\'92s \'93Occupied\'94 and What\'92s Selected\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b0 \cf0 Know what you are seeing:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\pardirnatural\partightenfactor0
+\cf0 \'95 
+\f0\b Complementary
+\f1\b0 : Colors opposite each other on the color wheel\
+\'95 
+\f0\b Analogous
+\f1\b0 : Colors adjacent on the color wheel\
+\'95 
+\f0\b Triadic
+\f1\b0 : Three colors evenly spaced around the color wheel\
+\'95 
+\f0\b Split Complementary
+\f1\b0 : A color and two colors adjacent to its complement\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+Access color schemes from the Color menu after selecting objects.\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b \cf2 A Few Little Oddities (inconsistencies in the GUI)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b0 \cf0 The color palette xx :\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b \cf3 Color Fundamentals (RGB versus CMYK):
+\f1\b0 \cf0 \
+The app is designed to make use of the full range of the RGB gamut, and so the app gamut is primarily intended for work that will be done on screen \'97 not printed. So the has some of the same weaknesses as every app that works with color on screen: the printed output is not the same as what you see on screen. There are inherent compromises involved, since the app is also designed for printed output (e.g., printed painting references). So the spacing of the hues is optimized for CMYK and does not have \'93perfect complements\'94 in the hue circle spacing. It\'92s designed to be useful, not mathematically perfect. xx :\
+}

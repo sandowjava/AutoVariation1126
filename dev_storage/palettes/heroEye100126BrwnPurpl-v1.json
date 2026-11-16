@@ -1,0 +1,152 @@
+{
+  "size" : 21,
+  "colorPtOstdotArray" : [ {
+    "hueNum" : 11,
+    "column" : 8,
+    "step" : 4,
+    "fillOrderNum" : 39,
+    "seriesW" : 3,
+    "seriesB" : 4
+  }, {
+    "hueNum" : 16,
+    "column" : 9,
+    "step" : 4,
+    "fillOrderNum" : 45,
+    "seriesW" : 3,
+    "seriesB" : 5
+  }, {
+    "hueNum" : 13,
+    "column" : 8,
+    "step" : 4,
+    "fillOrderNum" : 39,
+    "seriesW" : 3,
+    "seriesB" : 4
+  }, {
+    "hueNum" : 9,
+    "column" : 9,
+    "step" : 5,
+    "fillOrderNum" : 46,
+    "seriesW" : 4,
+    "seriesB" : 4
+  }, {
+    "hueNum" : 11,
+    "column" : 8,
+    "step" : 3,
+    "fillOrderNum" : 38,
+    "seriesW" : 2,
+    "seriesB" : 5
+  }, {
+    "hueNum" : 8,
+    "column" : 6,
+    "step" : 4,
+    "fillOrderNum" : 30,
+    "seriesW" : 3,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 8,
+    "column" : 8,
+    "step" : 3,
+    "fillOrderNum" : 38,
+    "seriesW" : 2,
+    "seriesB" : 5
+  }, {
+    "hueNum" : 13,
+    "column" : 9,
+    "step" : 4,
+    "fillOrderNum" : 45,
+    "seriesW" : 3,
+    "seriesB" : 5
+  }, {
+    "hueNum" : 11,
+    "column" : 8,
+    "step" : 5,
+    "fillOrderNum" : 40,
+    "seriesW" : 4,
+    "seriesB" : 3
+  }, {
+    "hueNum" : 13,
+    "column" : 9,
+    "step" : 6,
+    "fillOrderNum" : 47,
+    "seriesW" : 5,
+    "seriesB" : 3
+  }, {
+    "hueNum" : 11,
+    "column" : 8,
+    "step" : 3,
+    "fillOrderNum" : 38,
+    "seriesW" : 2,
+    "seriesB" : 5
+  }, {
+    "hueNum" : 8,
+    "column" : 7,
+    "step" : 4,
+    "fillOrderNum" : 34,
+    "seriesW" : 3,
+    "seriesB" : 3
+  }, {
+    "hueNum" : 8,
+    "column" : 7,
+    "step" : 3,
+    "fillOrderNum" : 33,
+    "seriesW" : 2,
+    "seriesB" : 4
+  }, {
+    "hueNum" : 9,
+    "column" : 8,
+    "step" : 5,
+    "fillOrderNum" : 40,
+    "seriesW" : 4,
+    "seriesB" : 3
+  }, {
+    "hueNum" : 11,
+    "column" : 7,
+    "step" : 4,
+    "fillOrderNum" : 34,
+    "seriesW" : 3,
+    "seriesB" : 3
+  }, {
+    "hueNum" : 32,
+    "column" : 10,
+    "step" : 2,
+    "fillOrderNum" : 50,
+    "seriesW" : 1,
+    "seriesB" : 8
+  }, {
+    "hueNum" : 21,
+    "column" : 11,
+    "step" : 11,
+    "fillOrderNum" : 21,
+    "seriesW" : 10,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 18,
+    "column" : 6,
+    "step" : 3,
+    "fillOrderNum" : 29,
+    "seriesW" : 2,
+    "seriesB" : 3
+  }, {
+    "hueNum" : 11,
+    "column" : 8,
+    "step" : 5,
+    "fillOrderNum" : 40,
+    "seriesW" : 4,
+    "seriesB" : 3
+  }, {
+    "hueNum" : 16,
+    "column" : 9,
+    "step" : 2,
+    "fillOrderNum" : 43,
+    "seriesW" : 1,
+    "seriesB" : 7
+  }, {
+    "hueNum" : 22,
+    "column" : 9,
+    "step" : 2,
+    "fillOrderNum" : 43,
+    "seriesW" : 1,
+    "seriesB" : 7
+  } ],
+  "paletteName" : "heroEye100126BrwnPurpl-v1"
+}

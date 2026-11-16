@@ -1,0 +1,130 @@
+{
+  "paletteName" : "heroEye072526DustyTanYelloRotate-v1",
+  "pairs" : [ {
+    "shapeName" : "noseBottom",
+    "codeHueNum" : 6,
+    "seriesW" : 4,
+    "seriesB" : 3,
+    "paletteIndex" : 1
+  }, {
+    "shapeName" : "noseVerticalShadow",
+    "codeHueNum" : 6,
+    "seriesW" : 3,
+    "seriesB" : 4,
+    "paletteIndex" : 2
+  }, {
+    "shapeName" : "noseDentMid",
+    "codeHueNum" : 7,
+    "seriesW" : 3,
+    "seriesB" : 5,
+    "paletteIndex" : 3
+  }, {
+    "shapeName" : "eyeCornerTriangle",
+    "codeHueNum" : 6,
+    "seriesW" : 2,
+    "seriesB" : 4,
+    "paletteIndex" : 4
+  }, {
+    "shapeName" : "cheekLowerRCorner",
+    "codeHueNum" : 6,
+    "seriesW" : 2,
+    "seriesB" : 4,
+    "paletteIndex" : 5
+  }, {
+    "shapeName" : "underEyeCheekCtr",
+    "codeHueNum" : 6,
+    "seriesW" : 4,
+    "seriesB" : 2,
+    "paletteIndex" : 6
+  }, {
+    "shapeName" : "cheekUprCurve",
+    "codeHueNum" : 6,
+    "seriesW" : 5,
+    "seriesB" : 2,
+    "paletteIndex" : 7
+  }, {
+    "shapeName" : "cheekLwrCurve",
+    "codeHueNum" : 8,
+    "seriesW" : 3,
+    "seriesB" : 3,
+    "paletteIndex" : 8
+  }, {
+    "shapeName" : "nearNoseSloping",
+    "codeHueNum" : 6,
+    "seriesW" : 3,
+    "seriesB" : 3,
+    "paletteIndex" : 9
+  }, {
+    "shapeName" : "nearNoseCrease",
+    "codeHueNum" : 6,
+    "seriesW" : 3,
+    "seriesB" : 4,
+    "paletteIndex" : 10
+  }, {
+    "shapeName" : "templeDiagUppr",
+    "codeHueNum" : 6,
+    "seriesW" : 5,
+    "seriesB" : 3,
+    "paletteIndex" : 11
+  }, {
+    "shapeName" : "underBrowOuter",
+    "codeHueNum" : 4,
+    "seriesW" : 3,
+    "seriesB" : 2,
+    "paletteIndex" : 12
+  }, {
+    "shapeName" : "underBrowInner",
+    "codeHueNum" : 4,
+    "seriesW" : 2,
+    "seriesB" : 3,
+    "paletteIndex" : 13
+  }, {
+    "shapeName" : "foreheadBigCtr",
+    "codeHueNum" : 6,
+    "seriesW" : 5,
+    "seriesB" : 2,
+    "paletteIndex" : 14
+  }, {
+    "shapeName" : "noseTopRect",
+    "codeHueNum" : 6,
+    "seriesW" : 2,
+    "seriesB" : 3,
+    "paletteIndex" : 15
+  }, {
+    "shapeName" : "eyeBrow",
+    "codeHueNum" : 29,
+    "seriesW" : 0,
+    "seriesB" : 8,
+    "paletteIndex" : 16
+  }, {
+    "shapeName" : "eyeBallWhite",
+    "codeHueNum" : 18,
+    "seriesW" : 10,
+    "seriesB" : 0,
+    "paletteIndex" : 17
+  }, {
+    "shapeName" : "eyeLidUpper",
+    "codeHueNum" : 6,
+    "seriesW" : 2,
+    "seriesB" : 3,
+    "paletteIndex" : 18
+  }, {
+    "shapeName" : "underEyeBag",
+    "codeHueNum" : 6,
+    "seriesW" : 3,
+    "seriesB" : 3,
+    "paletteIndex" : 19
+  }, {
+    "shapeName" : "eyePupil",
+    "codeHueNum" : 13,
+    "seriesW" : 0,
+    "seriesB" : 6,
+    "paletteIndex" : 20
+  }, {
+    "shapeName" : "eyeLash",
+    "codeHueNum" : 19,
+    "seriesW" : 0,
+    "seriesB" : 7,
+    "paletteIndex" : 21
+  } ]
+}

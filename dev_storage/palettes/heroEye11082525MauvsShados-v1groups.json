@@ -1,0 +1,152 @@
+{
+  "size" : 21,
+  "colorPtOstdotArray" : [ {
+    "hueNum" : 9,
+    "column" : 7,
+    "step" : 5,
+    "fillOrderNum" : 35,
+    "seriesW" : 4,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 11,
+    "column" : 5,
+    "step" : 1,
+    "fillOrderNum" : 5,
+    "seriesW" : 0,
+    "seriesB" : 4
+  }, {
+    "hueNum" : 9,
+    "column" : 9,
+    "step" : 6,
+    "fillOrderNum" : 47,
+    "seriesW" : 5,
+    "seriesB" : 3
+  }, {
+    "hueNum" : 11,
+    "column" : 6,
+    "step" : 2,
+    "fillOrderNum" : 28,
+    "seriesW" : 1,
+    "seriesB" : 4
+  }, {
+    "hueNum" : 11,
+    "column" : 7,
+    "step" : 2,
+    "fillOrderNum" : 32,
+    "seriesW" : 1,
+    "seriesB" : 5
+  }, {
+    "hueNum" : 9,
+    "column" : 6,
+    "step" : 6,
+    "fillOrderNum" : 16,
+    "seriesW" : 5,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 8,
+    "step" : 6,
+    "fillOrderNum" : 41,
+    "seriesW" : 5,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 10,
+    "column" : 5,
+    "step" : 2,
+    "fillOrderNum" : 25,
+    "seriesW" : 1,
+    "seriesB" : 3
+  }, {
+    "hueNum" : 9,
+    "column" : 8,
+    "step" : 6,
+    "fillOrderNum" : 41,
+    "seriesW" : 5,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 8,
+    "column" : 5,
+    "step" : 4,
+    "fillOrderNum" : 27,
+    "seriesW" : 3,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 9,
+    "column" : 6,
+    "step" : 4,
+    "fillOrderNum" : 30,
+    "seriesW" : 3,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 8,
+    "column" : 6,
+    "step" : 6,
+    "fillOrderNum" : 16,
+    "seriesW" : 5,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 9,
+    "column" : 6,
+    "step" : 4,
+    "fillOrderNum" : 30,
+    "seriesW" : 3,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 9,
+    "column" : 5,
+    "step" : 4,
+    "fillOrderNum" : 27,
+    "seriesW" : 3,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 9,
+    "column" : 6,
+    "step" : 5,
+    "fillOrderNum" : 31,
+    "seriesW" : 4,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 3,
+    "column" : 8,
+    "step" : 1,
+    "fillOrderNum" : 8,
+    "seriesW" : 0,
+    "seriesB" : 7
+  }, {
+    "hueNum" : 7,
+    "column" : 10,
+    "step" : 10,
+    "fillOrderNum" : 20,
+    "seriesW" : 9,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 2,
+    "step" : 2,
+    "fillOrderNum" : 12,
+    "seriesW" : 1,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 9,
+    "column" : 8,
+    "step" : 6,
+    "fillOrderNum" : 41,
+    "seriesW" : 5,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 8,
+    "column" : 7,
+    "step" : 2,
+    "fillOrderNum" : 32,
+    "seriesW" : 1,
+    "seriesB" : 5
+  }, {
+    "hueNum" : 9,
+    "column" : 6,
+    "step" : 2,
+    "fillOrderNum" : 28,
+    "seriesW" : 1,
+    "seriesB" : 4
+  } ],
+  "paletteName" : "heroEye11082525MauvsShados-v1groups"
+}

@@ -1,0 +1,562 @@
+{
+  "paletteName" : "CParker101726OrngBrownBluEyeCMY-6",
+  "pairs" : [ {
+    "shapeName" : "R-RECT-BIG-edgeThruPupil",
+    "codeHueNum" : 20,
+    "seriesW" : 5,
+    "seriesB" : 2,
+    "paletteIndex" : 1
+  }, {
+    "shapeName" : "L-UPR-quadFILL",
+    "codeHueNum" : 14,
+    "seriesW" : 4,
+    "seriesB" : 1,
+    "paletteIndex" : 2
+  }, {
+    "shapeName" : "L-BTM-FILL-rect",
+    "codeHueNum" : 11,
+    "seriesW" : 5,
+    "seriesB" : 0,
+    "paletteIndex" : 3
+  }, {
+    "shapeName" : "R-bigCheekShadow-LWR-R",
+    "codeHueNum" : 18,
+    "seriesW" : 5,
+    "seriesB" : 2,
+    "paletteIndex" : 4
+  }, {
+    "shapeName" : "R-cheek-HOLLOW",
+    "codeHueNum" : 17,
+    "seriesW" : 4,
+    "seriesB" : 2,
+    "paletteIndex" : 5
+  }, {
+    "shapeName" : "L-BAR-BTM-goes-to-eye",
+    "codeHueNum" : 9,
+    "seriesW" : 1,
+    "seriesB" : 1,
+    "paletteIndex" : 6
+  }, {
+    "shapeName" : "L-BAR-TOP-to-forehead",
+    "codeHueNum" : 11,
+    "seriesW" : 3,
+    "seriesB" : 1,
+    "paletteIndex" : 7
+  }, {
+    "shapeName" : "NOSE-BTM-FILL",
+    "codeHueNum" : 9,
+    "seriesW" : 4,
+    "seriesB" : 1,
+    "paletteIndex" : 8
+  }, {
+    "shapeName" : "nose-L-UPR-backgr",
+    "codeHueNum" : 15,
+    "seriesW" : 4,
+    "seriesB" : 0,
+    "paletteIndex" : 9
+  }, {
+    "shapeName" : "top-L-triangle",
+    "codeHueNum" : 11,
+    "seriesW" : 4,
+    "seriesB" : 2,
+    "paletteIndex" : 10
+  }, {
+    "shapeName" : "NOSE-uprLip-FILL",
+    "codeHueNum" : 12,
+    "seriesW" : 3,
+    "seriesB" : 2,
+    "paletteIndex" : 11
+  }, {
+    "shapeName" : "L-cheek-entire",
+    "codeHueNum" : 9,
+    "seriesW" : 3,
+    "seriesB" : 1,
+    "paletteIndex" : 12
+  }, {
+    "shapeName" : "R-eye-BROWbelow-CTR-FILL",
+    "codeHueNum" : 18,
+    "seriesW" : 3,
+    "seriesB" : 0,
+    "paletteIndex" : 13
+  }, {
+    "shapeName" : "R-BROW-CTR-small-FILL",
+    "codeHueNum" : 17,
+    "seriesW" : 2,
+    "seriesB" : 1,
+    "paletteIndex" : 14
+  }, {
+    "shapeName" : "nose-DENT-R",
+    "codeHueNum" : 18,
+    "seriesW" : 2,
+    "seriesB" : 2,
+    "paletteIndex" : 15
+  }, {
+    "shapeName" : "nose-DENT-L",
+    "codeHueNum" : 11,
+    "seriesW" : 3,
+    "seriesB" : 0,
+    "paletteIndex" : 16
+  }, {
+    "shapeName" : "NOSE-shadoLouisLike",
+    "codeHueNum" : 8,
+    "seriesW" : 2,
+    "seriesB" : 3,
+    "paletteIndex" : 17
+  }, {
+    "shapeName" : "noseBTM-shadow-DEEP",
+    "codeHueNum" : 9,
+    "seriesW" : 0,
+    "seriesB" : 7,
+    "paletteIndex" : 18
+  }, {
+    "shapeName" : "RcheekSLOPE-fill-in",
+    "codeHueNum" : 15,
+    "seriesW" : 4,
+    "seriesB" : 3,
+    "paletteIndex" : 19
+  }, {
+    "shapeName" : "NOSEsideR-shadow-BTM",
+    "codeHueNum" : 11,
+    "seriesW" : 4,
+    "seriesB" : 2,
+    "paletteIndex" : 20
+  }, {
+    "shapeName" : "NOSEsideR-shadow-TOP",
+    "codeHueNum" : 12,
+    "seriesW" : 3,
+    "seriesB" : 2,
+    "paletteIndex" : 21
+  }, {
+    "shapeName" : "NOSEsideR-shadoPlane-BTM",
+    "codeHueNum" : 12,
+    "seriesW" : 5,
+    "seriesB" : 3,
+    "paletteIndex" : 22
+  }, {
+    "shapeName" : "NOSEsideR-shadoPlane-TOP",
+    "codeHueNum" : 12,
+    "seriesW" : 3,
+    "seriesB" : 3,
+    "paletteIndex" : 23
+  }, {
+    "shapeName" : "noseCREASE-L-TRIANGL-hilite",
+    "codeHueNum" : 9,
+    "seriesW" : 4,
+    "seriesB" : 0,
+    "paletteIndex" : 24
+  }, {
+    "shapeName" : "noseBulb-BTM-oval-hilite",
+    "codeHueNum" : 8,
+    "seriesW" : 4,
+    "seriesB" : 1,
+    "paletteIndex" : 25
+  }, {
+    "shapeName" : "noseDent-SMALL-oval-hilite",
+    "codeHueNum" : 15,
+    "seriesW" : 5,
+    "seriesB" : 0,
+    "paletteIndex" : 26
+  }, {
+    "shapeName" : "R-underEye-CHEEK-hilite",
+    "codeHueNum" : 21,
+    "seriesW" : 4,
+    "seriesB" : 2,
+    "paletteIndex" : 27
+  }, {
+    "shapeName" : "R-brow-CTR-TRIANGL-BEHINDeye",
+    "codeHueNum" : 22,
+    "seriesW" : 4,
+    "seriesB" : 0,
+    "paletteIndex" : 28
+  }, {
+    "shapeName" : "forehead-R-TRIANGL-chopd",
+    "codeHueNum" : 10,
+    "seriesW" : 4,
+    "seriesB" : 2,
+    "paletteIndex" : 29
+  }, {
+    "shapeName" : "forehead-TOP-MIDDLE-w-curve",
+    "codeHueNum" : 10,
+    "seriesW" : 3,
+    "seriesB" : 1,
+    "paletteIndex" : 30
+  }, {
+    "shapeName" : "R-eye-SM-TRIANGL-BELOW-R",
+    "codeHueNum" : 15,
+    "seriesW" : 5,
+    "seriesB" : 0,
+    "paletteIndex" : 31
+  }, {
+    "shapeName" : "R-eye-SM-TRIANGL-BELOW-L",
+    "codeHueNum" : 15,
+    "seriesW" : 4,
+    "seriesB" : 0,
+    "paletteIndex" : 32
+  }, {
+    "shapeName" : "L-forehead-FILL-above-brow",
+    "codeHueNum" : 9,
+    "seriesW" : 3,
+    "seriesB" : 3,
+    "paletteIndex" : 33
+  }, {
+    "shapeName" : "foerehead-L-sweep",
+    "codeHueNum" : 8,
+    "seriesW" : 2,
+    "seriesB" : 2,
+    "paletteIndex" : 34
+  }, {
+    "shapeName" : "curvedTriangl-L-forehead-edge",
+    "codeHueNum" : 9,
+    "seriesW" : 2,
+    "seriesB" : 3,
+    "paletteIndex" : 35
+  }, {
+    "shapeName" : "brow-CTR-hilite-L",
+    "codeHueNum" : 11,
+    "seriesW" : 3,
+    "seriesB" : 1,
+    "paletteIndex" : 36
+  }, {
+    "shapeName" : "brow-CTR-hilite-MID",
+    "codeHueNum" : 9,
+    "seriesW" : 3,
+    "seriesB" : 1,
+    "paletteIndex" : 37
+  }, {
+    "shapeName" : "brow-CTR-hilite-R",
+    "codeHueNum" : 10,
+    "seriesW" : 4,
+    "seriesB" : 1,
+    "paletteIndex" : 38
+  }, {
+    "shapeName" : "foreHead-TOP-hilite-L",
+    "codeHueNum" : 9,
+    "seriesW" : 3,
+    "seriesB" : 1,
+    "paletteIndex" : 39
+  }, {
+    "shapeName" : "nose-UPR-small-CTR-toForehead",
+    "codeHueNum" : 9,
+    "seriesW" : 2,
+    "seriesB" : 2,
+    "paletteIndex" : 40
+  }, {
+    "shapeName" : "foreHead-TOP-hilite-R",
+    "codeHueNum" : 10,
+    "seriesW" : 4,
+    "seriesB" : 0,
+    "paletteIndex" : 41
+  }, {
+    "shapeName" : "brow-CTR-crease-BTM",
+    "codeHueNum" : 14,
+    "seriesW" : 2,
+    "seriesB" : 2,
+    "paletteIndex" : 42
+  }, {
+    "shapeName" : "brow-CTR-crease-TOP",
+    "codeHueNum" : 10,
+    "seriesW" : 3,
+    "seriesB" : 1,
+    "paletteIndex" : 43
+  }, {
+    "shapeName" : "brow-CTR-crease-MID",
+    "codeHueNum" : 9,
+    "seriesW" : 4,
+    "seriesB" : 1,
+    "paletteIndex" : 44
+  }, {
+    "shapeName" : "forehead-BAR-CNR-TRIANGL-FILL",
+    "codeHueNum" : 11,
+    "seriesW" : 3,
+    "seriesB" : 2,
+    "paletteIndex" : 45
+  }, {
+    "shapeName" : "L-above-brow-OUTR",
+    "codeHueNum" : 15,
+    "seriesW" : 5,
+    "seriesB" : 0,
+    "paletteIndex" : 46
+  }, {
+    "shapeName" : "L-above-brow-CORNR",
+    "codeHueNum" : 10,
+    "seriesW" : 2,
+    "seriesB" : 2,
+    "paletteIndex" : 47
+  }, {
+    "shapeName" : "L-above-brow-MID",
+    "codeHueNum" : 11,
+    "seriesW" : 3,
+    "seriesB" : 2,
+    "paletteIndex" : 48
+  }, {
+    "shapeName" : "L-underbrow",
+    "codeHueNum" : 14,
+    "seriesW" : 3,
+    "seriesB" : 2,
+    "paletteIndex" : 49
+  }, {
+    "shapeName" : "L-eyeSocket-BAR-accent",
+    "codeHueNum" : 12,
+    "seriesW" : 3,
+    "seriesB" : 0,
+    "paletteIndex" : 50
+  }, {
+    "shapeName" : "L-eyebrow",
+    "codeHueNum" : 9,
+    "seriesW" : 0,
+    "seriesB" : 5,
+    "paletteIndex" : 51
+  }, {
+    "shapeName" : "L-eyeBrow-SHADO",
+    "codeHueNum" : 13,
+    "seriesW" : 0,
+    "seriesB" : 6,
+    "paletteIndex" : 52
+  }, {
+    "shapeName" : "L-lash-shado",
+    "codeHueNum" : 13,
+    "seriesW" : 0,
+    "seriesB" : 7,
+    "paletteIndex" : 53
+  }, {
+    "shapeName" : "L-eyeBag-shado",
+    "codeHueNum" : 11,
+    "seriesW" : 3,
+    "seriesB" : 2,
+    "paletteIndex" : 54
+  }, {
+    "shapeName" : "L-eye-PUPIL-",
+    "codeHueNum" : 13,
+    "seriesW" : 0,
+    "seriesB" : 7,
+    "paletteIndex" : 55
+  }, {
+    "shapeName" : "L-eye-LID-hilite",
+    "codeHueNum" : 11,
+    "seriesW" : 3,
+    "seriesB" : 1,
+    "paletteIndex" : 56
+  }, {
+    "shapeName" : "L-eyeLid-FOLDcrease",
+    "codeHueNum" : 12,
+    "seriesW" : 2,
+    "seriesB" : 3,
+    "paletteIndex" : 57
+  }, {
+    "shapeName" : "L-underBrow-hilite",
+    "codeHueNum" : 13,
+    "seriesW" : 3,
+    "seriesB" : 1,
+    "paletteIndex" : 58
+  }, {
+    "shapeName" : "R-TRIANGL-FILL-outr-eye-cnr",
+    "codeHueNum" : 22,
+    "seriesW" : 4,
+    "seriesB" : 1,
+    "paletteIndex" : 59
+  }, {
+    "shapeName" : "R-eye-BAR-DIAG-to-Temple-LWR",
+    "codeHueNum" : 23,
+    "seriesW" : 3,
+    "seriesB" : 2,
+    "paletteIndex" : 60
+  }, {
+    "shapeName" : "R-eye-BAR-DIAG-to-Temple-UPR",
+    "codeHueNum" : 23,
+    "seriesW" : 2,
+    "seriesB" : 3,
+    "paletteIndex" : 61
+  }, {
+    "shapeName" : "R-eyeLid-FOLDcrease",
+    "codeHueNum" : 21,
+    "seriesW" : 3,
+    "seriesB" : 3,
+    "paletteIndex" : 62
+  }, {
+    "shapeName" : "R-eye-browCONTOUR-shado",
+    "codeHueNum" : 21,
+    "seriesW" : 3,
+    "seriesB" : 4,
+    "paletteIndex" : 63
+  }, {
+    "shapeName" : "R-eye-LASH-shado",
+    "codeHueNum" : 21,
+    "seriesW" : 0,
+    "seriesB" : 7,
+    "paletteIndex" : 64
+  }, {
+    "shapeName" : "R-eyeBag-shadow-LWR",
+    "codeHueNum" : 21,
+    "seriesW" : 4,
+    "seriesB" : 2,
+    "paletteIndex" : 65
+  }, {
+    "shapeName" : "R-eyeBag-shadow-UPR",
+    "codeHueNum" : 19,
+    "seriesW" : 3,
+    "seriesB" : 4,
+    "paletteIndex" : 66
+  }, {
+    "shapeName" : "R-PUPIL-SQUINT",
+    "codeHueNum" : 21,
+    "seriesW" : 0,
+    "seriesB" : 7,
+    "paletteIndex" : 67
+  }, {
+    "shapeName" : "R-eye-underBrow-hilite-L",
+    "codeHueNum" : 19,
+    "seriesW" : 4,
+    "seriesB" : 0,
+    "paletteIndex" : 68
+  }, {
+    "shapeName" : "R-eye-underBrow-hilite-R",
+    "codeHueNum" : 14,
+    "seriesW" : 3,
+    "seriesB" : 0,
+    "paletteIndex" : 69
+  }, {
+    "shapeName" : "R-eye-LID-hilite-R",
+    "codeHueNum" : 23,
+    "seriesW" : 4,
+    "seriesB" : 0,
+    "paletteIndex" : 70
+  }, {
+    "shapeName" : "R-eye-LID-hilite-L",
+    "codeHueNum" : 10,
+    "seriesW" : 5,
+    "seriesB" : 0,
+    "paletteIndex" : 71
+  }, {
+    "shapeName" : "R-eye-SMALLWEDGE-hilite",
+    "codeHueNum" : 15,
+    "seriesW" : 3,
+    "seriesB" : 1,
+    "paletteIndex" : 72
+  }, {
+    "shapeName" : "R-eye-belowBrow-SMALLQUADRI",
+    "codeHueNum" : 14,
+    "seriesW" : 3,
+    "seriesB" : 2,
+    "paletteIndex" : 73
+  }, {
+    "shapeName" : "R-eye-bagBTM-SLIVER",
+    "codeHueNum" : 19,
+    "seriesW" : 0,
+    "seriesB" : 0,
+    "paletteIndex" : 74
+  }, {
+    "shapeName" : "R-eye-BROWbelow-CTR-blip",
+    "codeHueNum" : 13,
+    "seriesW" : 3,
+    "seriesB" : 2,
+    "paletteIndex" : 75
+  }, {
+    "shapeName" : "R-eye-BrowCTR-corner",
+    "codeHueNum" : 18,
+    "seriesW" : 2,
+    "seriesB" : 1,
+    "paletteIndex" : 76
+  }, {
+    "shapeName" : "R-eyebrow",
+    "codeHueNum" : 7,
+    "seriesW" : 0,
+    "seriesB" : 6,
+    "paletteIndex" : 77
+  }, {
+    "shapeName" : "Rcheek-CREASE-fromNose-R",
+    "codeHueNum" : 21,
+    "seriesW" : 5,
+    "seriesB" : 2,
+    "paletteIndex" : 78
+  }, {
+    "shapeName" : "Rcheek-CREASE-fromNose-L",
+    "codeHueNum" : 16,
+    "seriesW" : 5,
+    "seriesB" : 3,
+    "paletteIndex" : 79
+  }, {
+    "shapeName" : "Rcheek-CREASE-fromNose",
+    "codeHueNum" : 21,
+    "seriesW" : 5,
+    "seriesB" : 1,
+    "paletteIndex" : 80
+  }, {
+    "shapeName" : "Rcheek-noseCrease-shado",
+    "codeHueNum" : 20,
+    "seriesW" : 6,
+    "seriesB" : 2,
+    "paletteIndex" : 81
+  }, {
+    "shapeName" : "Rcheek-noseCrease-shado-L",
+    "codeHueNum" : 16,
+    "seriesW" : 5,
+    "seriesB" : 2,
+    "paletteIndex" : 82
+  }, {
+    "shapeName" : "Rcheek-bigDIAG-L-halfHidden",
+    "codeHueNum" : 14,
+    "seriesW" : 4,
+    "seriesB" : 1,
+    "paletteIndex" : 83
+  }, {
+    "shapeName" : "_-Rcheek-bigDIAG-R",
+    "codeHueNum" : 20,
+    "seriesW" : 4,
+    "seriesB" : 1,
+    "paletteIndex" : 84
+  }, {
+    "shapeName" : "Rcheek-noseCREASE-hilite",
+    "codeHueNum" : 16,
+    "seriesW" : 6,
+    "seriesB" : 2,
+    "paletteIndex" : 85
+  }, {
+    "shapeName" : "R-cheekSLOPE-hilite-LWR-L",
+    "codeHueNum" : 18,
+    "seriesW" : 6,
+    "seriesB" : 2,
+    "paletteIndex" : 86
+  }, {
+    "shapeName" : "R-cheekSLOPE-hilite-LWR-R",
+    "codeHueNum" : 21,
+    "seriesW" : 6,
+    "seriesB" : 1,
+    "paletteIndex" : 87
+  }, {
+    "shapeName" : "R-cheekSLOPE-hiliteUPR-R",
+    "codeHueNum" : 20,
+    "seriesW" : 5,
+    "seriesB" : 2,
+    "paletteIndex" : 88
+  }, {
+    "shapeName" : "R-cheekSLOPE-hiliteUPR-L",
+    "codeHueNum" : 16,
+    "seriesW" : 4,
+    "seriesB" : 1,
+    "paletteIndex" : 89
+  }, {
+    "shapeName" : "R-eye-TRIANGL-INR-CNR-FILL",
+    "codeHueNum" : 17,
+    "seriesW" : 3,
+    "seriesB" : 1,
+    "paletteIndex" : 90
+  }, {
+    "shapeName" : "Rcheek-crease-HIGHLIGHT-R",
+    "codeHueNum" : 8,
+    "seriesW" : 6,
+    "seriesB" : 3,
+    "paletteIndex" : 91
+  }, {
+    "shapeName" : "Rcheek-crease-HIGHLIGHT-MID",
+    "codeHueNum" : 11,
+    "seriesW" : 6,
+    "seriesB" : 1,
+    "paletteIndex" : 92
+  }, {
+    "shapeName" : "Rcheek-crease-HIGHLIGHT-L",
+    "codeHueNum" : 13,
+    "seriesW" : 5,
+    "seriesB" : 1,
+    "paletteIndex" : 93
+  } ]
+}

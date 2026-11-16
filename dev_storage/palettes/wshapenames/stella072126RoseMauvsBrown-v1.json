@@ -1,0 +1,130 @@
+{
+  "paletteName" : "stella072126RoseMauvsBrown-v1",
+  "pairs" : [ {
+    "shapeName" : "small-CTR-diamond",
+    "codeHueNum" : 10,
+    "seriesW" : 4,
+    "seriesB" : 3,
+    "paletteIndex" : 1
+  }, {
+    "shapeName" : "EYEsmallUpprLeft",
+    "codeHueNum" : 8,
+    "seriesW" : 3,
+    "seriesB" : 4,
+    "paletteIndex" : 2
+  }, {
+    "shapeName" : "EYEsmallLwrRight",
+    "codeHueNum" : 11,
+    "seriesW" : 3,
+    "seriesB" : 5,
+    "paletteIndex" : 3
+  }, {
+    "shapeName" : "bellArrowL",
+    "codeHueNum" : 9,
+    "seriesW" : 1,
+    "seriesB" : 4,
+    "paletteIndex" : 4
+  }, {
+    "shapeName" : "bellArrowR",
+    "codeHueNum" : 10,
+    "seriesW" : 2,
+    "seriesB" : 4,
+    "paletteIndex" : 5
+  }, {
+    "shapeName" : "bellArrowBTM",
+    "codeHueNum" : 9,
+    "seriesW" : 3,
+    "seriesB" : 2,
+    "paletteIndex" : 6
+  }, {
+    "shapeName" : "bellArrowTOPchopd",
+    "codeHueNum" : 9,
+    "seriesW" : 4,
+    "seriesB" : 2,
+    "paletteIndex" : 7
+  }, {
+    "shapeName" : "biggestRINGchopd",
+    "codeHueNum" : 12,
+    "seriesW" : 3,
+    "seriesB" : 3,
+    "paletteIndex" : 8
+  }, {
+    "shapeName" : "ArcChopdUpprL",
+    "codeHueNum" : 10,
+    "seriesW" : 3,
+    "seriesB" : 3,
+    "paletteIndex" : 9
+  }, {
+    "shapeName" : "ArcChopdBtmR",
+    "codeHueNum" : 10,
+    "seriesW" : 3,
+    "seriesB" : 4,
+    "paletteIndex" : 10
+  }, {
+    "shapeName" : "EYEbigUpprRight",
+    "codeHueNum" : 9,
+    "seriesW" : 4,
+    "seriesB" : 3,
+    "paletteIndex" : 11
+  }, {
+    "shapeName" : "EYEbigLwrLeft",
+    "codeHueNum" : 8,
+    "seriesW" : 3,
+    "seriesB" : 2,
+    "paletteIndex" : 12
+  }, {
+    "shapeName" : "armHookUpprLeft",
+    "codeHueNum" : 8,
+    "seriesW" : 2,
+    "seriesB" : 3,
+    "paletteIndex" : 13
+  }, {
+    "shapeName" : "armHookUpprRight",
+    "codeHueNum" : 9,
+    "seriesW" : 4,
+    "seriesB" : 2,
+    "paletteIndex" : 14
+  }, {
+    "shapeName" : "armHookLwrRight",
+    "codeHueNum" : 10,
+    "seriesW" : 2,
+    "seriesB" : 3,
+    "paletteIndex" : 15
+  }, {
+    "shapeName" : "armHookLwrLeft",
+    "codeHueNum" : 33,
+    "seriesW" : 0,
+    "seriesB" : 8,
+    "paletteIndex" : 16
+  }, {
+    "shapeName" : "LINE4petals",
+    "codeHueNum" : 22,
+    "seriesW" : 10,
+    "seriesB" : 0,
+    "paletteIndex" : 17
+  }, {
+    "shapeName" : "LINEtopEye",
+    "codeHueNum" : 9,
+    "seriesW" : 1,
+    "seriesB" : 3,
+    "paletteIndex" : 18
+  }, {
+    "shapeName" : "LINEtopRight",
+    "codeHueNum" : 10,
+    "seriesW" : 3,
+    "seriesB" : 3,
+    "paletteIndex" : 19
+  }, {
+    "shapeName" : "LINEbtmLeft",
+    "codeHueNum" : 17,
+    "seriesW" : 0,
+    "seriesB" : 6,
+    "paletteIndex" : 20
+  }, {
+    "shapeName" : "LINEbtmEye",
+    "codeHueNum" : 23,
+    "seriesW" : 0,
+    "seriesB" : 7,
+    "paletteIndex" : 21
+  } ]
+}

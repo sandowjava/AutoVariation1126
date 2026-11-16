@@ -1,0 +1,152 @@
+{
+  "size" : 21,
+  "colorPtOstdotArray" : [ {
+    "hueNum" : 9,
+    "column" : 5,
+    "step" : 3,
+    "fillOrderNum" : 26,
+    "seriesW" : 2,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 8,
+    "column" : 3,
+    "step" : 1,
+    "fillOrderNum" : 3,
+    "seriesW" : 0,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 10,
+    "column" : 7,
+    "step" : 4,
+    "fillOrderNum" : 34,
+    "seriesW" : 3,
+    "seriesB" : 3
+  }, {
+    "hueNum" : 9,
+    "column" : 6,
+    "step" : 4,
+    "fillOrderNum" : 30,
+    "seriesW" : 3,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 11,
+    "column" : 7,
+    "step" : 1,
+    "fillOrderNum" : 7,
+    "seriesW" : 0,
+    "seriesB" : 6
+  }, {
+    "hueNum" : 9,
+    "column" : 6,
+    "step" : 5,
+    "fillOrderNum" : 31,
+    "seriesW" : 4,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 8,
+    "column" : 9,
+    "step" : 6,
+    "fillOrderNum" : 47,
+    "seriesW" : 5,
+    "seriesB" : 3
+  }, {
+    "hueNum" : 9,
+    "column" : 8,
+    "step" : 5,
+    "fillOrderNum" : 40,
+    "seriesW" : 4,
+    "seriesB" : 3
+  }, {
+    "hueNum" : 8,
+    "column" : 9,
+    "step" : 7,
+    "fillOrderNum" : 48,
+    "seriesW" : 6,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 8,
+    "column" : 5,
+    "step" : 3,
+    "fillOrderNum" : 26,
+    "seriesW" : 2,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 12,
+    "column" : 10,
+    "step" : 5,
+    "fillOrderNum" : 53,
+    "seriesW" : 4,
+    "seriesB" : 5
+  }, {
+    "hueNum" : 8,
+    "column" : 7,
+    "step" : 5,
+    "fillOrderNum" : 35,
+    "seriesW" : 4,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 8,
+    "column" : 6,
+    "step" : 6,
+    "fillOrderNum" : 16,
+    "seriesW" : 5,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 11,
+    "column" : 9,
+    "step" : 6,
+    "fillOrderNum" : 47,
+    "seriesW" : 5,
+    "seriesB" : 3
+  }, {
+    "hueNum" : 11,
+    "column" : 8,
+    "step" : 6,
+    "fillOrderNum" : 41,
+    "seriesW" : 5,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 7,
+    "column" : 7,
+    "step" : 4,
+    "fillOrderNum" : 34,
+    "seriesW" : 3,
+    "seriesB" : 3
+  }, {
+    "hueNum" : 2,
+    "column" : 11,
+    "step" : 11,
+    "fillOrderNum" : 21,
+    "seriesW" : 10,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 10,
+    "column" : 3,
+    "step" : 1,
+    "fillOrderNum" : 3,
+    "seriesW" : 0,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 11,
+    "column" : 6,
+    "step" : 2,
+    "fillOrderNum" : 28,
+    "seriesW" : 1,
+    "seriesB" : 4
+  }, {
+    "hueNum" : 7,
+    "column" : 6,
+    "step" : 1,
+    "fillOrderNum" : 6,
+    "seriesW" : 0,
+    "seriesB" : 5
+  }, {
+    "hueNum" : 8,
+    "column" : 8,
+    "step" : 2,
+    "fillOrderNum" : 37,
+    "seriesW" : 1,
+    "seriesB" : 6
+  } ],
+  "paletteName" : "stella120125VioletMauveRustTans-v1groups"
+}

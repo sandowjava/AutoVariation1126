@@ -1,0 +1,229 @@
+{
+  "size" : 32,
+  "colorPtOstdotArray" : [ {
+    "hueNum" : 3,
+    "column" : 10,
+    "step" : 10,
+    "fillOrderNum" : 20,
+    "seriesW" : 9,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 16,
+    "column" : 8,
+    "step" : 7,
+    "fillOrderNum" : 42,
+    "seriesW" : 6,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 8,
+    "column" : 5,
+    "step" : 5,
+    "fillOrderNum" : 15,
+    "seriesW" : 4,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 5,
+    "step" : 5,
+    "fillOrderNum" : 15,
+    "seriesW" : 4,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 17,
+    "column" : 7,
+    "step" : 3,
+    "fillOrderNum" : 33,
+    "seriesW" : 2,
+    "seriesB" : 4
+  }, {
+    "hueNum" : 17,
+    "column" : 7,
+    "step" : 3,
+    "fillOrderNum" : 33,
+    "seriesW" : 2,
+    "seriesB" : 4
+  }, {
+    "hueNum" : 17,
+    "column" : 7,
+    "step" : 3,
+    "fillOrderNum" : 33,
+    "seriesW" : 2,
+    "seriesB" : 4
+  }, {
+    "hueNum" : 6,
+    "column" : 2,
+    "step" : 1,
+    "fillOrderNum" : 2,
+    "seriesW" : 0,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 6,
+    "column" : 4,
+    "step" : 3,
+    "fillOrderNum" : 24,
+    "seriesW" : 2,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 6,
+    "column" : 4,
+    "step" : 3,
+    "fillOrderNum" : 24,
+    "seriesW" : 2,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 16,
+    "column" : 9,
+    "step" : 7,
+    "fillOrderNum" : 48,
+    "seriesW" : 6,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 16,
+    "column" : 9,
+    "step" : 7,
+    "fillOrderNum" : 48,
+    "seriesW" : 6,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 22,
+    "column" : 8,
+    "step" : 7,
+    "fillOrderNum" : 42,
+    "seriesW" : 6,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 22,
+    "column" : 8,
+    "step" : 7,
+    "fillOrderNum" : 42,
+    "seriesW" : 6,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 18,
+    "column" : 4,
+    "step" : 4,
+    "fillOrderNum" : 14,
+    "seriesW" : 3,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 13,
+    "column" : 3,
+    "step" : 1,
+    "fillOrderNum" : 3,
+    "seriesW" : 0,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 13,
+    "column" : 3,
+    "step" : 1,
+    "fillOrderNum" : 3,
+    "seriesW" : 0,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 9,
+    "column" : 3,
+    "step" : 2,
+    "fillOrderNum" : 22,
+    "seriesW" : 1,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 9,
+    "column" : 3,
+    "step" : 2,
+    "fillOrderNum" : 22,
+    "seriesW" : 1,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 9,
+    "column" : 3,
+    "step" : 2,
+    "fillOrderNum" : 22,
+    "seriesW" : 1,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 12,
+    "column" : 8,
+    "step" : 6,
+    "fillOrderNum" : 41,
+    "seriesW" : 5,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 12,
+    "column" : 8,
+    "step" : 6,
+    "fillOrderNum" : 41,
+    "seriesW" : 5,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 21,
+    "column" : 9,
+    "step" : 7,
+    "fillOrderNum" : 48,
+    "seriesW" : 6,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 21,
+    "column" : 9,
+    "step" : 7,
+    "fillOrderNum" : 48,
+    "seriesW" : 6,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 21,
+    "column" : 4,
+    "step" : 4,
+    "fillOrderNum" : 14,
+    "seriesW" : 3,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 21,
+    "column" : 4,
+    "step" : 4,
+    "fillOrderNum" : 14,
+    "seriesW" : 3,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 21,
+    "column" : 4,
+    "step" : 4,
+    "fillOrderNum" : 14,
+    "seriesW" : 3,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 21,
+    "column" : 4,
+    "step" : 4,
+    "fillOrderNum" : 14,
+    "seriesW" : 3,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 12,
+    "column" : 12,
+    "step" : 5,
+    "fillOrderNum" : 71,
+    "seriesW" : 4,
+    "seriesB" : 7
+  }, {
+    "hueNum" : 12,
+    "column" : 12,
+    "step" : 5,
+    "fillOrderNum" : 71,
+    "seriesW" : 4,
+    "seriesB" : 7
+  }, {
+    "hueNum" : 12,
+    "column" : 12,
+    "step" : 5,
+    "fillOrderNum" : 71,
+    "seriesW" : 4,
+    "seriesB" : 7
+  }, {
+    "hueNum" : 12,
+    "column" : 12,
+    "step" : 5,
+    "fillOrderNum" : 71,
+    "seriesW" : 4,
+    "seriesB" : 7
+  } ],
+  "paletteName" : "clover031626orngGrayMauvs-v1"
+}

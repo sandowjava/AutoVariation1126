@@ -1,0 +1,152 @@
+{
+  "size" : 21,
+  "colorPtOstdotArray" : [ {
+    "hueNum" : 5,
+    "column" : 3,
+    "step" : 1,
+    "fillOrderNum" : 3,
+    "seriesW" : 0,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 12,
+    "column" : 6,
+    "step" : 5,
+    "fillOrderNum" : 31,
+    "seriesW" : 4,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 8,
+    "column" : 3,
+    "step" : 3,
+    "fillOrderNum" : 13,
+    "seriesW" : 2,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 3,
+    "column" : 5,
+    "step" : 3,
+    "fillOrderNum" : 26,
+    "seriesW" : 2,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 4,
+    "column" : 5,
+    "step" : 3,
+    "fillOrderNum" : 26,
+    "seriesW" : 2,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 4,
+    "column" : 5,
+    "step" : 3,
+    "fillOrderNum" : 26,
+    "seriesW" : 2,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 3,
+    "column" : 5,
+    "step" : 4,
+    "fillOrderNum" : 27,
+    "seriesW" : 3,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 5,
+    "column" : 5,
+    "step" : 3,
+    "fillOrderNum" : 26,
+    "seriesW" : 2,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 21,
+    "column" : 7,
+    "step" : 3,
+    "fillOrderNum" : 33,
+    "seriesW" : 2,
+    "seriesB" : 4
+  }, {
+    "hueNum" : 22,
+    "column" : 4,
+    "step" : 2,
+    "fillOrderNum" : 23,
+    "seriesW" : 1,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 20,
+    "column" : 5,
+    "step" : 3,
+    "fillOrderNum" : 26,
+    "seriesW" : 2,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 28,
+    "column" : 9,
+    "step" : 4,
+    "fillOrderNum" : 45,
+    "seriesW" : 3,
+    "seriesB" : 5
+  }, {
+    "hueNum" : 14,
+    "column" : 7,
+    "step" : 4,
+    "fillOrderNum" : 34,
+    "seriesW" : 3,
+    "seriesB" : 3
+  }, {
+    "hueNum" : 22,
+    "column" : 5,
+    "step" : 2,
+    "fillOrderNum" : 25,
+    "seriesW" : 1,
+    "seriesB" : 3
+  }, {
+    "hueNum" : 22,
+    "column" : 6,
+    "step" : 2,
+    "fillOrderNum" : 28,
+    "seriesW" : 1,
+    "seriesB" : 4
+  }, {
+    "hueNum" : 11,
+    "column" : 7,
+    "step" : 2,
+    "fillOrderNum" : 32,
+    "seriesW" : 1,
+    "seriesB" : 5
+  }, {
+    "hueNum" : 6,
+    "column" : 10,
+    "step" : 9,
+    "fillOrderNum" : 57,
+    "seriesW" : 8,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 6,
+    "column" : 10,
+    "step" : 9,
+    "fillOrderNum" : 57,
+    "seriesW" : 8,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 6,
+    "column" : 10,
+    "step" : 9,
+    "fillOrderNum" : 57,
+    "seriesW" : 8,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 6,
+    "column" : 10,
+    "step" : 9,
+    "fillOrderNum" : 57,
+    "seriesW" : 8,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 6,
+    "column" : 10,
+    "step" : 9,
+    "fillOrderNum" : 57,
+    "seriesW" : 8,
+    "seriesB" : 1
+  } ],
+  "paletteName" : "stella091025blueOliveLilacGreen-v1groups"
+}

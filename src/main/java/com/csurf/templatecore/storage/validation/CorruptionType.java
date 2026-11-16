@@ -1,0 +1,17 @@
+package com.csurf.templatecore.storage.validation;
+
+public enum CorruptionType {
+    NONE,
+    INVALID_HUENUM,
+    INVALID_FILLORDERNUM,
+    MISSING_FILLORDERNUM,
+    MISSING_HUENUM,
+    MISSING_BOTH,
+    MISSING_SERIES,
+    INCONSISTENT_VALUES,
+    MALFORMED_JSON,
+    TRUNCATED_FILE,
+    ENCODING_ISSUE,
+    TYPE_MISMATCH,
+    UNKNOWN
+}
