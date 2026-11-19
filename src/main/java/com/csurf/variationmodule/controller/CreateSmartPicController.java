@@ -74,7 +74,7 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
 
     /** Opens the CreateSmartPicFrame. Called from the menu action. */
     public void launch() {
-        frame.setLocationRelativeTo(ownerFrame);
+        frame.setLocation(CreateSmartPicFrame.OPEN_LOCATION);
         frame.setVisible(true);
     }
 

@@ -13,6 +13,12 @@ import java.awt.*;
 public class CreateSmartPicFrame extends JFrame {
 
     /**
+     * Screen position where this window opens: upper-left of the screen,
+     * just below the ApplicFrame window. Edit this to move the window.
+     */
+    public static final Point OPEN_LOCATION = new Point(0, 140);
+
+    /**
      * Callbacks the frame's menu items invoke; implemented by the controller.
      */
     public interface Actions {
@@ -37,22 +43,24 @@ public class CreateSmartPicFrame extends JFrame {
 
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        JMenu smartPicMenu = new JMenu("SmartPic");
+        JMenu templateMenu = new JMenu("Template");
         JMenuItem chooseTemplateItem = new JMenuItem("Choose saved Template...");
         chooseTemplateItem.addActionListener(e -> actions.chooseTemplate());
-        smartPicMenu.add(chooseTemplateItem);
+        templateMenu.add(chooseTemplateItem);
 
+        JMenu agPrefsMenu = new JMenu("Shape-AGprefs");
         JMenuItem chooseAgPrefsItem = new JMenuItem("Choose AGprefs defaults file...");
         chooseAgPrefsItem.addActionListener(e -> actions.chooseAgPrefsFile());
-        smartPicMenu.add(chooseAgPrefsItem);
+        agPrefsMenu.add(chooseAgPrefsItem);
 
-        smartPicMenu.addSeparator();
-
+        JMenu smartPicMenu = new JMenu("SmartPic");
         JMenuItem createItem = new JMenuItem("Create SmartPic");
         createItem.addActionListener(e -> actions.createSmartPic());
         smartPicMenu.add(createItem);
 
         JMenuBar menuBar = new JMenuBar();
+        menuBar.add(templateMenu);
+        menuBar.add(agPrefsMenu);
         menuBar.add(smartPicMenu);
         setJMenuBar(menuBar);
 
