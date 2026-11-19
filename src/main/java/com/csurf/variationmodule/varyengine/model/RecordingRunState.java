@@ -1,13 +1,9 @@
-package csurf.cleandesign.variationmodule.varyengine.model;
+package com.csurf.variationmodule.varyengine.model;
 
-import csurf.cleandesign.ostwald.domainmonotri.model.ColorPtOstDot;
-import csurf.cleandesign.ostwald.domainmonotri.model.HueNumGUI;
+import com.csurf.ostwald.domainmonotri.model.ColorPtOstDot;
+import com.csurf.ostwald.domainmonotri.model.HueNumGUI;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 
 /**

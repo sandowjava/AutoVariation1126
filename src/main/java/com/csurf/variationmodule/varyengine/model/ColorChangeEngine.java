@@ -1,7 +1,7 @@
-package csurf.cleandesign.variationmodule.varyengine.model;
+package com.csurf.variationmodule.varyengine.model;
 
-import csurf.cleandesign.variationmodule.varyengine.model.stratgs.DefaultNestedRunner;
-import csurf.cleandesign.variationmodule.varyengine.model.stratgs.StratgResolver;
+import com.csurf.variationmodule.varyengine.model.stratgs.DefaultNestedRunner;
+import com.csurf.variationmodule.varyengine.model.stratgs.StratgResolver;
 
 import java.util.ArrayList;
 import java.util.Comparator;

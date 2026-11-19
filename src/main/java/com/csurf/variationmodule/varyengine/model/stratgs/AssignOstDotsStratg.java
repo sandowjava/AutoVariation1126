@@ -1,15 +1,9 @@
-package csurf.cleandesign.variationmodule.varyengine.model.stratgs;
+package com.csurf.variationmodule.varyengine.model.stratgs;
 
-import csurf.cleandesign.ostwald.domainmonotri.model.ColorPtOstDot;
-import csurf.cleandesign.ostwald.domainmonotri.model.HueNumGUI;
-import csurf.cleandesign.ostwald.domainmonotri.model.MonotriBook;
-import csurf.cleandesign.variationmodule.varyengine.model.Facts;
-import csurf.cleandesign.variationmodule.varyengine.model.RunState;
-import csurf.cleandesign.variationmodule.varyengine.model.Stratg;
-import csurf.cleandesign.variationmodule.varyengine.model.StratgContext;
-import csurf.cleandesign.variationmodule.varyengine.model.StratgParam;
-import csurf.cleandesign.variationmodule.varyengine.model.StratgSpec;
-import csurf.cleandesign.variationmodule.varyengine.model.StratgType;
+import com.csurf.ostwald.domainmonotri.model.ColorPtOstDot;
+import com.csurf.ostwald.domainmonotri.model.HueNumGUI;
+import com.csurf.ostwald.domainmonotri.model.MonotriBook;
+import com.csurf.variationmodule.varyengine.model.*;
 
 import java.util.List;
 import java.util.Optional;

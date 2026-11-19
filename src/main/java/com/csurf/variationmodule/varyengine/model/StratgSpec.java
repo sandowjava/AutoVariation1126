@@ -1,10 +1,6 @@
-package csurf.cleandesign.variationmodule.varyengine.model;
+package com.csurf.variationmodule.varyengine.model;
 
-import java.util.Collections;
-import java.util.EnumMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 
 /**

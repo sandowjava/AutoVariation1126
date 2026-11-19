@@ -1,14 +1,6 @@
-package csurf.cleandesign.variationmodule.varyengine.model.stratgs;
+package com.csurf.variationmodule.varyengine.model.stratgs;
 
-import csurf.cleandesign.variationmodule.varyengine.model.Channel;
-import csurf.cleandesign.variationmodule.varyengine.model.Coverage;
-import csurf.cleandesign.variationmodule.varyengine.model.Proposal;
-import csurf.cleandesign.variationmodule.varyengine.model.RunState;
-import csurf.cleandesign.variationmodule.varyengine.model.Stratg;
-import csurf.cleandesign.variationmodule.varyengine.model.StratgContext;
-import csurf.cleandesign.variationmodule.varyengine.model.StratgParam;
-import csurf.cleandesign.variationmodule.varyengine.model.StratgSpec;
-import csurf.cleandesign.variationmodule.varyengine.model.StratgType;
+import com.csurf.variationmodule.varyengine.model.*;
 
 import java.util.EnumSet;
 import java.util.LinkedHashSet;

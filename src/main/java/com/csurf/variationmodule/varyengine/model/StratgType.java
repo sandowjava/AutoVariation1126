@@ -1,4 +1,4 @@
-package csurf.cleandesign.variationmodule.varyengine.model;
+package com.csurf.variationmodule.varyengine.model;
 
 import java.util.Collections;
 import java.util.EnumSet;

@@ -1,17 +1,6 @@
-package csurf.cleandesign.variationmodule.varyengine.model.stratgs;
+package com.csurf.variationmodule.varyengine.model.stratgs;
 
-import csurf.cleandesign.variationmodule.varyengine.model.BasicStratgContext;
-import csurf.cleandesign.variationmodule.varyengine.model.Facts;
-import csurf.cleandesign.variationmodule.varyengine.model.Inputs;
-import csurf.cleandesign.variationmodule.varyengine.model.NestedRunner;
-import csurf.cleandesign.variationmodule.varyengine.model.Proposal;
-import csurf.cleandesign.variationmodule.varyengine.model.PureCore;
-import csurf.cleandesign.variationmodule.varyengine.model.RecordingRunState;
-import csurf.cleandesign.variationmodule.varyengine.model.RunState;
-import csurf.cleandesign.variationmodule.varyengine.model.Seed;
-import csurf.cleandesign.variationmodule.varyengine.model.Stratg;
-import csurf.cleandesign.variationmodule.varyengine.model.StratgContext;
-import csurf.cleandesign.variationmodule.varyengine.model.StratgSpec;
+import com.csurf.variationmodule.varyengine.model.*;
 
 import java.util.Objects;
 

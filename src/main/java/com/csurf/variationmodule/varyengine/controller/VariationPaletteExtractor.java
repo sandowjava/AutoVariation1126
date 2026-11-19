@@ -1,19 +1,14 @@
-package csurf.cleandesign.variationmodule.varyengine.controller;
+package com.csurf.variationmodule.varyengine.controller;
 
-import csurf.cleandesign.ostwald.domainmonotri.model.ColorPtOstDot;
-import csurf.cleandesign.variationmodule.varyengine.hackhome.PaletteWName;
-import csurf.cleandesign.variationmodule.varyengine.model.ArtisticGoalSpec;
-import csurf.cleandesign.variationmodule.varyengine.model.Facts;
-import csurf.cleandesign.variationmodule.varyengine.model.FrozenShapesCategory;
-import csurf.cleandesign.variationmodule.varyengine.model.VariationConstants;
-import csurf.cleandesign.variationmodule.varyengine.model.VariationDriver;
-import csurf.cleandesign.variationmodule.varyengine.model.VariationResult;
+// import csurf.cleandesign.ostwald.domainmonotri.model.ColorPtOstDot;
+// import csurf.cleandesign.variationmodule.varyengine.hackhome.PaletteWName;
+// import csurf.cleandesign.variationmodule.varyengine.model.*;
+import com.csurf.variationmodule.varyengine.model.*;
+import com.csurf.ostwald.domainmonotri.model.ColorPtOstDot;
+import com.csurf.templatecore.model.PaletteWName;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+
+import java.util.*;
 
 
 /**

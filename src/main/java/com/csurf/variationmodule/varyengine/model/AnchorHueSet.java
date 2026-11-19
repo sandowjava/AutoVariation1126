@@ -1,6 +1,6 @@
-package csurf.cleandesign.variationmodule.varyengine.model;
+package com.csurf.variationmodule.varyengine.model;
 
-import csurf.cleandesign.ostwald.domainmonotri.model.HueNumGUI;
+import com.csurf.ostwald.domainmonotri.model.HueNumGUI;
 
 import java.util.Objects;
 

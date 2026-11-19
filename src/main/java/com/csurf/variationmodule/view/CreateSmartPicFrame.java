@@ -28,6 +28,8 @@ public class CreateSmartPicFrame extends JFrame {
         void chooseAgPrefsFile();
         /** User chose "Create SmartPic". */
         void createSmartPic();
+        /** User chose "Create 12 Variations". */
+        void createVariations();
     }
 
     private final JLabel templateLabel;
@@ -57,6 +59,12 @@ public class CreateSmartPicFrame extends JFrame {
         JMenuItem createItem = new JMenuItem("Create SmartPic");
         createItem.addActionListener(e -> actions.createSmartPic());
         smartPicMenu.add(createItem);
+
+        smartPicMenu.addSeparator();
+
+        JMenuItem createVariationsItem = new JMenuItem("Create 12 Variations");
+        createVariationsItem.addActionListener(e -> actions.createVariations());
+        smartPicMenu.add(createVariationsItem);
 
         JMenuBar menuBar = new JMenuBar();
         menuBar.add(templateMenu);

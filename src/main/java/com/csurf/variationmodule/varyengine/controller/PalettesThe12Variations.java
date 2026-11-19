@@ -1,6 +1,8 @@
-package csurf.cleandesign.variationmodule.varyengine.controller;
+package com.csurf.variationmodule.varyengine.controller;
 
-import csurf.cleandesign.variationmodule.varyengine.hackhome.PaletteWName;
+// import csurf.cleandesign.variationmodule.varyengine.hackhome.PaletteWName;
+import com.csurf.templatecore.model.PaletteWName;
+
 
 import java.util.ArrayList;
 import java.util.Collections;

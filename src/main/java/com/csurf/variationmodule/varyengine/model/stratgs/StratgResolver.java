@@ -1,7 +1,7 @@
-package csurf.cleandesign.variationmodule.varyengine.model.stratgs;
+package com.csurf.variationmodule.varyengine.model.stratgs;
 
-import csurf.cleandesign.variationmodule.varyengine.model.Stratg;
-import csurf.cleandesign.variationmodule.varyengine.model.StratgType;
+import com.csurf.variationmodule.varyengine.model.Stratg;
+import com.csurf.variationmodule.varyengine.model.StratgType;
 
 import java.util.EnumMap;
 import java.util.Map;

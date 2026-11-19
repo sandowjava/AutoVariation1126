@@ -1,6 +1,8 @@
-package csurf.cleandesign.variationmodule.bridge;
+package com.csurf.variationmodule.varyengine.model;
 
-import csurf.cleandesign.variationmodule.varyengine.model.Facts;
+import com.csurf.variationmodule.model.ShapeColorPrefs;
+import com.csurf.variationmodule.model.SmartDrawObj;
+import com.csurf.variationmodule.model.SmartPic;
 
 import java.util.Objects;
 import java.util.Set;
@@ -38,7 +40,7 @@ public final class SmartPicFacts implements Facts {
 
     @Override
     public Set<Integer> shapeIds() {
-        return smartPic.shapeIds();
+        return smartPic.smartDrawObjs().keySet();
     } // end method shapeIds
 
     @Override
@@ -62,13 +64,13 @@ public final class SmartPicFacts implements Facts {
     } // end method shapeName
 
     private ShapeColorPrefs shapePrefsFor(int shape) {
-        return drawObjFor(shape).shapeColorPrefs();
+        return drawObjFor(shape).colorPrefs();
     } // end method shapePrefsFor
 
     private SmartDrawObj drawObjFor(int shape) {
-        SmartDrawObj drawObj = smartPic.smartDrawObj(shape);
+        SmartDrawObj drawObj = smartPic.smartDrawObjs().get(shape);
         if (drawObj == null) {
-            throw new IllegalArgumentException("shape " + shape + " not in SmartPic " + smartPic.shapeIds());
+            throw new IllegalArgumentException("shape " + shape + " not in SmartPic " + smartPic.smartDrawObjs().keySet());
         } // end IF
         return drawObj;
     } // end method drawObjFor

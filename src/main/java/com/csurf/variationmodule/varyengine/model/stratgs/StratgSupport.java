@@ -1,7 +1,7 @@
-package csurf.cleandesign.variationmodule.varyengine.model.stratgs;
+package com.csurf.variationmodule.varyengine.model.stratgs;
 
-import csurf.cleandesign.variationmodule.varyengine.model.StratgSpec;
-import csurf.cleandesign.variationmodule.varyengine.model.StratgType;
+import com.csurf.variationmodule.varyengine.model.StratgSpec;
+import com.csurf.variationmodule.varyengine.model.StratgType;
 
 
 /** Shared helpers for the stratg executables. Package-private. */

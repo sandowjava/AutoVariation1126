@@ -1,13 +1,6 @@
-package csurf.cleandesign.variationmodule.varyengine.model.stratgs;
+package com.csurf.variationmodule.varyengine.model.stratgs;
 
-import csurf.cleandesign.variationmodule.varyengine.model.AnchorHueSet;
-import csurf.cleandesign.variationmodule.varyengine.model.AnchorHueSets;
-import csurf.cleandesign.variationmodule.varyengine.model.RunState;
-import csurf.cleandesign.variationmodule.varyengine.model.Stratg;
-import csurf.cleandesign.variationmodule.varyengine.model.StratgContext;
-import csurf.cleandesign.variationmodule.varyengine.model.StratgParam;
-import csurf.cleandesign.variationmodule.varyengine.model.StratgSpec;
-import csurf.cleandesign.variationmodule.varyengine.model.StratgType;
+import com.csurf.variationmodule.varyengine.model.*;
 
 import java.util.Optional;
 
