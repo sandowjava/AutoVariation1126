@@ -10,6 +10,7 @@ public class StorageConfig {
     private static final String DEV_STORAGE_DIR = "dev_storage";
     private static final String TEMPLATES_DIR = "templates";
     private static final String PALETTES_DIR = "palettes";
+    private static final String AGPREFS_DIR = "agprefs";
     
     public static Path getDevStoragePath() {
         return Paths.get(System.getProperty("user.dir"))
@@ -22,5 +23,9 @@ public class StorageConfig {
     
     public static Path getPalettesPath() {
         return getDevStoragePath().resolve(PALETTES_DIR);
+    }
+
+    public static Path getAgPrefsPath() {
+        return getDevStoragePath().resolve(AGPREFS_DIR);
     }
 }

@@ -1,0 +1,27 @@
+{
+  "name": "authored-defaults-v1",
+  "description": "Authored AG preferences for the 21 SmartDrawObjs, transcribed constant-for-constant from SmartPicShapeRoster2.setColorFuncAttribsForAllShapes (CleanColorVariation1126). Row order is the contract: shape N corresponds to position N in the Template's ordered draw-object list. 'shapeName' is informational only -- SmartPicFactory assigns names from the selected Template's DrawObjs.",
+  "shapes": [
+    { "shape": 1, "shapeName": "noseBottom",              "valueTarget": 0.71, "defaultAG": 3, "agPrefs": [0.55, 0.60, 0.90, 0.20] },
+    { "shape": 2, "shapeName": "noseVerticalShadow","valueTarget": 0.55, "defaultAG": 2, "agPrefs": [0.75, 0.95, 0.40, 0.10] },
+    { "shape": 3, "shapeName": "noseDentMid",              "valueTarget": 0.58, "defaultAG": 3, "agPrefs": [0.55, 0.60, 0.90, 0.20] },
+    { "shape": 4, "shapeName": "eyeCornerTriangle",        "valueTarget": 0.57, "defaultAG": 4, "agPrefs": [0.35, 0.40, 0.60, 0.90] },
+    { "shape": 5, "shapeName": "cheekLowerRCorner",           "valueTarget": 0.44, "defaultAG": 4, "agPrefs": [0.35, 0.40, 0.60, 0.90] },
+    { "shape": 6,  "shapeName": "underEyeCheekCtr",            "valueTarget": 0.83, "defaultAG": 1, "agPrefs": [0.95, 0.75, 0.40, 0.00] },
+    { "shape": 7, "shapeName": "cheekUprCurve",            "valueTarget": 0.70, "defaultAG": 4, "agPrefs": [0.35, 0.40, 0.60, 0.90] },
+    { "shape": 8, "shapeName": "cheekLwrCurve",           "valueTarget": 0.60, "defaultAG": 4, "agPrefs": [0.35, 0.40, 0.60, 0.90] },
+    { "shape": 9,  "shapeName": "nearNoseSloping","valueTarget": 0.80, "defaultAG": 2, "agPrefs": [0.75, 0.95, 0.40, 0.10] },
+    { "shape": 10, "shapeName": "nearNoseCrease",             "valueTarget": 0.72, "defaultAG": 4, "agPrefs": [0.35, 0.40, 0.60, 0.90] },
+    { "shape": 11,  "shapeName": "templeDiagUppr",           "valueTarget": 0.62, "defaultAG": 2, "agPrefs": [0.75, 0.95, 0.40, 0.10] },
+    { "shape": 12,  "shapeName": "underBrowOuter",        "valueTarget": 0.91, "defaultAG": 1, "agPrefs": [0.95, 0.75, 0.40, 0.00] },
+    { "shape": 13,  "shapeName": "underBrowInner",         "valueTarget": 0.72, "defaultAG": 2, "agPrefs": [0.75, 0.95, 0.40, 0.10] },
+    { "shape": 14,  "shapeName": "foreheadBigCtr",                 "valueTarget": 0.88, "defaultAG": 1, "agPrefs": [0.95, 0.75, 0.40, 0.00] },
+    { "shape": 15,  "shapeName": "noseTopRect",        "valueTarget": 0.82, "defaultAG": 3, "agPrefs": [0.55, 0.60, 0.90, 0.20] },
+    { "shape": 16, "shapeName": "eyeBrow",                  "valueTarget": 0.22, "defaultAG": 4, "agPrefs": [0.35, 0.40, 0.60, 0.90] },
+    { "shape": 17, "shapeName": "eyeBallWhite",             "valueTarget": 0.97, "defaultAG": 1, "agPrefs": [0.35, 0.40, 0.60, 0.90] },
+    { "shape": 18,  "shapeName": "eyeLidUpper",                 "valueTarget": 0.64, "defaultAG": 1, "agPrefs": [0.95, 0.75, 0.40, 0.00] },
+    { "shape": 19,  "shapeName": "underEyeBag",                   "valueTarget": 0.78, "defaultAG": 2, "agPrefs": [0.75, 0.95, 0.40, 0.10] },
+    { "shape": 20, "shapeName": "eyePupil",                    "valueTarget": 0.33, "defaultAG": 2, "agPrefs": [0.75, 0.95, 0.00, 0.00] },
+    { "shape": 21, "shapeName": "eyeLash",                "valueTarget": 0.05, "defaultAG": 4, "agPrefs": [0.35, 0.40, 0.60, 0.90] }
+  ]
+}

@@ -10,7 +10,7 @@ import com.csurf.templatecore.model.Template;
  * This class manages the relationship between geometric shapes,
  * their colors, and the color manipulation parameters.
  */
-public final class SmartPic {
+public final class SmartPicPrelimVestige {
     private final Template template;
     private final IQAnchorPattern anchorPattern;
 
@@ -20,7 +20,7 @@ public final class SmartPic {
      * @param anchorPattern The AnchorPattern containing dial angles for color manipulation
      * @throws IllegalArgumentException if either parameter is null
      */
-    public SmartPic(Template template, IQAnchorPattern anchorPattern) {
+    public SmartPicPrelimVestige(Template template, IQAnchorPattern anchorPattern) {
         if (template == null || anchorPattern == null) {
             throw new IllegalArgumentException("Template and AnchorPattern must not be null");
         }

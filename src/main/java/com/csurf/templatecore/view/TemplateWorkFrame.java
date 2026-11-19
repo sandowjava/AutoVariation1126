@@ -26,6 +26,7 @@ import com.csurf.templatecore.storage.PaletteStorage;
 import com.csurf.templatecore.storage.PaletteWShapeNamesStorage;
 import com.csurf.templatecore.storage.TemplateStorage;
 import com.csurf.templatecore.storage.TemplateStorageException;
+import com.csurf.variationmodule.controller.CreateSmartPicController;
 import com.csurf.variationmodule.controller.VariationDisplayController;
 
 import javax.swing.*;
@@ -1076,6 +1077,10 @@ public class TemplateWorkFrame extends JFrame
         JMenuItem paletteVariationsItem = new JMenuItem("Palette variations");
         paletteVariationsItem.addActionListener(e -> openPaletteVariations());
         colorSourcesMenu.add(paletteVariationsItem);
+
+        JMenuItem createSmartPicItem = new JMenuItem("Create SmartPic");
+        createSmartPicItem.addActionListener(e -> openCreateSmartPic());
+        colorSourcesMenu.add(createSmartPicItem);
         
         menuBar.add(colorSourcesMenu);
 
@@ -1378,6 +1383,17 @@ public class TemplateWorkFrame extends JFrame
     private void openPaletteVariations() {
         new VariationDisplayController(mediator, this).launch();
     } // end method openPaletteVariations
+
+
+    /**
+     * Opens the create-SmartPic feature: a CreateSmartPicFrame lets the user
+     * pick a saved Template and an AGprefs defaults file, then build a
+     * SmartPic via SmartPicFactory. Each invocation creates a new
+     * controller + frame (multi-window support).
+     */
+    private void openCreateSmartPic() {
+        new CreateSmartPicController(mediator, this).launch();
+    } // end method openCreateSmartPic
 
 
 

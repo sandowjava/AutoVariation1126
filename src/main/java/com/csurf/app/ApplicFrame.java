@@ -9,6 +9,7 @@ import com.csurf.ostwald.domainmonotri.view.MonotriWorkFrame;
 import com.csurf.templatecore.storage.config.StorageConfig;
 import com.csurf.templatecore.svgconverter.view.SVGConverterFrame;
 import com.csurf.templatecore.view.TemplateWorkFrame;
+import com.csurf.variationmodule.controller.CreateSmartPicController;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -135,6 +136,10 @@ public class ApplicFrame extends JFrame {
         JMenuItem openSavedTemplateItem = new JMenuItem("Open Saved Template");
         openSavedTemplateItem.addActionListener(e -> openTemplateList());
         templateMenu.add(openSavedTemplateItem);
+
+        JMenuItem createSmartPicItem = new JMenuItem("Create SmartPic");
+        createSmartPicItem.addActionListener(e -> openCreateSmartPic());
+        templateMenu.add(createSmartPicItem);
         
         // Help menu items
         JMenuItem introToAppItem = new JMenuItem("Intro to the App");
@@ -200,6 +205,13 @@ public class ApplicFrame extends JFrame {
             }
         }
     } // end method openTemplateList
+
+
+    private void openCreateSmartPic() {
+        CreateSmartPicController controller = new CreateSmartPicController(appMediator);
+        controller.launch();
+        registerFrame(controller.getFrame());
+    } // end method openCreateSmartPic
 
 
 
