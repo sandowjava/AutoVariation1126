@@ -30,11 +30,17 @@ public class CreateSmartPicFrame extends JFrame {
         void createSmartPic();
         /** User chose "Create 12 Variations". */
         void createVariations();
+        /** User chose "Template drawObj list" (Controls-info menu). */
+        void showTemplateDrawObjList();
+        /** User chose "Hue anchors/ frozen" (Controls-info menu). */
+        void showHueAnchorsFrozen();
     }
 
     private final JLabel templateLabel;
     private final JLabel agPrefsLabel;
     private final JLabel statusLabel;
+    private final JMenuItem drawObjListItem;
+    private final JMenuItem hueAnchorsItem;
 
     /**
      * @param actions menu-action callbacks (the controller)
@@ -66,10 +72,22 @@ public class CreateSmartPicFrame extends JFrame {
         createVariationsItem.addActionListener(e -> actions.createVariations());
         smartPicMenu.add(createVariationsItem);
 
+        JMenu controlsInfoMenu = new JMenu("Controls-info");
+        drawObjListItem = new JMenuItem("Template drawObj list");
+        drawObjListItem.setEnabled(false); // enabled once a Template is chosen
+        drawObjListItem.addActionListener(e -> actions.showTemplateDrawObjList());
+        controlsInfoMenu.add(drawObjListItem);
+
+        hueAnchorsItem = new JMenuItem("Hue anchors/ frozen");
+        hueAnchorsItem.setEnabled(false); // enabled once a SmartPic is created
+        hueAnchorsItem.addActionListener(e -> actions.showHueAnchorsFrozen());
+        controlsInfoMenu.add(hueAnchorsItem);
+
         JMenuBar menuBar = new JMenuBar();
         menuBar.add(templateMenu);
         menuBar.add(agPrefsMenu);
         menuBar.add(smartPicMenu);
+        menuBar.add(controlsInfoMenu);
         setJMenuBar(menuBar);
 
         JPanel content = new JPanel(new GridLayout(3, 1, 0, 6));
@@ -92,6 +110,16 @@ public class CreateSmartPicFrame extends JFrame {
     /** Displays the chosen Template's display name. */
     public void setTemplateName(String name) {
         templateLabel.setText("Template: " + name);
+    }
+
+    /** Enables/disables the "Template drawObj list" menu item. */
+    public void setDrawObjListEnabled(boolean enabled) {
+        drawObjListItem.setEnabled(enabled);
+    }
+
+    /** Enables/disables the "Hue anchors/ frozen" menu item. */
+    public void setHueAnchorsEnabled(boolean enabled) {
+        hueAnchorsItem.setEnabled(enabled);
     }
 
     /** Displays the chosen AGprefs defaults file's label. */

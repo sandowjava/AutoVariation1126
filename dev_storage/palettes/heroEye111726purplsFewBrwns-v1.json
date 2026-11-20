@@ -1,0 +1,152 @@
+{
+  "size" : 21,
+  "colorPtOstdotArray" : [ {
+    "hueNum" : 12,
+    "column" : 8,
+    "step" : 4,
+    "fillOrderNum" : 39,
+    "seriesW" : 3,
+    "seriesB" : 4
+  }, {
+    "hueNum" : 15,
+    "column" : 9,
+    "step" : 3,
+    "fillOrderNum" : 44,
+    "seriesW" : 2,
+    "seriesB" : 6
+  }, {
+    "hueNum" : 13,
+    "column" : 8,
+    "step" : 3,
+    "fillOrderNum" : 38,
+    "seriesW" : 2,
+    "seriesB" : 5
+  }, {
+    "hueNum" : 14,
+    "column" : 7,
+    "step" : 3,
+    "fillOrderNum" : 33,
+    "seriesW" : 2,
+    "seriesB" : 4
+  }, {
+    "hueNum" : 11,
+    "column" : 5,
+    "step" : 1,
+    "fillOrderNum" : 5,
+    "seriesW" : 0,
+    "seriesB" : 4
+  }, {
+    "hueNum" : 11,
+    "column" : 7,
+    "step" : 5,
+    "fillOrderNum" : 35,
+    "seriesW" : 4,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 12,
+    "column" : 7,
+    "step" : 4,
+    "fillOrderNum" : 34,
+    "seriesW" : 3,
+    "seriesB" : 3
+  }, {
+    "hueNum" : 12,
+    "column" : 6,
+    "step" : 3,
+    "fillOrderNum" : 29,
+    "seriesW" : 2,
+    "seriesB" : 3
+  }, {
+    "hueNum" : 12,
+    "column" : 9,
+    "step" : 6,
+    "fillOrderNum" : 47,
+    "seriesW" : 5,
+    "seriesB" : 3
+  }, {
+    "hueNum" : 12,
+    "column" : 8,
+    "step" : 5,
+    "fillOrderNum" : 40,
+    "seriesW" : 4,
+    "seriesB" : 3
+  }, {
+    "hueNum" : 12,
+    "column" : 8,
+    "step" : 5,
+    "fillOrderNum" : 40,
+    "seriesW" : 4,
+    "seriesB" : 3
+  }, {
+    "hueNum" : 10,
+    "column" : 6,
+    "step" : 3,
+    "fillOrderNum" : 29,
+    "seriesW" : 2,
+    "seriesB" : 3
+  }, {
+    "hueNum" : 11,
+    "column" : 6,
+    "step" : 3,
+    "fillOrderNum" : 29,
+    "seriesW" : 2,
+    "seriesB" : 3
+  }, {
+    "hueNum" : 11,
+    "column" : 8,
+    "step" : 5,
+    "fillOrderNum" : 40,
+    "seriesW" : 4,
+    "seriesB" : 3
+  }, {
+    "hueNum" : 11,
+    "column" : 9,
+    "step" : 6,
+    "fillOrderNum" : 47,
+    "seriesW" : 5,
+    "seriesB" : 3
+  }, {
+    "hueNum" : 25,
+    "column" : 9,
+    "step" : 1,
+    "fillOrderNum" : 9,
+    "seriesW" : 0,
+    "seriesB" : 8
+  }, {
+    "hueNum" : 22,
+    "column" : 11,
+    "step" : 11,
+    "fillOrderNum" : 21,
+    "seriesW" : 10,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 11,
+    "column" : 7,
+    "step" : 3,
+    "fillOrderNum" : 33,
+    "seriesW" : 2,
+    "seriesB" : 4
+  }, {
+    "hueNum" : 11,
+    "column" : 8,
+    "step" : 5,
+    "fillOrderNum" : 40,
+    "seriesW" : 4,
+    "seriesB" : 3
+  }, {
+    "hueNum" : 17,
+    "column" : 8,
+    "step" : 1,
+    "fillOrderNum" : 8,
+    "seriesW" : 0,
+    "seriesB" : 7
+  }, {
+    "hueNum" : 23,
+    "column" : 8,
+    "step" : 1,
+    "fillOrderNum" : 8,
+    "seriesW" : 0,
+    "seriesB" : 7
+  } ],
+  "paletteName" : "heroEye111726purplsFewBrwns-v1"
+}

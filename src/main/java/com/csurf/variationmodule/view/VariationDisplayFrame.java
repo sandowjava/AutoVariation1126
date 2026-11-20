@@ -2,10 +2,13 @@ package com.csurf.variationmodule.view;
 
 import com.csurf.templatecore.model.DrawObj;
 import com.csurf.templatecore.model.Template;
+import com.csurf.variationmodule.model.TemplateVariationsResult;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -22,19 +25,30 @@ public class VariationDisplayFrame extends JFrame {
     private static final int GRID_GAP = 5;
     private static final int CONTROL_PANEL_HEIGHT = 60;
 
+    /** Called when the user clicks a thumbnail; receives the 0-based slot. */
+    public interface VariationSelectionListener {
+        void variationSelected(int slot);
+    }
+
     private final UUID windowId;
     private final List<ThumbnailPanel> thumbnailPanels;
     private final JPanel controlPanel;
+    private final TemplateVariationsResult variationsResult;
+    private VariationSelectionListener selectionListener;
 
     /**
      * Creates the variation display window.
-     * @param variationTemplates the Templates to render (one per thumbnail; 12 expected)
+     * @param variationsResult the variation Templates to render (one per
+     *                         thumbnail; 12 expected); retained so click
+     *                         selection can recover the chosen Template
      * @param windowId unique ID for this window (for future mediator routing)
      * @param title window title (typically "Variations: <templateName>")
      */
-    public VariationDisplayFrame(List<Template> variationTemplates, UUID windowId, String title) {
+    public VariationDisplayFrame(TemplateVariationsResult variationsResult,
+                                 UUID windowId, String title) {
         super(title);
         this.windowId = windowId;
+        this.variationsResult = variationsResult;
         this.thumbnailPanels = new ArrayList<>();
 
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -43,7 +57,7 @@ public class VariationDisplayFrame extends JFrame {
         JPanel gridPanel = new JPanel(new GridLayout(GRID_ROWS, GRID_COLS, GRID_GAP, GRID_GAP));
         gridPanel.setBorder(new EmptyBorder(GRID_GAP, GRID_GAP, GRID_GAP, GRID_GAP));
 
-        int count = (variationTemplates != null) ? variationTemplates.size() : 0;
+        int count = (variationsResult != null) ? variationsResult.numVariations() : 0;
         for (int i = 0; i < VARIATION_COUNT; i++) {
             ThumbnailPanel thumbnailPanel = new ThumbnailPanel();
             // Row-major numbering matches GridLayout add order:
@@ -51,9 +65,21 @@ public class VariationDisplayFrame extends JFrame {
             int panelNum = i + 1;
             thumbnailPanel.setName("thumbnailPanel" + panelNum);
             if (i < count) {
-                Template template = variationTemplates.get(i);
+                Template template = variationsResult.templateAt(i);
                 thumbnailPanel.setDrawObjs(template.getAllDrawObjs().toArray(new DrawObj[0]));
+                thumbnailPanel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+                thumbnailPanel.setToolTipText("Click to open this variation in a TemplateWorkFrame");
             }
+            final int slot = i;
+            thumbnailPanel.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    if (selectionListener != null && variationsResult != null
+                            && slot < variationsResult.numVariations()) {
+                        selectionListener.variationSelected(slot);
+                    }
+                }
+            });
             thumbnailPanels.add(thumbnailPanel);
             gridPanel.add(thumbnailPanel);
         }
@@ -72,6 +98,24 @@ public class VariationDisplayFrame extends JFrame {
 
     public UUID getWindowId() {
         return windowId;
+    }
+
+    /**
+     * The variation Templates this frame renders, in slot order — the
+     * handle a thumbnail mouseListener uses to recover the selected
+     * Template ({@code templateAt(thumbnailIndex)}).
+     */
+    public TemplateVariationsResult getVariationsResult() {
+        return variationsResult;
+    }
+
+    /**
+     * Registers the handler for thumbnail clicks. The frame stays a dumb
+     * view: it reports the clicked slot; the controller decides what to
+     * do with it.
+     */
+    public void setVariationSelectionListener(VariationSelectionListener listener) {
+        this.selectionListener = listener;
     }
 
     /**

@@ -12,6 +12,7 @@ import com.csurf.templatecore.view.TemplateWorkFrame;
 import com.csurf.variationmodule.model.SmartPic;
 import com.csurf.variationmodule.model.SmartPicFactory;
 import com.csurf.variationmodule.model.SmartPicFactoryException;
+import com.csurf.variationmodule.model.TemplateVariationsResult;
 import com.csurf.variationmodule.varyengine.controller.PalettesThe12Variations;
 import com.csurf.variationmodule.varyengine.controller.VariationPaletteExtractor;
 import com.csurf.variationmodule.varyengine.model.AnchorHueSets;
@@ -20,6 +21,8 @@ import com.csurf.variationmodule.varyengine.model.FrozenSets;
 import com.csurf.variationmodule.varyengine.model.SmartPicFacts;
 import com.csurf.variationmodule.varyengine.model.VariationResult;
 import com.csurf.variationmodule.view.CreateSmartPicFrame;
+import com.csurf.variationmodule.view.SmartPicAGCtrsFrozenSetFrame;
+import com.csurf.variationmodule.view.TemplateDrawObjListFrame;
 import com.csurf.variationmodule.view.VariationDisplayFrame;
 
 import javax.swing.*;
@@ -53,6 +56,10 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
     private static final String BUNDLED_AGPREFS_RESOURCE = "/agprefs/authored-defaults-v1.json";
     private static final String BUNDLED_AGPREFS_FILENAME = "authored-defaults-v1.json";
 
+    /** Initial selections for the run-parameters dialog and the info frame. */
+    private static final int DEFAULT_HUE_SET = 18;
+    private static final int DEFAULT_FROZEN_SET = 4;
+
     private final ApplicationMediator mediator;
     private final TemplateWorkFrame ownerFrame;
     private final TemplateStorage storage;
@@ -63,6 +70,10 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
     private Template chosenTemplate;
     private Path chosenAgPrefsPath;
     private SmartPic smartPic;
+
+    /** Parameters of the last variation run (or the dialog defaults). */
+    private int lastHueSet = DEFAULT_HUE_SET;
+    private int lastFrozenSet = DEFAULT_FROZEN_SET;
 
     /**
      * Creates a controller with no owning TemplateWorkFrame — for launches
@@ -115,6 +126,7 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
             displayName = templateName;
         }
         frame.setTemplateName(displayName);
+        frame.setDrawObjListEnabled(true);
     }
 
     @Override
@@ -151,6 +163,7 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
             return;
         }
         frame.setStatus("Created SmartPic: " + smartPic.numShapes() + " shapes");
+        frame.setHueAnchorsEnabled(true);
         LOG.info("Created " + smartPic + " from template file " + chosenTemplateFile
                 + " and AGprefs " + chosenAgPrefsPath);
     }
@@ -167,6 +180,8 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
         }
         int hueSet = params[0];
         int frozenSet = params[1];
+        lastHueSet = hueSet;
+        lastFrozenSet = frozenSet;
 
         Facts facts = new SmartPicFacts(smartPic);
         PalettesThe12Variations palettes;
@@ -194,14 +209,52 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
         if (displayName == null || displayName.isEmpty()) {
             displayName = templateName;
         }
-        VariationDisplayFrame display = new VariationDisplayFrame(variationTemplates,
-                UUID.randomUUID(), "Variations: " + displayName
-                + " (hueSet " + hueSet + ", frozenSet " + frozenSet + ")");
+        VariationDisplayFrame display = new VariationDisplayFrame(
+                new TemplateVariationsResult(variationTemplates),
+                UUID.randomUUID(), "Frzn:" + frozenSet
+                +" (hueSet " + hueSet + ")" + displayName );
+        display.setVariationSelectionListener(
+                slot -> openVariationInWorkFrame(display, slot));
         display.setLocation(frame.getX() + frame.getWidth() + 10, frame.getY());
         display.setVisible(true);
 
         frame.setStatus("Created 12 variations: hueSet " + hueSet
                 + ", frozenSet " + frozenSet);
+    }
+
+    /** Opens the clicked variation's Template in a new TemplateWorkFrame. */
+    private void openVariationInWorkFrame(VariationDisplayFrame display, int slot) {
+        Template template = display.getVariationsResult().templateAt(slot);
+        new TemplateWorkFrame(mediator, template); // constructor self-shows
+        frame.setStatus("Opened variation " + (slot + 1) + " in TemplateWorkFrame");
+    }
+
+    @Override
+    public void showTemplateDrawObjList() {
+        if (chosenTemplate == null) {
+            showError("Choose a Template first (Template menu).");
+            return;
+        }
+        String displayName = chosenTemplate.getTheTemplateName();
+        if (displayName == null || displayName.isEmpty()) {
+            displayName = stripJsonExtension(chosenTemplateFile.getName());
+        }
+        TemplateDrawObjListFrame listFrame = new TemplateDrawObjListFrame(
+                displayName, chosenTemplate.getAllDrawObjs());
+        listFrame.setLocation(frame.getX() + frame.getWidth() + 10, frame.getY());
+        listFrame.setVisible(true);
+    }
+
+    @Override
+    public void showHueAnchorsFrozen() {
+        if (smartPic == null) {
+            showError("Create a SmartPic first (SmartPic menu).");
+            return;
+        }
+        SmartPicAGCtrsFrozenSetFrame infoFrame = new SmartPicAGCtrsFrozenSetFrame(
+                smartPic, lastHueSet, lastFrozenSet);
+        infoFrame.setLocation(frame.getX() + frame.getWidth() + 10, frame.getY());
+        infoFrame.setVisible(true);
     }
 
     /**
@@ -229,6 +282,7 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
             for (int i = 0; i < drawObjs.size(); i++) {
                 drawObjs.get(i).setFillColorOstdot(dots[i]);
             }
+            copy.setTemplateName(variationName(copy.getTheTemplateName(), templateName, v + 1));
             copies.add(copy);
         }
         return copies;
@@ -246,22 +300,22 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
             hueSetOptions[i] = i;
         }
         JComboBox<Integer> hueSetBox = new JComboBox<>(hueSetOptions);
-        hueSetBox.setSelectedIndex(1); // legacy generated sets start at row 1
+        hueSetBox.setSelectedIndex(DEFAULT_HUE_SET);
 
         Integer[] frozenSetOptions = new Integer[FrozenSets.FROZEN_SET_COUNT];
         for (int i = 0; i < frozenSetOptions.length; i++) {
             frozenSetOptions[i] = i;
         }
         JComboBox<Integer> frozenSetBox = new JComboBox<>(frozenSetOptions);
-        frozenSetBox.setSelectedIndex(0);
+        frozenSetBox.setSelectedIndex(DEFAULT_FROZEN_SET);
 
-        JPanel panel = new JPanel(new GridLayout(2, 2, 6, 6));
-        panel.add(new JLabel("hueSet (0.." + (AnchorHueSets.HUE_SET_COUNT - 1) + "):"));
-        panel.add(hueSetBox);
-        panel.add(new JLabel("frozenSet (0.." + (FrozenSets.FROZEN_SET_COUNT - 1) + "):"));
-        panel.add(frozenSetBox);
+        JPanel controlAGCtrsFrozenPanel = new JPanel(new GridLayout(2, 2, 6, 6));
+        controlAGCtrsFrozenPanel.add(new JLabel("hueSet (0.." + (AnchorHueSets.HUE_SET_COUNT - 1) + "):"));
+        controlAGCtrsFrozenPanel.add(hueSetBox);
+        controlAGCtrsFrozenPanel.add(new JLabel("frozenSet (0.." + (FrozenSets.FROZEN_SET_COUNT - 1) + "):"));
+        controlAGCtrsFrozenPanel.add(frozenSetBox);
 
-        int choice = JOptionPane.showConfirmDialog(frame, panel,
+        int choice = JOptionPane.showConfirmDialog(frame, controlAGCtrsFrozenPanel,
                 "Variation run parameters", JOptionPane.OK_CANCEL_OPTION);
         if (choice != JOptionPane.OK_OPTION) {
             return null;
@@ -313,6 +367,19 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
 
     private void showError(String message) {
         JOptionPane.showMessageDialog(frame, message, "Create SmartPic", JOptionPane.ERROR_MESSAGE);
+    }
+
+    /**
+     * Variation Template name: first 16 chars of the base Template name
+     * plus "--varN" (N = 1..12), so a TemplateWorkFrame title shows which
+     * variation it started from.
+     */
+    private String variationName(String baseName, String fallbackName, int variationNum) {
+        String base = (baseName != null && !baseName.isEmpty()) ? baseName : fallbackName;
+        if (base.length() > 30) {
+            base = base.substring(0, 30); // 30 chars max -taken from start-Template name
+        }
+        return base + "--var" + variationNum;
     }
 
     private String stripJsonExtension(String fileName) {

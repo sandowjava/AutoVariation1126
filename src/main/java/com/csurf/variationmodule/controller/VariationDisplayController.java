@@ -5,6 +5,7 @@ import com.csurf.templatecore.model.Template;
 import com.csurf.templatecore.storage.TemplateStorage;
 import com.csurf.templatecore.storage.TemplateStorageException;
 import com.csurf.templatecore.view.TemplateWorkFrame;
+import com.csurf.variationmodule.model.TemplateVariationsResult;
 import com.csurf.variationmodule.view.VariationDisplayFrame;
 
 import javax.swing.*;
@@ -76,10 +77,17 @@ public class VariationDisplayController {
             displayName = templateName;
         }
 
-        frame = new VariationDisplayFrame(variationTemplates, windowId,
-                "Variations: " + displayName);
+        frame = new VariationDisplayFrame(new TemplateVariationsResult(variationTemplates),
+                windowId, "Variations: " + displayName);
+        frame.setVariationSelectionListener(slot -> openVariationInWorkFrame(slot));
         frame.setLocationRelativeTo(ownerFrame);
         frame.setVisible(true);
+    }
+
+    /** Opens the clicked variation's Template in a new TemplateWorkFrame. */
+    private void openVariationInWorkFrame(int slot) {
+        Template template = frame.getVariationsResult().templateAt(slot);
+        new TemplateWorkFrame(mediator, template); // constructor self-shows
     }
 
     private File chooseTemplateFile() {

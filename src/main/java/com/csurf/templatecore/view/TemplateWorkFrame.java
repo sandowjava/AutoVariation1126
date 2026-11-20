@@ -1203,18 +1203,12 @@ public class TemplateWorkFrame extends JFrame
      * @param template The Template to work with
      */
     public TemplateWorkFrame(ApplicationMediator mediator, Template template) {
-        this(mediator);  
-        this.currTemplate = template;
-        
-        // Create PaletteExplicit instance for this TemplateWorkFrame and attach it to the Template's roster
-        attachNewPaletteExplicit(template);
-        
-        // Register this frame as a listener for PositionalPaletteEvent
-        if (template != null && template.getDrawObjRoster() != null) {
-            template.getDrawObjRoster().addPositionalPaletteEventListener(this);
-        }
-        
-        loadCurrTemplate();
+        this(mediator);
+        // Full load path (same as file-open): initializes displayFacade,
+        // selectionDisplayManager, ShapeSelectionController, PaletteOperationHub
+        // and the DrawObjs list — the previous partial sequence left the
+        // all-DrawObjs list empty (displayFacade was null).
+        updateUIWithTemplate(template);
         setVisible(true);
     } // end constructor
 
