@@ -15,7 +15,7 @@ import java.util.Map;
  * to determine specific color generation algorithms.
  */
 public class PaletteGenerator {
-    private final RelationMatrix relationMatrix;
+    private final RelationMatrixPrelim relationMatrixPrelim;
     private ArtisticGoalStrategy strategy;
     private IQAnchorPattern anchorPattern;
 
@@ -31,23 +31,23 @@ public class PaletteGenerator {
      * Creates a new PaletteGenerator with just the RelationMatrix.
      * Uses default strategy and anchor pattern.
      *
-     * @param relationMatrix The RelationMatrix containing shape relationships
+     * @param relationMatrixPrelim The RelationMatrix containing shape relationships
      */
-    public PaletteGenerator(RelationMatrix relationMatrix) {
-        this(relationMatrix, null, null);
+    public PaletteGenerator(RelationMatrixPrelim relationMatrixPrelim) {
+        this(relationMatrixPrelim, null, null);
     }
 
     /**
      * Creates a new PaletteGenerator with the specified components.
      *
-     * @param relationMatrix The RelationMatrix containing shape relationships
+     * @param relationMatrixPrelim The RelationMatrix containing shape relationships
      * @param strategy The artistic goal strategy to use for color generation
      * @param anchorPattern The anchor pattern guiding color selection
      */
-    public PaletteGenerator(RelationMatrix relationMatrix, 
-                          ArtisticGoalStrategy strategy,
-                          IQAnchorPattern anchorPattern) {
-        this.relationMatrix = relationMatrix;
+    public PaletteGenerator(RelationMatrixPrelim relationMatrixPrelim,
+                            ArtisticGoalStrategy strategy,
+                            IQAnchorPattern anchorPattern) {
+        this.relationMatrixPrelim = relationMatrixPrelim;
         this.strategy = strategy; // Strategy must be provided, no default implementation
         this.anchorPattern = anchorPattern != null ? anchorPattern : new IQAnchorPattern();
     }
@@ -100,8 +100,8 @@ public class PaletteGenerator {
      *
      * @return The current RelationMatrix
      */
-    public RelationMatrix getRelationMatrix() {
-        return relationMatrix;
+    public RelationMatrixPrelim getRelationMatrix() {
+        return relationMatrixPrelim;
     }
 
     /**
@@ -111,11 +111,11 @@ public class PaletteGenerator {
      * @throws IllegalStateException if RelationMatrix is not set
      */
     public SmartpicPalette generatePalette() {
-        if (relationMatrix == null) {
+        if (relationMatrixPrelim == null) {
             throw new IllegalStateException("RelationMatrix must be set before generating palette");
         }
 
-        IQAllPipes smarts = relationMatrix.getCollectiveSmarts();
+        IQAllPipes smarts = relationMatrixPrelim.getCollectiveSmarts();
         List<ColorPtOstDot> colors = new ArrayList<>();
         Map<String, ColorPtOstDot> colorMap = new HashMap<>();
 

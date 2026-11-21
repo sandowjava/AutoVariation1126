@@ -1,6 +1,6 @@
 package com.csurf.huepattern.controller;
 
-import com.csurf.huepattern.model.RMatrixMini;
+import com.csurf.huepattern.model.RMatrixMiniPrelim;
 import com.csurf.huepattern.view.AGMemberSelectFrame;
 import com.csurf.ostwald.domainmonotri.model.ColorPtOstDot;
 import com.csurf.ostwald.domainmonotri.model.HueNumGUI;
@@ -29,7 +29,7 @@ public class AGSelectFrameController {
     
     private final int agNum;
     private final int currUserFacingHue;
-    private final RMatrixMini rmatrix;
+    private final RMatrixMiniPrelim rmatrix;
     private final DrawObjRoster drawObjRoster;
     private final TemplateWorkFrame templateWorkFrame;
     private AGMemberSelectFrame theViewWindow;
@@ -45,7 +45,7 @@ public class AGSelectFrameController {
      * @param drawObjRoster The DrawObjRoster to get DrawObjs from
      * @param templateWorkFrame The TemplateWorkFrame for creating DrawObjStateViewControllers
      */
-    public AGSelectFrameController(int agNum, int currUserFacingHue, RMatrixMini rmatrix, DrawObjRoster drawObjRoster, TemplateWorkFrame templateWorkFrame) {
+    public AGSelectFrameController(int agNum, int currUserFacingHue, RMatrixMiniPrelim rmatrix, DrawObjRoster drawObjRoster, TemplateWorkFrame templateWorkFrame) {
         this.agNum = agNum;
         this.currUserFacingHue = currUserFacingHue;
         this.rmatrix = rmatrix;

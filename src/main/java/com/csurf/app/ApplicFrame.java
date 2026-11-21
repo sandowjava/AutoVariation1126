@@ -10,6 +10,7 @@ import com.csurf.templatecore.storage.config.StorageConfig;
 import com.csurf.templatecore.svgconverter.view.SVGConverterFrame;
 import com.csurf.templatecore.view.TemplateWorkFrame;
 import com.csurf.variationmodule.controller.CreateSmartPicController;
+import com.csurf.variationmodule.controller.RelationMatrixEditorController;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -140,6 +141,10 @@ public class ApplicFrame extends JFrame {
         JMenuItem createSmartPicItem = new JMenuItem("Create SmartPic");
         createSmartPicItem.addActionListener(e -> openCreateSmartPic());
         templateMenu.add(createSmartPicItem);
+
+        JMenuItem relationMatrixEditorItem = new JMenuItem("Relation Matrix Editor");
+        relationMatrixEditorItem.addActionListener(e -> openRelationMatrixEditor());
+        templateMenu.add(relationMatrixEditorItem);
         
         // Help menu items
         JMenuItem introToAppItem = new JMenuItem("Intro to the App");
@@ -212,6 +217,12 @@ public class ApplicFrame extends JFrame {
         controller.launch();
         registerFrame(controller.getFrame());
     } // end method openCreateSmartPic
+
+    private void openRelationMatrixEditor() {
+        RelationMatrixEditorController controller = new RelationMatrixEditorController(appMediator);
+        controller.launch();
+        registerFrame(controller.getFrame());
+    } // end method openRelationMatrixEditor
 
 
 

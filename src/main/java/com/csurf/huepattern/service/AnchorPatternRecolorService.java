@@ -5,9 +5,8 @@ import java.util.List;
 import java.util.UUID;
 import com.csurf.templatecore.model.DrawObj;
 import com.csurf.templatecore.model.DrawObjRoster;
-import com.csurf.huepattern.model.RMatrixMini;
+import com.csurf.huepattern.model.RMatrixMiniPrelim;
 import com.csurf.huepattern.model.AnchorPattern;
-import com.csurf.huepattern.model.PaletteGenerator;
 import com.csurf.huepattern.model.proxy.TemplateProxyData;
 
 /**
@@ -93,7 +92,7 @@ public class AnchorPatternRecolorService {
 		}
 		
 		// Get data references
-		RMatrixMini rmatrix = proxyData.getRMatrixMini();
+		RMatrixMiniPrelim rmatrix = proxyData.getRMatrixMini();
 		AnchorPattern anchorPattern = proxyData.getAnchorPattern();
 		
 		// Recolor all DrawObjs
@@ -140,7 +139,7 @@ public class AnchorPatternRecolorService {
 	 * @return true if recoloring succeeded, false if validation failed
 	 * @throws IllegalArgumentException if any parameter is null
 	 */
-	public static boolean recolorByAnchorPattern(DrawObjRoster drawObjRoster, RMatrixMini rmatrix, AnchorPattern anchorPattern) {
+	public static boolean recolorByAnchorPattern(DrawObjRoster drawObjRoster, RMatrixMiniPrelim rmatrix, AnchorPattern anchorPattern) {
 		if (drawObjRoster == null || rmatrix == null || anchorPattern == null) {
 			throw new IllegalArgumentException("Parameters cannot be null");
 		}
@@ -203,7 +202,7 @@ public class AnchorPatternRecolorService {
 			return false;
 		}
 		
-		RMatrixMini rmatrix = proxyData.getRMatrixMini();
+		RMatrixMiniPrelim rmatrix = proxyData.getRMatrixMini();
 		AnchorPattern anchorPattern = proxyData.getAnchorPattern();
 		
 		if (rmatrix == null) {

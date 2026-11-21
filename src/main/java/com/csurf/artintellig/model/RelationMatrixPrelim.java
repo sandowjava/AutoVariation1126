@@ -14,7 +14,7 @@ import com.csurf.artintellig.domainanchorpattern.model.IQAnchorPattern;
  * color assignment and palette generation, though it does not directly create
  * palettes (that is handled by a separate palette generator).
  */
-public class RelationMatrix {
+public class RelationMatrixPrelim {
     
     private final IQAllPipes IQAllPipes;
     private IQAnchorPattern anchorPattern;
@@ -22,7 +22,7 @@ public class RelationMatrix {
     /**
      * Creates a new RelationMatrix instance.
      */
-    public RelationMatrix() {
+    public RelationMatrixPrelim() {
         this.IQAllPipes = new IQAllPipes();
     }
     

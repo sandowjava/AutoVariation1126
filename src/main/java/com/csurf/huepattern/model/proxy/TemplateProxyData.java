@@ -2,13 +2,11 @@ package com.csurf.huepattern.model.proxy;
 
 import java.util.List;
 import java.util.UUID;
-import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashSet;
 import com.csurf.templatecore.model.Template;
 import com.csurf.templatecore.model.DrawObj;
-import com.csurf.templatecore.model.DrawObjRoster;
-import com.csurf.huepattern.model.RMatrixMini;
+import com.csurf.huepattern.model.RMatrixMiniPrelim;
 import com.csurf.huepattern.model.AnchorPattern;
 import com.csurf.templatecore.model.PaletteWName;
 import com.csurf.ostwald.domainmonotri.model.ColorPtOstDot;
@@ -57,7 +55,7 @@ public class TemplateProxyData {
 	private final Template originalTemplate;
 	private ShapeObjRoster shapeObjRoster;
 	private PaletteWName palette;
-	private RMatrixMini rmatrix;
+	private RMatrixMiniPrelim rmatrix;
 	private AnchorPattern anchorPattern;
 	private boolean validatedAllAGs;
 	
@@ -86,7 +84,7 @@ public class TemplateProxyData {
 		this.originalTemplate = template;
 		this.shapeObjRoster = new ShapeObjRoster(template.getDrawObjRoster());
 		this.palette = template.getDrawObjRoster().getCurrPalette();
-		this.rmatrix = new RMatrixMini(template);
+		this.rmatrix = new RMatrixMiniPrelim(template);
 		this.anchorPattern = new AnchorPattern();
 		this.validatedAllAGs = false;
 	}
@@ -127,7 +125,7 @@ public class TemplateProxyData {
 	 * 
 	 * @return the RMatrixMini
 	 */
-	public RMatrixMini getRMatrixMini() {
+	public RMatrixMiniPrelim getRMatrixMini() {
 		return rmatrix;
 	}
 	
@@ -159,7 +157,7 @@ public class TemplateProxyData {
 	 * @param rmatrix the new RMatrixMini
 	 * @throws IllegalArgumentException if rmatrix is null
 	 */
-	public void setRMatrixMini(RMatrixMini rmatrix) {
+	public void setRMatrixMini(RMatrixMiniPrelim rmatrix) {
 		if (rmatrix == null) {
 			throw new IllegalArgumentException("RMatrixMini cannot be null");
 		}

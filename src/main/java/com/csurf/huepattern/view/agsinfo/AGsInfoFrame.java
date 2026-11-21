@@ -19,7 +19,7 @@ import com.csurf.templatecore.view.TemplateWorkFrame;
 import com.csurf.templatecore.view.HueRelativesFrame;
 import com.csurf.templatecore.controller.HueRelativesViewController;
 import com.csurf.huepattern.model.proxy.TemplateProxyData;
-import com.csurf.huepattern.model.RMatrixMini;
+import com.csurf.huepattern.model.RMatrixMiniPrelim;
 import com.csurf.huepattern.view.AnchorPatternFrame;
 import com.csurf.ostwald.domainmonotri.model.ColorPtOstDot;
 
@@ -88,7 +88,7 @@ public class AGsInfoFrame extends JFrame {
 	private Template originalTemplate;
 	private AnchorPatternFrame anchorPatternFrame;
 	private FilterState filterState;
-	private RMatrixMini rmatrix;
+	private RMatrixMiniPrelim rmatrix;
 	private TemplateWorkFrame templateWorkFrame;
 	
 	// Currently selected shape from either wideSelectionListPanel or narrowSelectionListPanel
@@ -155,7 +155,7 @@ public class AGsInfoFrame extends JFrame {
 	 * @param templateWorkFrame the TemplateWorkFrame for HueRelativesFrame integration
 	 * @throws IllegalArgumentException if any parameter is null
 	 */
-	public AGsInfoFrame(TemplateProxyData templateProxyData, AnchorPatternFrame anchorPatternFrame, RMatrixMini rmatrix, TemplateWorkFrame templateWorkFrame) {
+	public AGsInfoFrame(TemplateProxyData templateProxyData, AnchorPatternFrame anchorPatternFrame, RMatrixMiniPrelim rmatrix, TemplateWorkFrame templateWorkFrame) {
 		super("AGsInfoFrame - AG Assignment etc");
 		
 		if (templateProxyData == null) {
@@ -314,7 +314,7 @@ public class AGsInfoFrame extends JFrame {
 	 * 
 	 * @return the RMatrixMini
 	 */
-	public RMatrixMini getRMatrix() {
+	public RMatrixMiniPrelim getRMatrix() {
 		return rmatrix;
 	}
 

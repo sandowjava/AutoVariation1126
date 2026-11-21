@@ -31,13 +31,13 @@ import java.util.logging.Logger;
 public class PaletteGenerator {
     private static final Logger logger = Logger.getLogger(PaletteGenerator.class.getName());
     
-    RMatrixMini theRMatrixMini;
+    RMatrixMiniPrelim theRMatrixMiniPrelim;
     AnchorPattern theAnchorPattern;
 
 
     // Constructor
-    public PaletteGenerator(RMatrixMini someRMatrixMini, AnchorPattern someAnchPattern) {
-        this.theRMatrixMini = someRMatrixMini;
+    public PaletteGenerator(RMatrixMiniPrelim someRMatrixMiniPrelim, AnchorPattern someAnchPattern) {
+        this.theRMatrixMiniPrelim = someRMatrixMiniPrelim;
         this.theAnchorPattern = someAnchPattern;
     } // end constructor
 
@@ -54,7 +54,7 @@ public class PaletteGenerator {
         logger.info("createNewPalette: Starting palette generation for " + someChangedAGs.length + " changed AGs");
         
         // Get start palette as UUID-based map
-        Map<UUID, ColorPtOstDot> startPaletteMap = this.theRMatrixMini.getStartPaletteMap();
+        Map<UUID, ColorPtOstDot> startPaletteMap = this.theRMatrixMiniPrelim.getStartPaletteMap();
         Map<UUID, ColorPtOstDot> newPaletteMap = new HashMap<>(startPaletteMap);
 
         // For each changed AG, process each member of that AG
@@ -63,7 +63,7 @@ public class PaletteGenerator {
             logger.fine("createNewPalette: Processing AG " + agNum);
             
             // Get AG members as DrawObj instances (not indices)
-            Set<DrawObj> currAGmembers = this.theRMatrixMini.getAGMembersSet(agNum);
+            Set<DrawObj> currAGmembers = this.theRMatrixMiniPrelim.getAGMembersSet(agNum);
             logger.fine("createNewPalette: AG " + agNum + " has " + currAGmembers.size() + " members");
             
             // Get the spread for this AG
@@ -79,7 +79,7 @@ public class PaletteGenerator {
                 UUID drawObjUUID = drawObj.getUniqueId();
                 
                 // Get proportion location for this DrawObj
-                double proportionLocation = this.theRMatrixMini.getProportionLocation(drawObj);
+                double proportionLocation = this.theRMatrixMiniPrelim.getProportionLocation(drawObj);
                 
                 // Calculate new hue based on proportion location and spread
                 int newCodeFacingHueNum = calcNewHueBySmarts(proportionLocation, agSpread);
@@ -119,7 +119,7 @@ public class PaletteGenerator {
      */
     private ColorPtOstDot[] convertMapToArray(Map<UUID, ColorPtOstDot> paletteMap) {
         // Get the start palette to determine the correct order and size
-        Map<UUID, ColorPtOstDot> startPaletteMap = this.theRMatrixMini.getStartPaletteMap();
+        Map<UUID, ColorPtOstDot> startPaletteMap = this.theRMatrixMiniPrelim.getStartPaletteMap();
         ColorPtOstDot[] result = new ColorPtOstDot[startPaletteMap.size()];
         
         int index = 0;

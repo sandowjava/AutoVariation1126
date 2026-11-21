@@ -2,7 +2,7 @@ package com.csurf.templatecore.view;
 
 import com.csurf.core.ApplicationMediator;
 import com.csurf.core.Message;
-import com.csurf.huepattern.model.RMatrixMini;
+import com.csurf.huepattern.model.RMatrixMiniPrelim;
 import com.csurf.huepattern.model.proxy.TemplateProxyData;
 import com.csurf.huepattern.service.TemplateProxyDataService;
 import com.csurf.huepattern.view.AnchorPatternFrame;
@@ -27,6 +27,7 @@ import com.csurf.templatecore.storage.PaletteWShapeNamesStorage;
 import com.csurf.templatecore.storage.TemplateStorage;
 import com.csurf.templatecore.storage.TemplateStorageException;
 import com.csurf.variationmodule.controller.CreateSmartPicController;
+import com.csurf.variationmodule.controller.RelationMatrixEditorController;
 import com.csurf.variationmodule.controller.VariationDisplayController;
 
 import javax.swing.*;
@@ -853,7 +854,7 @@ public class TemplateWorkFrame extends JFrame
         }
         
         // Get the RMatrixMini from TemplateProxyData
-        RMatrixMini rmatrix = currTemplateProxyData.getRMatrixMini();
+        RMatrixMiniPrelim rmatrix = currTemplateProxyData.getRMatrixMini();
         if (rmatrix == null) {
             JOptionPane.showMessageDialog(this, 
                 "RMatrixMini not found in TemplateProxyData.",
@@ -1081,6 +1082,10 @@ public class TemplateWorkFrame extends JFrame
         JMenuItem createSmartPicItem = new JMenuItem("Create SmartPic");
         createSmartPicItem.addActionListener(e -> openCreateSmartPic());
         colorSourcesMenu.add(createSmartPicItem);
+
+        JMenuItem relationMatrixEditorItem = new JMenuItem("Relation Matrix Editor");
+        relationMatrixEditorItem.addActionListener(e -> openRelationMatrixEditor());
+        colorSourcesMenu.add(relationMatrixEditorItem);
         
         menuBar.add(colorSourcesMenu);
 
@@ -1388,6 +1393,18 @@ public class TemplateWorkFrame extends JFrame
     private void openCreateSmartPic() {
         new CreateSmartPicController(mediator, this).launch();
     } // end method openCreateSmartPic
+
+
+    /**
+     * Opens the relation-matrix editor: a RelationMatrixEditorFrame lets
+     * the user load a saved Template plus an AGprefs defaults file, edit
+     * and re-bind the prefs rows, and save a formatVersion 2
+     * (UUID-keyed) defaults file. Each invocation creates a new
+     * controller + frame (multi-window support).
+     */
+    private void openRelationMatrixEditor() {
+        new RelationMatrixEditorController(mediator, this).launch();
+    } // end method openRelationMatrixEditor
 
 
 
@@ -3376,7 +3393,7 @@ public class TemplateWorkFrame extends JFrame
         }
         
         // Get the RMatrixMini from TemplateProxyData
-        RMatrixMini rmatrix = currTemplateProxyData.getRMatrixMini();
+        RMatrixMiniPrelim rmatrix = currTemplateProxyData.getRMatrixMini();
         if (rmatrix == null) {
             JOptionPane.showMessageDialog(this, 
                 "RMatrixMini not found in TemplateProxyData.",

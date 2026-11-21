@@ -174,7 +174,7 @@ public class AnchorPattern {
      * @param rmatrix the RMatrixMini to validate against
      * @return true if valid, false otherwise
      */
-    public boolean isValidForRMatrixMini(RMatrixMini rmatrix) {
+    public boolean isValidForRMatrixMini(RMatrixMiniPrelim rmatrix) {
         if (rmatrix == null) {
             logger.warning("isValidForRMatrixMini: RMatrixMini is null");
             return false;

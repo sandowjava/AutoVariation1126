@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.ArrayList;
 import com.csurf.templatecore.model.DrawObj;
 import com.csurf.templatecore.model.Template;
-import com.csurf.huepattern.model.RMatrixMini;
+import com.csurf.huepattern.model.RMatrixMiniPrelim;
 import com.csurf.huepattern.model.AnchorPattern;
 import com.csurf.huepattern.model.proxy.TemplateProxyData;
 
@@ -91,7 +91,7 @@ public class AGsInfoFrameController {
 		logger.info("AGsInfoFrameController: Validating single AG per DrawObj");
 		
 		TemplateProxyData proxyData = frame.getTemplateProxyData();
-		RMatrixMini rmatrix = proxyData.getRMatrixMini();
+		RMatrixMiniPrelim rmatrix = proxyData.getRMatrixMini();
 		
 		boolean isValid = rmatrix.validateSingleAGPerDrawObj();
 		
@@ -112,7 +112,7 @@ public class AGsInfoFrameController {
 		
 		TemplateProxyData proxyData = frame.getTemplateProxyData();
 		AnchorPattern anchorPattern = proxyData.getAnchorPattern();
-		RMatrixMini rmatrix = proxyData.getRMatrixMini();
+		RMatrixMiniPrelim rmatrix = proxyData.getRMatrixMini();
 		
 		boolean isValid = anchorPattern.isValidForRMatrixMini(rmatrix);
 		
@@ -150,7 +150,7 @@ public class AGsInfoFrameController {
 		logger.info("AGsInfoFrameController: Removing DrawObj " + drawObjUUID + " from AG " + agNum);
 		
 		TemplateProxyData proxyData = frame.getTemplateProxyData();
-		RMatrixMini rmatrix = proxyData.getRMatrixMini();
+		RMatrixMiniPrelim rmatrix = proxyData.getRMatrixMini();
 		
 		rmatrix.removeFromAG(drawObjUUID, agNum);
 		
@@ -311,7 +311,7 @@ public class AGsInfoFrameController {
 		logger.fine("AGsInfoFrameController: Displaying DrawObjs in multiple AGs");
 		
 		TemplateProxyData proxyData = frame.getTemplateProxyData();
-		RMatrixMini rmatrix = proxyData.getRMatrixMini();
+		RMatrixMiniPrelim rmatrix = proxyData.getRMatrixMini();
 		
 		// Query model: Get DrawObjs in multiple AGs
 		Set<DrawObj> drawObjs = rmatrix.getDrawObjsInMultipleAGs();
@@ -336,7 +336,7 @@ public class AGsInfoFrameController {
 		logger.fine("AGsInfoFrameController: Displaying DrawObjs with no AG assignment");
 		
 		TemplateProxyData proxyData = frame.getTemplateProxyData();
-		RMatrixMini rmatrix = proxyData.getRMatrixMini();
+		RMatrixMiniPrelim rmatrix = proxyData.getRMatrixMini();
 		
 		// Query model: Get DrawObjs with no AG
 		Set<DrawObj> drawObjs = rmatrix.getDrawObjsWithNoAG();
@@ -411,7 +411,7 @@ public class AGsInfoFrameController {
 		}
 		
 		TemplateProxyData proxyData = frame.getTemplateProxyData();
-		RMatrixMini rmatrix = frame.getRMatrix();
+		RMatrixMiniPrelim rmatrix = frame.getRMatrix();
 		
 		// Query FilterState: Get subset2
 		Set<UUID> subset2 = filterState.getSubset2(proxyData, rmatrix);
@@ -446,7 +446,7 @@ public class AGsInfoFrameController {
 		}
 		
 		TemplateProxyData proxyData = frame.getTemplateProxyData();
-		RMatrixMini rmatrix = frame.getRMatrix();
+		RMatrixMiniPrelim rmatrix = frame.getRMatrix();
 		
 		// Query FilterState: Get subset3
 		Set<UUID> subset3 = filterState.getSubset3(proxyData, rmatrix);
@@ -493,7 +493,7 @@ public class AGsInfoFrameController {
 		}
 		
 		TemplateProxyData proxyData = frame.getTemplateProxyData();
-		RMatrixMini rmatrix = frame.getRMatrix();
+		RMatrixMiniPrelim rmatrix = frame.getRMatrix();
 		
 		switch (filterState.getMode()) {
 			case ONE_STEP:

@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
-import com.csurf.huepattern.model.RMatrixMini;
+import com.csurf.huepattern.model.RMatrixMiniPrelim;
 import com.csurf.huepattern.model.proxy.TemplateProxyData;
 
 /**
@@ -230,7 +230,7 @@ public class FilterState {
      * @param rmatrix The RMatrixMini for AG and validation queries
      * @return Set of UUIDs matching both first and second criteria
      */
-    public Set<UUID> generateSubset2(TemplateProxyData model, RMatrixMini rmatrix) {
+    public Set<UUID> generateSubset2(TemplateProxyData model, RMatrixMiniPrelim rmatrix) {
         // Start with subset1
         Set<UUID> subset1 = generateSubset1(model);
         
@@ -259,7 +259,7 @@ public class FilterState {
      * @param rmatrix The RMatrixMini for AG and validation queries
      * @return Set of UUIDs matching all three criteria (or inverted if invert flag is true)
      */
-    public Set<UUID> generateSubset3(TemplateProxyData model, RMatrixMini rmatrix) {
+    public Set<UUID> generateSubset3(TemplateProxyData model, RMatrixMiniPrelim rmatrix) {
         // Start with subset2
         Set<UUID> subset2 = generateSubset2(model, rmatrix);
         
@@ -297,7 +297,7 @@ public class FilterState {
      * @param rmatrix The RMatrixMini for AG and validation queries
      * @return The appropriate subset (subset1, subset2, or subset3) based on current mode
      */
-    public Set<UUID> getActiveSubset(TemplateProxyData model, RMatrixMini rmatrix) {
+    public Set<UUID> getActiveSubset(TemplateProxyData model, RMatrixMiniPrelim rmatrix) {
         switch (mode) {
             case ONE_STEP:
                 return generateSubset1(model);
@@ -329,7 +329,7 @@ public class FilterState {
      * @param rmatrix The RMatrixMini for AG and validation queries
      * @return Set of UUIDs for subset2, or empty set if not in TWO_STEP/THREE_STEP
      */
-    public Set<UUID> getSubset2(TemplateProxyData model, RMatrixMini rmatrix) {
+    public Set<UUID> getSubset2(TemplateProxyData model, RMatrixMiniPrelim rmatrix) {
         if (mode == FilterMode.ONE_STEP) {
             return new HashSet<>();
         }
@@ -344,7 +344,7 @@ public class FilterState {
      * @param rmatrix The RMatrixMini for AG and validation queries
      * @return Set of UUIDs for subset3, or empty set if not in THREE_STEP
      */
-    public Set<UUID> getSubset3(TemplateProxyData model, RMatrixMini rmatrix) {
+    public Set<UUID> getSubset3(TemplateProxyData model, RMatrixMiniPrelim rmatrix) {
         if (mode != FilterMode.THREE_STEP) {
             return new HashSet<>();
         }
@@ -404,7 +404,7 @@ public class FilterState {
      * @param rmatrix The RMatrixMini for querying AG assignments
      * @return Filtered subset containing only shapes with multiple AG assignments
      */
-    private Set<UUID> filterForMultipleAGs(Set<UUID> subset, RMatrixMini rmatrix) {
+    private Set<UUID> filterForMultipleAGs(Set<UUID> subset, RMatrixMiniPrelim rmatrix) {
         Set<UUID> result = new HashSet<>();
         for (UUID uuid : subset) {
             Set<Integer> ags = rmatrix.getDrawObjAGs(uuid);
@@ -426,7 +426,7 @@ public class FilterState {
      * @param rmatrix The RMatrixMini for querying spread violations
      * @return Filtered subset containing only shapes outside spreads
      */
-    private Set<UUID> filterForWithinSpreads(Set<UUID> subset, RMatrixMini rmatrix) {
+    private Set<UUID> filterForWithinSpreads(Set<UUID> subset, RMatrixMiniPrelim rmatrix) {
         // TODO: Implement spread checking logic using AnchorPattern
         // This requires access to the AnchorPattern and its Spread data
         // For now, return the subset unchanged
@@ -440,7 +440,7 @@ public class FilterState {
      * @param rmatrix The RMatrixMini for querying AG assignments
      * @return Filtered subset containing only shapes with no AG assignment
      */
-    private Set<UUID> filterForNoAGAssigned(Set<UUID> subset, RMatrixMini rmatrix) {
+    private Set<UUID> filterForNoAGAssigned(Set<UUID> subset, RMatrixMiniPrelim rmatrix) {
         Set<UUID> result = new HashSet<>();
         for (UUID uuid : subset) {
             Set<Integer> ags = rmatrix.getDrawObjAGs(uuid);

@@ -2,8 +2,7 @@ package com.csurf.huepattern.service;
 
 import java.util.logging.Logger;
 import com.csurf.templatecore.model.Template;
-import com.csurf.huepattern.model.RMatrixMini;
-import com.csurf.huepattern.model.AnchorPattern;
+import com.csurf.huepattern.model.RMatrixMiniPrelim;
 import com.csurf.huepattern.model.proxy.TemplateProxyData;
 
 /**
@@ -109,7 +108,7 @@ public class TemplateProxyDataService {
 	 * @param sourceRMatrix the source RMatrixMini from TemplateWorkFrame
 	 * @throws IllegalArgumentException if proxyData or sourceRMatrix is null
 	 */
-	public static void synchronizeWithTemplateWorkFrame(TemplateProxyData proxyData, RMatrixMini sourceRMatrix) {
+	public static void synchronizeWithTemplateWorkFrame(TemplateProxyData proxyData, RMatrixMiniPrelim sourceRMatrix) {
 		if (proxyData == null) {
 			throw new IllegalArgumentException("TemplateProxyData cannot be null");
 		}
@@ -120,7 +119,7 @@ public class TemplateProxyDataService {
 		logger.info("TemplateProxyDataService: Synchronizing AG assignments from TemplateWorkFrame");
 		
 		// Copy AG assignments from source to destination
-		RMatrixMini destRMatrix = proxyData.getRMatrixMini();
+		RMatrixMiniPrelim destRMatrix = proxyData.getRMatrixMini();
 		
 		// For each AG, copy the members
 		for (int agNum = 1; agNum <= 4; agNum++) {

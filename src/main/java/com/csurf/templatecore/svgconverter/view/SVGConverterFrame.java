@@ -127,8 +127,6 @@ public class SVGConverterFrame extends JFrame {
         // Add Templates menu
         JMenu templatesMenu = new JMenu("Templates");
         JMenuItem saveTemplateItem = new JMenuItem("Save Template");
-        JMenuItem doNotOpenTemplateItem = new JMenuItem("Open Template -DO NOT"); // TODO 062425 this goes against DESIGN INTENT. Need to remove this menuItem
-
         saveTemplateItem.addActionListener(e -> {
             Template noNameTemplate = createNoNameTemplate();
             JFileChooser fileChooser = new JFileChooser(StorageConfig.getTemplatesPath().toFile());
@@ -155,30 +153,8 @@ public class SVGConverterFrame extends JFrame {
             }
         });
 
-        doNotOpenTemplateItem.addActionListener(e -> {
-            JFileChooser fileChooser = new JFileChooser(StorageConfig.getTemplatesPath().toFile());
-            fileChooser.setDialogTitle("Ill-Advised: Open Template");
-            fileChooser.setFileFilter(new FileNameExtensionFilter("JSON files (*.json)", "json"));
-            
-            int result = fileChooser.showOpenDialog(this);
-            if (result == JFileChooser.APPROVE_OPTION) {
-                File file = fileChooser.getSelectedFile();
-                String name = file.getName();
-                if (name.toLowerCase().endsWith(".json")) {
-                    name = name.substring(0, name.length() - 5);
-                }
-                Template template = new TemplateStorage(appMediator).loadTemplate(name);
-                if (template != null) {
-                    // Clear existing list
-                    listModel.clear();
-                    // Add loaded template's DrawObjs
-                    template.getAllDrawObjs().forEach(listModel::addElement);
-                }
-            }
-        });
 
         templatesMenu.add(saveTemplateItem);
-        templatesMenu.add(doNotOpenTemplateItem);
         menuBar.add(templatesMenu);
         
         setJMenuBar(menuBar);

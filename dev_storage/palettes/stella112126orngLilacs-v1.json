@@ -1,0 +1,152 @@
+{
+  "size" : 21,
+  "colorPtOstdotArray" : [ {
+    "hueNum" : 12,
+    "column" : 4,
+    "step" : 4,
+    "fillOrderNum" : 14,
+    "seriesW" : 3,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 9,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 12,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 7,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 9,
+    "column" : 2,
+    "step" : 1,
+    "fillOrderNum" : 2,
+    "seriesW" : 0,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 12,
+    "column" : 7,
+    "step" : 7,
+    "fillOrderNum" : 17,
+    "seriesW" : 6,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 9,
+    "column" : 5,
+    "step" : 5,
+    "fillOrderNum" : 15,
+    "seriesW" : 4,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 7,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 5,
+    "column" : 4,
+    "step" : 4,
+    "fillOrderNum" : 14,
+    "seriesW" : 3,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 7,
+    "column" : 4,
+    "step" : 4,
+    "fillOrderNum" : 14,
+    "seriesW" : 3,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 5,
+    "column" : 2,
+    "step" : 1,
+    "fillOrderNum" : 2,
+    "seriesW" : 0,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 12,
+    "column" : 9,
+    "step" : 9,
+    "fillOrderNum" : 19,
+    "seriesW" : 8,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 5,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 12,
+    "column" : 8,
+    "step" : 8,
+    "fillOrderNum" : 18,
+    "seriesW" : 7,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 5,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 7,
+    "column" : 4,
+    "step" : 4,
+    "fillOrderNum" : 14,
+    "seriesW" : 3,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 12,
+    "column" : 10,
+    "step" : 10,
+    "fillOrderNum" : 20,
+    "seriesW" : 9,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 12,
+    "column" : 7,
+    "step" : 7,
+    "fillOrderNum" : 17,
+    "seriesW" : 6,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 5,
+    "column" : 9,
+    "step" : 9,
+    "fillOrderNum" : 19,
+    "seriesW" : 8,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 9,
+    "column" : 10,
+    "step" : 10,
+    "fillOrderNum" : 20,
+    "seriesW" : 9,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 3,
+    "column" : 4,
+    "step" : 4,
+    "fillOrderNum" : 14,
+    "seriesW" : 3,
+    "seriesB" : 0
+  } ],
+  "paletteName" : "stella112126orngLilacs-v1"
+}

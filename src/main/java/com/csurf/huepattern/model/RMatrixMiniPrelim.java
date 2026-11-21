@@ -4,7 +4,7 @@ import com.csurf.ostwald.domainmonotri.model.ColorPtOstDot;
 import com.csurf.templatecore.model.DrawObj;
 import com.csurf.templatecore.model.PaletteWName;
 import com.csurf.templatecore.model.Template;
-import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -41,8 +41,8 @@ import java.util.logging.Logger;
  * All data is now keyed by DrawObj UUID instead of array indices, making the system safe from reordering,
  * deletion, and composition operations.
  */
-public class RMatrixMini {
-    private static final Logger logger = Logger.getLogger(RMatrixMini.class.getName());
+public class RMatrixMiniPrelim {
+    private static final Logger logger = Logger.getLogger(RMatrixMiniPrelim.class.getName());
     
     Template theTemplate;
     int numDrawObjs = 0;
@@ -67,7 +67,7 @@ public class RMatrixMini {
 
 
     // constructor
-    public RMatrixMini(Template theTemplate) {
+    public RMatrixMiniPrelim(Template theTemplate) {
         this.theTemplate = theTemplate;
         numDrawObjs = theTemplate.getDrawObjRoster().getNumDrawObjs();
         logger.info("RMatrixMini constructor: Creating with " + numDrawObjs + " DrawObjs");
