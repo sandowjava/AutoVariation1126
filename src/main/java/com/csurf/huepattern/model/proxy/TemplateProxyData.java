@@ -7,7 +7,7 @@ import java.util.HashSet;
 import com.csurf.templatecore.model.Template;
 import com.csurf.templatecore.model.DrawObj;
 import com.csurf.huepattern.model.RMatrixMiniPrelim;
-import com.csurf.huepattern.model.AnchorPattern;
+import com.csurf.huepattern.model.AnchorPatternPrelim;
 import com.csurf.templatecore.model.PaletteWName;
 import com.csurf.ostwald.domainmonotri.model.ColorPtOstDot;
 import com.csurf.ostwald.domainmonotri.model.HueNumGUI;
@@ -56,7 +56,7 @@ public class TemplateProxyData {
 	private ShapeObjRoster shapeObjRoster;
 	private PaletteWName palette;
 	private RMatrixMiniPrelim rmatrix;
-	private AnchorPattern anchorPattern;
+	private AnchorPatternPrelim anchorPatternPrelim;
 	private boolean validatedAllAGs;
 	
 	// ============================================================================
@@ -85,7 +85,7 @@ public class TemplateProxyData {
 		this.shapeObjRoster = new ShapeObjRoster(template.getDrawObjRoster());
 		this.palette = template.getDrawObjRoster().getCurrPalette();
 		this.rmatrix = new RMatrixMiniPrelim(template);
-		this.anchorPattern = new AnchorPattern();
+		this.anchorPatternPrelim = new AnchorPatternPrelim();
 		this.validatedAllAGs = false;
 	}
 	
@@ -134,8 +134,8 @@ public class TemplateProxyData {
 	 * 
 	 * @return the AnchorPattern
 	 */
-	public AnchorPattern getAnchorPattern() {
-		return anchorPattern;
+	public AnchorPatternPrelim getAnchorPattern() {
+		return anchorPatternPrelim;
 	}
 	
 	/**
@@ -167,14 +167,14 @@ public class TemplateProxyData {
 	/**
 	 * Sets the AnchorPattern instance.
 	 * 
-	 * @param anchorPattern the new AnchorPattern
+	 * @param anchorPatternPrelim the new AnchorPattern
 	 * @throws IllegalArgumentException if anchorPattern is null
 	 */
-	public void setAnchorPattern(AnchorPattern anchorPattern) {
-		if (anchorPattern == null) {
+	public void setAnchorPattern(AnchorPatternPrelim anchorPatternPrelim) {
+		if (anchorPatternPrelim == null) {
 			throw new IllegalArgumentException("AnchorPattern cannot be null");
 		}
-		this.anchorPattern = anchorPattern;
+		this.anchorPatternPrelim = anchorPatternPrelim;
 	}
 	
 	/**

@@ -234,8 +234,8 @@ public class WorkingAnchorPatternState {
      * This is used when saving or applying the working state.
      * @return A new AnchorPattern created from the working state
      */
-    public AnchorPattern toAnchorPattern() {
-        AnchorPattern pattern = new AnchorPattern();
+    public AnchorPatternPrelim toAnchorPattern() {
+        AnchorPatternPrelim pattern = new AnchorPatternPrelim();
         
         // Count how many AGs have data
         int apLevel = 0;
@@ -249,8 +249,8 @@ public class WorkingAnchorPatternState {
         for (int i = 0; i < apLevel; i++) {
             if (workingSpreadData[i] != null) {
                 WorkingSpreadData data = workingSpreadData[i];
-                Spread spread = new Spread(i + 1, data.anchorHue, data.cCWLimitHue, data.cWLimitHue);
-                pattern.setSpread(i + 1, spread);
+                SpreadPrelim spreadPrelim = new SpreadPrelim(i + 1, data.anchorHue, data.cCWLimitHue, data.cWLimitHue);
+                pattern.setSpread(i + 1, spreadPrelim);
             }
         }
         

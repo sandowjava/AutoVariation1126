@@ -1,6 +1,6 @@
 package com.csurf.huepattern.controller;
 
-import com.csurf.huepattern.model.AnchorPattern;
+import com.csurf.huepattern.model.AnchorPatternPrelim;
 import com.csurf.huepattern.model.WorkingAnchorPatternState;
 import com.csurf.huepattern.view.AGChoicePanel;
 import com.csurf.huepattern.view.AGRingDisplayState;
@@ -130,7 +130,7 @@ public class AnchorPatternEditController {
      */
     public void handleUpdateDisplayButton(Object apDisplayPanel) {
         // Convert working state to AnchorPattern
-        AnchorPattern newPattern = workingState.toAnchorPattern();
+        AnchorPatternPrelim newPattern = workingState.toAnchorPattern();
         
         // Load into display state
         displayState.loadFromAnchorPattern(newPattern);

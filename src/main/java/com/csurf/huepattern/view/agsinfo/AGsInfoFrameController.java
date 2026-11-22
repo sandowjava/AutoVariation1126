@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import com.csurf.templatecore.model.DrawObj;
 import com.csurf.templatecore.model.Template;
 import com.csurf.huepattern.model.RMatrixMiniPrelim;
-import com.csurf.huepattern.model.AnchorPattern;
+import com.csurf.huepattern.model.AnchorPatternPrelim;
 import com.csurf.huepattern.model.proxy.TemplateProxyData;
 
 /**
@@ -111,10 +111,10 @@ public class AGsInfoFrameController {
 		logger.info("AGsInfoFrameController: Validating all AGs");
 		
 		TemplateProxyData proxyData = frame.getTemplateProxyData();
-		AnchorPattern anchorPattern = proxyData.getAnchorPattern();
+		AnchorPatternPrelim anchorPatternPrelim = proxyData.getAnchorPattern();
 		RMatrixMiniPrelim rmatrix = proxyData.getRMatrixMini();
 		
-		boolean isValid = anchorPattern.isValidForRMatrixMini(rmatrix);
+		boolean isValid = anchorPatternPrelim.isValidForRMatrixMini(rmatrix);
 		
 		if (isValid) {
 			logger.info("AGsInfoFrameController: All AGs are properly configured");

@@ -2,7 +2,7 @@ package com.csurf.huepattern.model;
 
 import com.csurf.huepattern.util.HueCircleStepCalc;
 
-public class Spread {
+public class SpreadPrelim {
     private final int theGroupNum;
     private final int theAnchorHueNum;
     private final int theStepNumCCW;
@@ -15,7 +15,7 @@ public class Spread {
 
 
 
-    public Spread(int someGroupNum, int anchorStepNum, int actualStepNumCCW, int actualStepNumCW) {
+    public SpreadPrelim(int someGroupNum, int anchorStepNum, int actualStepNumCCW, int actualStepNumCW) {
         // setTheAnchGroupNum(anchGroupNum);
         theGroupNum = someGroupNum; // 030424 changed to make the field immutable (see "final" in field declaration)
         theAnchorHueNum = anchorStepNum; // 030424 changed to make the field immutable (see "final" in field declaration)

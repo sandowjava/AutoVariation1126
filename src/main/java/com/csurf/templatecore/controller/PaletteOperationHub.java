@@ -1,6 +1,7 @@
 package com.csurf.templatecore.controller;
 
 import com.csurf.ostwald.domainmonotri.model.ColorPtOstDot;
+import com.csurf.ostwald.domainmonotri.model.HueNumGUI;
 import com.csurf.templatecore.events.IPositionalPaletteEventListener;
 import com.csurf.templatecore.events.PositionalPaletteEvent;
 import com.csurf.templatecore.model.*;
@@ -198,7 +199,69 @@ public class PaletteOperationHub {
         // Delegate to TemplatePaletteShift to handle the actual color transformation
         templatePaletteShift.recolorByHueRotateShift(selectionGroup, shiftSpecify, drawObjRoster, callback);
     }
-    
+
+    // ========== SUBSET-TO-HUE ASSIGNMENT OPERATION ==========
+
+    /**
+     * Recolors all DrawObjs in an arbitrary subset to a single absolute target hue,
+     * preserving each DrawObj's Ostwald fill-order position.
+     *
+     * This is the primitive behind the "Go to N hues" functionality. Unlike the
+     * shift operations above, the subset is supplied by the caller rather than
+     * taken from the live selection — it may be a selection snapshot, a computed
+     * remainder of unassigned DrawObjs, or the entire roster.
+     *
+     * This method:
+     * 1. Validates the subset and target hue
+     * 2. Creates a callback to handle the result
+     * 3. Delegates to TemplatePaletteShift.recolorSubsetToHue()
+     * 4. Fires the standard COLOR_CHANGE event on completion
+     *
+     * @param subset The set of DrawObjs to recolor (any subset of the roster)
+     * @param targetHueNumGUI The target hue (HueNumGUI wraps user-facing 1-36)
+     * @return true if the operation was delegated, false if the subset was empty
+     * @throws IllegalArgumentException if targetHueNumGUI is null
+     *
+     * @see HueRotateCallback
+     */
+    public boolean recolorSubsetToHue(Set<DrawObj> subset, HueNumGUI targetHueNumGUI) {
+        if (targetHueNumGUI == null) {
+            throw new IllegalArgumentException("Target HueNumGUI cannot be null");
+        }
+
+        // Skip if the subset is empty
+        if (subset == null || subset.isEmpty()) {
+            logger.fine("No DrawObjs in subset for hue assignment operation");
+            return false;
+        }
+
+        // Create callback to fire event after the assignment completes
+        HueRotateCallback callback = new HueRotateCallback() {
+            @Override
+            public void onRotateComplete(SelectionGroup result) {
+                logger.fine("Subset hue assignment completed for " +
+                    result.getSelectedDrawObjsSet().size() + " objects");
+
+                // Fire event to notify listeners of color change
+                fireEvent(new PositionalPaletteEvent(
+                    drawObjRoster,
+                    PositionalPaletteEvent.EventType.COLOR_CHANGE,
+                    drawObjRoster
+                ));
+            }
+
+            @Override
+            public void onRotateError(String errorMessage) {
+                logger.warning("Subset hue assignment failed: " + errorMessage);
+            }
+        };
+
+        // Delegate to TemplatePaletteShift with a defensive copy of the subset
+        templatePaletteShift.recolorSubsetToHue(
+            new java.util.HashSet<>(subset), targetHueNumGUI, drawObjRoster, callback);
+        return true;
+    }
+
     // ========== EQUAL-VALUE HUE ROTATION OPERATION ==========
     
     /**

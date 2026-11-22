@@ -1,7 +1,7 @@
 package com.csurf.huepattern.view;
 
-import com.csurf.huepattern.model.AnchorPattern;
-import com.csurf.huepattern.model.Spread;
+import com.csurf.huepattern.model.AnchorPatternPrelim;
+import com.csurf.huepattern.model.SpreadPrelim;
 
 /**
  * Proxy data structure for holding the current display state of an AnchorPattern.
@@ -40,19 +40,19 @@ public class AGRingDisplayState {
     
     /**
      * Creates a DisplayState from an AnchorPattern.
-     * @param anchorPattern The AnchorPattern to load
+     * @param anchorPatternPrelim The AnchorPattern to load
      */
-    public void loadFromAnchorPattern(AnchorPattern anchorPattern) {
-        this.apLevel = anchorPattern.getTheAPLevel();
+    public void loadFromAnchorPattern(AnchorPatternPrelim anchorPatternPrelim) {
+        this.apLevel = anchorPatternPrelim.getTheAPLevel();
         this.spreadData = new SpreadData[4];
         
-        Spread[] spreads = anchorPattern.getTheSpreadArray();
+        SpreadPrelim[] spreadPrelims = anchorPatternPrelim.getTheSpreadArray();
         for (int i = 0; i < apLevel; i++) {
-            if (spreads[i] != null) {
+            if (spreadPrelims[i] != null) {
                 spreadData[i] = new SpreadData(
-                    spreads[i].getCCWLimitHueNum(),
-                    spreads[i].getAnchorHueNum(),
-                    spreads[i].getCWLimitHueNum()
+                    spreadPrelims[i].getCCWLimitHueNum(),
+                    spreadPrelims[i].getAnchorHueNum(),
+                    spreadPrelims[i].getCWLimitHueNum()
                 );
             }
         }

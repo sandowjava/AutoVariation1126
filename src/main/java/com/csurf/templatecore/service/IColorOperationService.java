@@ -1,6 +1,10 @@
 package com.csurf.templatecore.service;
 
+import java.util.Set;
+
+import com.csurf.ostwald.domainmonotri.model.HueNumGUI;
 import com.csurf.templatecore.model.BaselineValueSatModel;
+import com.csurf.templatecore.model.DrawObj;
 import com.csurf.templatecore.model.ShiftSpecify;
 
 /**
@@ -60,6 +64,22 @@ public interface IColorOperationService {
      */
     void shiftSelectedForEVHueRotation(int someRawShiftDist, boolean useRGB, 
                                        double tolerance, BaselineValueSatModel baseline);
+    
+    /**
+     * Recolors all DrawObjs in an arbitrary subset to a single absolute target hue,
+     * preserving each DrawObj's Ostwald fill-order position.
+     *
+     * This is the primitive behind the "Go to N hues" functionality. Unlike the
+     * shift operations, the subset is supplied by the caller rather than taken
+     * from the live selection — it may be a selection snapshot, a computed
+     * remainder of unassigned DrawObjs, or the entire roster.
+     *
+     * @param subset The set of DrawObjs to recolor (any subset of the roster)
+     * @param targetHueNumGUI The target hue (HueNumGUI wraps user-facing 1-36)
+     * @return true if the operation was delegated, false if the subset was empty
+     * @throws IllegalArgumentException if targetHueNumGUI is null
+     */
+    boolean recolorSubsetToHue(Set<DrawObj> subset, HueNumGUI targetHueNumGUI);
     
     /**
      * Load a new palette by applying colors to all DrawObjs in the template.

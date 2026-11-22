@@ -2,7 +2,7 @@ package com.csurf.huepattern.view;
 
 import com.csurf.huepattern.controller.AnchorPatternEditController;
 import com.csurf.huepattern.controller.DialMouseController;
-import com.csurf.huepattern.model.AnchorPattern;
+import com.csurf.huepattern.model.AnchorPatternPrelim;
 import com.csurf.huepattern.model.WorkingAnchorPatternState;
 
 /**
@@ -40,13 +40,13 @@ public class AnchorPatternFrameMediator {
      * @param agChoicePanel The AGChoicePanel for AG selection
      * @param attributeChoicePanel The AttributeChoicePanel for attribute selection
      * @param displayState The AGRingDisplayState for display state
-     * @param initialAnchorPattern The initial AnchorPattern to load
+     * @param initialAnchorPatternPrelim The initial AnchorPattern to load
      */
     public AnchorPatternFrameMediator(APDisplayPanel apDisplayPanel,
                                       AGChoicePanel agChoicePanel,
                                       AttributeChoicePanel attributeChoicePanel,
                                       AGRingDisplayState displayState,
-                                      AnchorPattern initialAnchorPattern) {
+                                      AnchorPatternPrelim initialAnchorPatternPrelim) {
         // Validate inputs
         if (apDisplayPanel == null) {
             throw new IllegalArgumentException("APDisplayPanel cannot be null");
@@ -68,8 +68,8 @@ public class AnchorPatternFrameMediator {
         this.displayState = displayState;
         
         // Initialize display state with initial pattern
-        if (initialAnchorPattern != null) {
-            displayState.loadFromAnchorPattern(initialAnchorPattern);
+        if (initialAnchorPatternPrelim != null) {
+            displayState.loadFromAnchorPattern(initialAnchorPatternPrelim);
         }
         
         // Create working state from display state

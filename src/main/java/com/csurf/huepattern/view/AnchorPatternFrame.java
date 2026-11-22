@@ -3,7 +3,7 @@ package com.csurf.huepattern.view;
 import javax.swing.*;
 import java.awt.*;
 import java.util.logging.Logger;
-import com.csurf.huepattern.model.AnchorPattern;
+import com.csurf.huepattern.model.AnchorPatternPrelim;
 import com.csurf.huepattern.model.proxy.TemplateProxyData;
 import com.csurf.templatecore.model.Template;
 
@@ -126,7 +126,7 @@ public class AnchorPatternFrame extends JFrame {
      * 
      * @return the AnchorPattern, or null if in INFORMATIONAL mode
      */
-    public AnchorPattern getAnchorPattern() {
+    public AnchorPatternPrelim getAnchorPattern() {
         if (mode == Mode.INFORMATIONAL) {
             return null;
         }
@@ -165,9 +165,9 @@ public class AnchorPatternFrame extends JFrame {
         
         // Create the mediator to orchestrate all components
         // The mediator will wire up the dial, controllers, and state management
-        AnchorPattern initialPattern = (mode == Mode.OPERATIONAL) 
+        AnchorPatternPrelim initialPattern = (mode == Mode.OPERATIONAL)
             ? templateProxyData.getAnchorPattern() 
-            : AnchorPattern.createDefault();
+            : AnchorPatternPrelim.createDefault();
         
         mediator = new AnchorPatternFrameMediator(
             apDisplayPanel,

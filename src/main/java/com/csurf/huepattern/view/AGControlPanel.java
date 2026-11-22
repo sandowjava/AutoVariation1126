@@ -1,6 +1,6 @@
 package com.csurf.huepattern.view;
 
-import com.csurf.huepattern.model.AnchorPattern;
+import com.csurf.huepattern.model.AnchorPatternPrelim;
 
 import javax.swing.*;
 import java.awt.*;
@@ -32,7 +32,7 @@ public class AGControlPanel extends JPanel {
         
         // Initialize DisplayState with default AnchorPattern
         AGRingDisplayState = new AGRingDisplayState();
-        AnchorPattern defaultPattern = AnchorPattern.createDefault();
+        AnchorPatternPrelim defaultPattern = AnchorPatternPrelim.createDefault();
         AGRingDisplayState.loadFromAnchorPattern(defaultPattern);
         
         // Initialize sub-panels
@@ -89,7 +89,7 @@ public class AGControlPanel extends JPanel {
     /**
      * Loads a new AnchorPattern into the DisplayState.
      */
-    public void loadAnchorPattern(AnchorPattern anchorPattern) {
-        AGRingDisplayState.loadFromAnchorPattern(anchorPattern);
+    public void loadAnchorPattern(AnchorPatternPrelim anchorPatternPrelim) {
+        AGRingDisplayState.loadFromAnchorPattern(anchorPatternPrelim);
     }
 } // end class AGControlPanel

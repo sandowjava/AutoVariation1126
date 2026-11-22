@@ -6,7 +6,7 @@ import java.util.UUID;
 import com.csurf.templatecore.model.DrawObj;
 import com.csurf.templatecore.model.DrawObjRoster;
 import com.csurf.huepattern.model.RMatrixMiniPrelim;
-import com.csurf.huepattern.model.AnchorPattern;
+import com.csurf.huepattern.model.AnchorPatternPrelim;
 import com.csurf.huepattern.model.proxy.TemplateProxyData;
 
 /**
@@ -93,7 +93,7 @@ public class AnchorPatternRecolorService {
 		
 		// Get data references
 		RMatrixMiniPrelim rmatrix = proxyData.getRMatrixMini();
-		AnchorPattern anchorPattern = proxyData.getAnchorPattern();
+		AnchorPatternPrelim anchorPatternPrelim = proxyData.getAnchorPattern();
 		
 		// Recolor all DrawObjs
 		try {
@@ -135,19 +135,19 @@ public class AnchorPatternRecolorService {
 	 * 
 	 * @param drawObjRoster the DrawObjRoster to recolor
 	 * @param rmatrix the RMatrixMini with AG assignments
-	 * @param anchorPattern the AnchorPattern with spreads
+	 * @param anchorPatternPrelim the AnchorPattern with spreads
 	 * @return true if recoloring succeeded, false if validation failed
 	 * @throws IllegalArgumentException if any parameter is null
 	 */
-	public static boolean recolorByAnchorPattern(DrawObjRoster drawObjRoster, RMatrixMiniPrelim rmatrix, AnchorPattern anchorPattern) {
-		if (drawObjRoster == null || rmatrix == null || anchorPattern == null) {
+	public static boolean recolorByAnchorPattern(DrawObjRoster drawObjRoster, RMatrixMiniPrelim rmatrix, AnchorPatternPrelim anchorPatternPrelim) {
+		if (drawObjRoster == null || rmatrix == null || anchorPatternPrelim == null) {
 			throw new IllegalArgumentException("Parameters cannot be null");
 		}
 		
 		logger.info("AnchorPatternRecolorService: Starting recoloring by AnchorPattern (Template mode)");
 		
 		// Validate configuration
-		if (!anchorPattern.isValidForRMatrixMini(rmatrix)) {
+		if (!anchorPatternPrelim.isValidForRMatrixMini(rmatrix)) {
 			logger.warning("AnchorPatternRecolorService: Configuration validation failed");
 			return false;
 		}
@@ -203,19 +203,19 @@ public class AnchorPatternRecolorService {
 		}
 		
 		RMatrixMiniPrelim rmatrix = proxyData.getRMatrixMini();
-		AnchorPattern anchorPattern = proxyData.getAnchorPattern();
+		AnchorPatternPrelim anchorPatternPrelim = proxyData.getAnchorPattern();
 		
 		if (rmatrix == null) {
 			logger.warning("AnchorPatternRecolorService: RMatrixMini is null");
 			return false;
 		}
 		
-		if (anchorPattern == null) {
+		if (anchorPatternPrelim == null) {
 			logger.warning("AnchorPatternRecolorService: AnchorPattern is null");
 			return false;
 		}
 		
-		if (!anchorPattern.isValidForRMatrixMini(rmatrix)) {
+		if (!anchorPatternPrelim.isValidForRMatrixMini(rmatrix)) {
 			logger.warning("AnchorPatternRecolorService: AnchorPattern is not valid for RMatrixMini");
 			return false;
 		}

@@ -32,13 +32,13 @@ public class PaletteGenerator {
     private static final Logger logger = Logger.getLogger(PaletteGenerator.class.getName());
     
     RMatrixMiniPrelim theRMatrixMiniPrelim;
-    AnchorPattern theAnchorPattern;
+    AnchorPatternPrelim theAnchorPatternPrelim;
 
 
     // Constructor
-    public PaletteGenerator(RMatrixMiniPrelim someRMatrixMiniPrelim, AnchorPattern someAnchPattern) {
+    public PaletteGenerator(RMatrixMiniPrelim someRMatrixMiniPrelim, AnchorPatternPrelim someAnchPattern) {
         this.theRMatrixMiniPrelim = someRMatrixMiniPrelim;
-        this.theAnchorPattern = someAnchPattern;
+        this.theAnchorPatternPrelim = someAnchPattern;
     } // end constructor
 
 
@@ -67,7 +67,7 @@ public class PaletteGenerator {
             logger.fine("createNewPalette: AG " + agNum + " has " + currAGmembers.size() + " members");
             
             // Get the spread for this AG
-            Spread agSpread = this.theAnchorPattern.getTheSpreadArray()[agNum - 1];  // AG numbers are 1-based
+            SpreadPrelim agSpreadPrelim = this.theAnchorPatternPrelim.getTheSpreadArray()[agNum - 1];  // AG numbers are 1-based
             
             // Process each member of the AG
             for (DrawObj drawObj : currAGmembers) {
@@ -82,7 +82,7 @@ public class PaletteGenerator {
                 double proportionLocation = this.theRMatrixMiniPrelim.getProportionLocation(drawObj);
                 
                 // Calculate new hue based on proportion location and spread
-                int newCodeFacingHueNum = calcNewHueBySmarts(proportionLocation, agSpread);
+                int newCodeFacingHueNum = calcNewHueBySmarts(proportionLocation, agSpreadPrelim);
                 
                 // Get the current color to preserve fill order (brightness/saturation)
                 ColorPtOstDot currentColor = startPaletteMap.get(drawObjUUID);
@@ -134,15 +134,15 @@ public class PaletteGenerator {
 
 
 
-    private int calcNewHueBySmarts(double proportionLocation, Spread someSpread) {
-        int anchorHueNum = someSpread.getAnchorHueNum();
-        int spreadStepsCW = someSpread.getStepsAnchorToCWLimit();
-        int spreadStepsCCW = someSpread.getStepsAnchorToCCWLimit();
+    private int calcNewHueBySmarts(double proportionLocation, SpreadPrelim someSpreadPrelim) {
+        int anchorHueNum = someSpreadPrelim.getAnchorHueNum();
+        int spreadStepsCW = someSpreadPrelim.getStepsAnchorToCWLimit();
+        int spreadStepsCCW = someSpreadPrelim.getStepsAnchorToCCWLimit();
 
         int newCodeFacingHueNum = anchorHueNum;
         if(proportionLocation==0) { newCodeFacingHueNum = anchorHueNum;}
-        if(proportionLocation==1) { newCodeFacingHueNum = someSpread.getCWLimitHueNum();}
-        if(proportionLocation==-1) { newCodeFacingHueNum = someSpread.getCCWLimitHueNum();}
+        if(proportionLocation==1) { newCodeFacingHueNum = someSpreadPrelim.getCWLimitHueNum();}
+        if(proportionLocation==-1) { newCodeFacingHueNum = someSpreadPrelim.getCCWLimitHueNum();}
 
         // 110725 move to hueNum inside CCW spread - HueCircleStepCalc handles circular addition
         if(proportionLocation<0 && proportionLocation> -1) {

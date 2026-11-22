@@ -14,17 +14,17 @@ import java.util.logging.Logger;
  * by working with the RMatrixMini to determine the hue of each shape. It does not directly create a
  * palette but is used with the RMatrixMini by the palette generator.
  */
-public class AnchorPattern {
-    private static final Logger logger = Logger.getLogger(AnchorPattern.class.getName());
+public class AnchorPatternPrelim {
+    private static final Logger logger = Logger.getLogger(AnchorPatternPrelim.class.getName());
     
-    Spread[] theSpreadArray;
+    SpreadPrelim[] theSpreadPrelimArray;
     int theAPLevel = 0;
 
     /**
      * Default constructor - creates empty AnchorPattern.
      */
-    public AnchorPattern() {
-        theSpreadArray = new Spread[4];
+    public AnchorPatternPrelim() {
+        theSpreadPrelimArray = new SpreadPrelim[4];
         theAPLevel = 0;
     }
 
@@ -32,28 +32,28 @@ public class AnchorPattern {
      * Constructor for creating a default AnchorPattern with 4 anchor groups.
      * Creates spreads: AG1={35,1,3}, AG2={17,19,23}, AG3={7,9,11}, AG4={26,28,30}
      */
-    public static AnchorPattern createDefault() {
-        AnchorPattern ap = new AnchorPattern();
-        ap.theSpreadArray = new Spread[4];
+    public static AnchorPatternPrelim createDefault() {
+        AnchorPatternPrelim ap = new AnchorPatternPrelim();
+        ap.theSpreadPrelimArray = new SpreadPrelim[4];
         
         // AG1: CCW=35, Anchor=1, CW=3
-        ap.theSpreadArray[0] = new Spread(1, 1, 35, 3);
+        ap.theSpreadPrelimArray[0] = new SpreadPrelim(1, 1, 35, 3);
         
         // AG2: CCW=17, Anchor=19, CW=23
-        ap.theSpreadArray[1] = new Spread(2, 19, 17, 23);
+        ap.theSpreadPrelimArray[1] = new SpreadPrelim(2, 19, 17, 23);
         
         // AG3: CCW=7, Anchor=9, CW=11
-        ap.theSpreadArray[2] = new Spread(3, 9, 7, 11);
+        ap.theSpreadPrelimArray[2] = new SpreadPrelim(3, 9, 7, 11);
         
         // AG4: CCW=26, Anchor=28, CW=30
-        ap.theSpreadArray[3] = new Spread(4, 28, 26, 30);
+        ap.theSpreadPrelimArray[3] = new SpreadPrelim(4, 28, 26, 30);
         
         ap.theAPLevel = 4;
         return ap;
     }
 
-    public Spread[] getTheSpreadArray() {
-        return theSpreadArray;
+    public SpreadPrelim[] getTheSpreadArray() {
+        return theSpreadPrelimArray;
     }
 
     public int getTheAPLevel() {
@@ -70,37 +70,37 @@ public class AnchorPattern {
      * @param agNum the AG number (1-4)
      * @return the Spread for that AG, or null if not set or invalid AG number
      */
-    public Spread getSpread(int agNum) {
+    public SpreadPrelim getSpread(int agNum) {
         if (agNum < 1 || agNum > 4) {
             logger.warning("getSpread: Invalid AG number: " + agNum);
             return null;
         }
         
-        Spread spread = theSpreadArray[agNum - 1];
-        if (spread != null) {
+        SpreadPrelim spreadPrelim = theSpreadPrelimArray[agNum - 1];
+        if (spreadPrelim != null) {
             logger.fine("getSpread: Retrieved Spread for AG " + agNum);
         } else {
             logger.fine("getSpread: No Spread defined for AG " + agNum);
         }
-        return spread;
+        return spreadPrelim;
     } // end method getSpread
     
     /**
      * Sets the Spread for a specific AG number.
      * 
      * @param agNum the AG number (1-4)
-     * @param spread the Spread to set
+     * @param spreadPrelim the Spread to set
      * @throws IllegalArgumentException if agNum is invalid or spread is null
      */
-    public void setSpread(int agNum, Spread spread) {
+    public void setSpread(int agNum, SpreadPrelim spreadPrelim) {
         if (agNum < 1 || agNum > 4) {
             throw new IllegalArgumentException("Invalid AG number: " + agNum);
         }
-        if (spread == null) {
+        if (spreadPrelim == null) {
             throw new IllegalArgumentException("Spread cannot be null");
         }
         
-        theSpreadArray[agNum - 1] = spread;
+        theSpreadPrelimArray[agNum - 1] = spreadPrelim;
         
         // Update APLevel if this is a new spread
         if (agNum > theAPLevel) {
@@ -138,17 +138,17 @@ public class AnchorPattern {
      * Checks if a hue is within a Spread's limits.
      * 
      * @param hue the hue value (1-36)
-     * @param spread the Spread to check against
+     * @param spreadPrelim the Spread to check against
      * @return true if hue is within the spread limits (inclusive), false otherwise
      */
-    public boolean isHueWithinSpread(int hue, Spread spread) {
-        if (spread == null) {
+    public boolean isHueWithinSpread(int hue, SpreadPrelim spreadPrelim) {
+        if (spreadPrelim == null) {
             logger.warning("isHueWithinSpread: Spread is null");
             return false;
         }
         
-        int ccwLimit = spread.getCCWLimitHueNum();
-        int cwLimit = spread.getCWLimitHueNum();
+        int ccwLimit = spreadPrelim.getCCWLimitHueNum();
+        int cwLimit = spreadPrelim.getCWLimitHueNum();
         
         // Handle wrap-around at hue circle boundary (1-36)
         if (ccwLimit <= cwLimit) {

@@ -3,6 +3,8 @@ package com.csurf.templatecore.controller;
 import com.csurf.ostwald.domainmonotri.model.*;
 import com.csurf.templatecore.model.*;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -150,6 +152,100 @@ public class TemplatePaletteShift {
             logger.warning("Callback is null for recolorByHueRotateShift");
         }
     } // end method recolorByHueRotateShift
+
+
+
+    /**
+     * Recolors all DrawObjs in an arbitrary subset to a single absolute target hue,
+     * while keeping each DrawObj's position in the hue column (fill order) the same.
+     *
+     * This is the primitive operation behind the "Go to N hues" functionality:
+     * each commit produces a subset (a selection snapshot, a computed remainder,
+     * or the whole roster) and a target hue, and this method applies the recolor.
+     * For each DrawObj this is equivalent to a hue-rotation recoloring, but the
+     * overall operation is an absolute hue assignment, not a rotation.
+     *
+     * @param subset The set of DrawObjs to recolor (may be any subset of the roster)
+     * @param targetHueNumGUI The target hue as a HueNumGUI (user-facing 1-36;
+     *                        internal code hue is derived via getInternalCodeHueNum())
+     * @param drawObjRoster The DrawObjRoster that manages the DrawObjs
+     * @param callback The callback to receive the result of the operation
+     */
+    public void recolorSubsetToHue(Set<DrawObj> subset, HueNumGUI targetHueNumGUI,
+                                   DrawObjRoster drawObjRoster, HueRotateCallback callback) {
+        // Skip if the subset is empty or null
+        if (subset == null || subset.isEmpty()) {
+            if (callback != null) {
+                callback.onRotateError("No DrawObjs provided for subset hue assignment");
+            } else {
+                logger.warning("Callback is null for recolorSubsetToHue");
+            }
+            return;
+        }
+
+        if (targetHueNumGUI == null || drawObjRoster == null) {
+            if (callback != null) {
+                callback.onRotateError("Null target hue or roster for subset hue assignment");
+            } else {
+                logger.warning("Callback is null for recolorSubsetToHue");
+            }
+            return;
+        }
+
+        // Resolve the target hue's MonotriPage once for the whole subset
+        int targetCodeHueNum = targetHueNumGUI.getInternalCodeHueNum();
+        MonotriPage targetPage = MonotriBook.getInstance().getMonoTriPage(targetCodeHueNum);
+        if (targetPage == null) {
+            if (callback != null) {
+                callback.onRotateError("No MonotriPage found for hue " +
+                    targetHueNumGUI.getUserFacingHueNum());
+            } else {
+                logger.warning("Callback is null for recolorSubsetToHue");
+            }
+            return;
+        }
+
+        // Snapshot the subset so caller-side changes cannot affect iteration
+        Set<DrawObj> subsetSnapshot = new HashSet<>(subset);
+
+        for (DrawObj drawObj : subsetSnapshot) {
+            try {
+                // Get the current color and its Ostwald fill-order position
+                ColorPtOstDot currentColor = drawObj.getCurrentColor();
+                int fillOrderNum = currentColor.getFillOrderNum();
+
+                // Get the new color: same fill-order position in the target hue's page
+                ColorPtOstDot newColor = targetPage.getColorByFillOrder(fillOrderNum);
+
+                if (newColor != null) {
+                    drawObj.setColor(newColor);
+                } else {
+                    logger.warning(String.format(
+                        "No color at fillOrder %d on hue page %d; DrawObj %s unchanged",
+                        fillOrderNum, targetCodeHueNum, drawObj.getName()));
+                }
+
+                if (logger.isLoggable(Level.FINE)) {
+                    logger.fine(String.format("Recolored DrawObj %s to hue %d with fillOrder %d",
+                        drawObj.getName(), targetHueNumGUI.getUserFacingHueNum(), fillOrderNum));
+                }
+            } catch (Exception e) {
+                // Log any errors but continue processing other objects
+                logger.log(Level.SEVERE, String.format("Error recoloring DrawObj %s to hue %d: %s",
+                    drawObj.getName(), targetHueNumGUI.getUserFacingHueNum(), e.getMessage()), e);
+            }
+        }
+
+        // Update internal state of the DrawObjRoster to reflect the changes
+        drawObjRoster.updateToCurrObjState();
+
+        // Operation succeeded, invoke callback with result
+        if (callback != null) {
+            callback.onRotateComplete(new SelectionGroup(subsetSnapshot));
+        } else {
+            logger.warning("Callback is null for recolorSubsetToHue");
+        }
+    } // end method recolorSubsetToHue
 
 
 

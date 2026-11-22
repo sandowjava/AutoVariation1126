@@ -29,6 +29,7 @@ import com.csurf.templatecore.storage.TemplateStorageException;
 import com.csurf.variationmodule.controller.CreateSmartPicController;
 import com.csurf.variationmodule.controller.RelationMatrixEditorController;
 import com.csurf.variationmodule.controller.VariationDisplayController;
+import com.csurf.variationmodule.view.HueAssignLikeAGFrame;
 
 import javax.swing.*;
 import javax.swing.Timer;
@@ -206,6 +207,27 @@ public class TemplateWorkFrame extends JFrame
             paletteOperationHub.shiftSelectedForEVHueRotation(someRawShiftDist, useRGB, tolerance, baseline);
         } else {
             System.out.println("WARNING: PaletteOperationHub not initialized, cannot perform EV hue rotation");
+        }
+    }
+
+    /**
+     * Recolors all DrawObjs in an arbitrary subset to a single absolute target hue,
+     * preserving each DrawObj's Ostwald fill-order position.
+     *
+     * This is the primitive behind the "Go to N hues" functionality.
+     * Delegates to PaletteOperationHub to perform the actual color transformation.
+     *
+     * @param subset The set of DrawObjs to recolor (any subset of the roster)
+     * @param targetHueNumGUI The target hue (HueNumGUI wraps user-facing 1-36)
+     * @return true if the operation was delegated, false otherwise
+     */
+    @Override
+    public boolean recolorSubsetToHue(Set<DrawObj> subset, HueNumGUI targetHueNumGUI) {
+        if (paletteOperationHub != null) {
+            return paletteOperationHub.recolorSubsetToHue(subset, targetHueNumGUI);
+        } else {
+            System.out.println("WARNING: PaletteOperationHub not initialized, cannot perform subset hue assignment");
+            return false;
         }
     }
 
@@ -1177,6 +1199,24 @@ public class TemplateWorkFrame extends JFrame
         JMenuItem createAnchorPatternItem = new JMenuItem("Create AnchorPattern intelligence");
         createAnchorPatternItem.addActionListener(e -> startUC040Workflow());
         hueCircleMenu.add(createAnchorPatternItem);
+        
+        hueCircleMenu.addSeparator();
+        
+        JMenuItem goTo1HueItem = new JMenuItem("Go to 1 hue");
+        goTo1HueItem.addActionListener(e -> goToNHues(1));
+        hueCircleMenu.add(goTo1HueItem);
+        
+        JMenuItem goTo2HuesItem = new JMenuItem("Go to 2 hues");
+        goTo2HuesItem.addActionListener(e -> goToNHues(2));
+        hueCircleMenu.add(goTo2HuesItem);
+        
+        JMenuItem goTo3HuesItem = new JMenuItem("Go to 3 hues");
+        goTo3HuesItem.addActionListener(e -> goToNHues(3));
+        hueCircleMenu.add(goTo3HuesItem);
+        
+        JMenuItem goTo4HuesItem = new JMenuItem("Go to 4 hues");
+        goTo4HuesItem.addActionListener(e -> goToNHues(4));
+        hueCircleMenu.add(goTo4HuesItem);
         
         menuBar.add(hueCircleMenu);
 
@@ -3527,6 +3567,44 @@ public class TemplateWorkFrame extends JFrame
             ex.printStackTrace();
         }
     } // end method startUC040Workflow
+
+
+    /**
+     * Starts a "Go to N hues" session (menu items "Go to 1-4 hues").
+     *
+     * Opens the modeless HueAssignLikeAGFrame with the given anchorPatternLevel.
+     * The frame stays open alongside this window so the user can keep using the
+     * normal selection machinery between commits; each commit recolors a subset
+     * of the roster to a single hue via recolorSubsetToHue and fires the
+     * standard COLOR_CHANGE event.
+     *
+     * @param anchorPatternLevel the number of hue groups for this session (1-4)
+     */
+    private void goToNHues(int anchorPatternLevel) {
+        if (currTemplate == null) {
+            JOptionPane.showMessageDialog(this, "No template loaded. Please load a template first.");
+            return;
+        }
+        
+        if (paletteOperationHub == null) {
+            JOptionPane.showMessageDialog(this,
+                "PaletteOperationHub not initialized. Please reload the template.",
+                "Error",
+                JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        try {
+            HueAssignLikeAGFrame frame = new HueAssignLikeAGFrame(anchorPatternLevel, this);
+            frame.setVisible(true);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, 
+                "Error starting Go to " + anchorPatternLevel + " hues: " + ex.getMessage(),
+                "Error",
+                JOptionPane.ERROR_MESSAGE);
+            ex.printStackTrace();
+        }
+    } // end method goToNHues
 
 
 } // end class TemplateWorkFrame
