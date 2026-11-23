@@ -1,0 +1,174 @@
+{
+  "name" : "clovr112326cyanRedCtr-Rmatrix-v1",
+  "description" : "Tailored RMatrix generated from Template 'clovr112326cyanRedCtr-4hues-v1groups.json' with anchor hues AnchorHueSet(10,27,13,23) (AG1-AG4).",
+  "formatVersion" : 2,
+  "shapes" : [ {
+    "shape" : 1,
+    "shapeName" : "backgrSQ",
+    "drawObjId" : "2ef394de-b6df-4c78-8aa5-178684661c81",
+    "valueTarget" : 0.8784313725490196,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  }, {
+    "shape" : 2,
+    "shapeName" : "PIE-SLICE-big-TOP",
+    "drawObjId" : "063b5ed6-777a-43b8-9afa-779d4258b519",
+    "valueTarget" : 0.626093335121025,
+    "defaultAG" : 3,
+    "agPrefs" : [ 0.65, 0.05, 0.95, 0.35 ]
+  }, {
+    "shape" : 3,
+    "shapeName" : "PIE-SLICE-big-R",
+    "drawObjId" : "354cc7c5-9551-455b-8e63-f31f64e7cbe2",
+    "valueTarget" : 0.5864252675207424,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  }, {
+    "shape" : 4,
+    "shapeName" : "PIE-SLICE-big-L",
+    "drawObjId" : "e75beb8b-c36a-4a2d-9c84-26210522fbbe",
+    "valueTarget" : 0.5864252675207424,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  }, {
+    "shape" : 5,
+    "shapeName" : "PIE-SLICE-small-BTM",
+    "drawObjId" : "12a47431-49a8-464a-bb4a-011f6cfdc089",
+    "valueTarget" : 0.3606190158417848,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 6,
+    "shapeName" : "PIE-SLICE-small-L",
+    "drawObjId" : "61e25138-a431-4463-a84e-63cd53d7ba0c",
+    "valueTarget" : 0.3606190158417848,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 7,
+    "shapeName" : "PIE-SLICE-small-R",
+    "drawObjId" : "7393bc10-eedc-46e1-b70e-4b8db897aa5f",
+    "valueTarget" : 0.3606190158417848,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 8,
+    "shapeName" : "cloverPETAL-BTM",
+    "drawObjId" : "290b3779-0499-4e46-b11e-6ea6301a0a1d",
+    "valueTarget" : 0.43703786049182053,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  }, {
+    "shape" : 9,
+    "shapeName" : "cloverPETAL-L",
+    "drawObjId" : "3f4ab296-e0e7-491a-bc4f-decb96a0eefb",
+    "valueTarget" : 0.5075755673347281,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  }, {
+    "shape" : 10,
+    "shapeName" : "cloverPETAL-R",
+    "drawObjId" : "44ab373b-b4c3-4161-bdd1-3054ea8f1435",
+    "valueTarget" : 0.5075755673347281,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  }, {
+    "shape" : 11,
+    "shapeName" : "petalOUTLINE-BTM",
+    "drawObjId" : "7559b4e0-f4bc-44e0-aa68-0b391ff0f8e4",
+    "valueTarget" : 0.8346096339374056,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 12,
+    "shapeName" : "petalOUTLINE-L",
+    "drawObjId" : "045654b3-8001-4bae-8db0-8bdb509f4b8f",
+    "valueTarget" : 0.6676877071499246,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 13,
+    "shapeName" : "petalOUTLINE-R",
+    "drawObjId" : "51d41a5b-7dff-4fa3-9f45-a99083b08f6d",
+    "valueTarget" : 0.6676877071499246,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 14,
+    "shapeName" : "seed-R",
+    "drawObjId" : "09bed841-d886-4f1e-bf69-201bdece497f",
+    "valueTarget" : 0.22214912677114582,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  }, {
+    "shape" : 15,
+    "shapeName" : "seed-BTM",
+    "drawObjId" : "85c88168-6128-44c9-971d-44a47e3d215a",
+    "valueTarget" : 0.22214912677114582,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  }, {
+    "shape" : 16,
+    "shapeName" : "seed-L",
+    "drawObjId" : "76725666-2817-4a56-b6af-9ce97979b488",
+    "valueTarget" : 0.22214912677114582,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  }, {
+    "shape" : 17,
+    "shapeName" : "diamd-CNRarc-R",
+    "drawObjId" : "37509765-c2a8-4c45-bdb3-053ad834a4c7",
+    "valueTarget" : 0.5668119496235616,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 18,
+    "shapeName" : "diamd-CNRarc-L",
+    "drawObjId" : "f6b7caa6-63d1-45d1-8813-7c95449a6ab0",
+    "valueTarget" : 0.5668119496235616,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 19,
+    "shapeName" : "diamd-CNRarc-BTM",
+    "drawObjId" : "7d5ebdad-6378-40e6-bc7b-c2526e44d751",
+    "valueTarget" : 0.4589398210259567,
+    "defaultAG" : 4,
+    "agPrefs" : [ 0.05, 0.65, 0.35, 0.95 ]
+  }, {
+    "shape" : 20,
+    "shapeName" : "diamd-CNRarc-TOP",
+    "drawObjId" : "2d871772-0692-4e17-8a03-80311c1925e1",
+    "valueTarget" : 0.4589398210259567,
+    "defaultAG" : 4,
+    "agPrefs" : [ 0.05, 0.65, 0.35, 0.95 ]
+  }, {
+    "shape" : 21,
+    "shapeName" : "diamCornerBRKT-TOP",
+    "drawObjId" : "479c2949-7103-4dbe-a6e3-d630fd1f8665",
+    "valueTarget" : 0.7019890562824542,
+    "defaultAG" : 4,
+    "agPrefs" : [ 0.05, 0.65, 0.35, 0.95 ]
+  }, {
+    "shape" : 22,
+    "shapeName" : "diamCornerBRKT-BTM",
+    "drawObjId" : "ac4869ea-2f0a-4091-a0a0-ddc76fde7241",
+    "valueTarget" : 0.7019890562824542,
+    "defaultAG" : 4,
+    "agPrefs" : [ 0.05, 0.65, 0.35, 0.95 ]
+  }, {
+    "shape" : 23,
+    "shapeName" : "diamCornerBRKT-R",
+    "drawObjId" : "44ed8c28-0937-439c-a48a-2a2a3324d715",
+    "valueTarget" : 0.7019890562824542,
+    "defaultAG" : 4,
+    "agPrefs" : [ 0.05, 0.65, 0.35, 0.95 ]
+  }, {
+    "shape" : 24,
+    "shapeName" : "diamCornerBRKT-L",
+    "drawObjId" : "6a5c958a-9579-41b0-82b0-e1d004cdb281",
+    "valueTarget" : 0.7019890562824542,
+    "defaultAG" : 4,
+    "agPrefs" : [ 0.05, 0.65, 0.35, 0.95 ]
+  } ]
+}

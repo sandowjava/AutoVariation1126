@@ -9,6 +9,7 @@ import com.csurf.ostwald.domainmonotri.view.MonotriWorkFrame;
 import com.csurf.templatecore.storage.config.StorageConfig;
 import com.csurf.templatecore.svgconverter.view.SVGConverterFrame;
 import com.csurf.templatecore.view.TemplateWorkFrame;
+import com.csurf.variationmodule.controller.CreateRMatrixController;
 import com.csurf.variationmodule.controller.CreateSmartPicController;
 import com.csurf.variationmodule.controller.RelationMatrixEditorController;
 
@@ -145,6 +146,10 @@ public class ApplicFrame extends JFrame {
         JMenuItem relationMatrixEditorItem = new JMenuItem("Relation Matrix Editor");
         relationMatrixEditorItem.addActionListener(e -> openRelationMatrixEditor());
         templateMenu.add(relationMatrixEditorItem);
+
+        JMenuItem createRMatrixItem = new JMenuItem("Create RMatrix from Template");
+        createRMatrixItem.addActionListener(e -> openCreateRMatrix());
+        templateMenu.add(createRMatrixItem);
         
         // Help menu items
         JMenuItem introToAppItem = new JMenuItem("Intro to the App");
@@ -222,7 +227,13 @@ public class ApplicFrame extends JFrame {
         RelationMatrixEditorController controller = new RelationMatrixEditorController(appMediator);
         controller.launch();
         registerFrame(controller.getFrame());
-    } // end method openRelationMatrixEditor
+    }
+
+    private void openCreateRMatrix() {
+        CreateRMatrixController controller = new CreateRMatrixController(appMediator);
+        controller.launch();
+        registerFrame(controller.getFrame());
+    } // end method openCreateRMatrix
 
 
 

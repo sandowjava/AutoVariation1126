@@ -1,0 +1,153 @@
+{
+  "name" : "stella112126orngLilac-Rmatrix",
+  "description" : "Tailored RMatrix generated from Template 'stella112126orngLilacs-v1groups.json' with anchor hues AnchorHueSet(6,13,8,10) (AG1-AG4).",
+  "formatVersion" : 2,
+  "shapes" : [ {
+    "shape" : 1,
+    "shapeName" : "small-CTR-diamond",
+    "drawObjId" : "2e8dadf9-fa24-479b-b41b-b218b16141db",
+    "valueTarget" : 0.6571949057740155,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 2,
+    "shapeName" : "EYEsmallUpprLeft",
+    "drawObjId" : "96c63733-3c7a-4aee-99f2-42237a9fbc37",
+    "valueTarget" : 0.5475154324664532,
+    "defaultAG" : 4,
+    "agPrefs" : [ 0.05, 0.65, 0.35, 0.95 ]
+  }, {
+    "shape" : 3,
+    "shapeName" : "EYEsmallLwrRight",
+    "drawObjId" : "74f34ead-7008-4e3b-be19-877d569d69f7",
+    "valueTarget" : 0.5975550724331123,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 4,
+    "shapeName" : "bellArrowL",
+    "drawObjId" : "95c055e6-0d94-4148-a50c-6d9db68dc0ae",
+    "valueTarget" : 0.5973062045866239,
+    "defaultAG" : 3,
+    "agPrefs" : [ 0.65, 0.05, 0.95, 0.35 ]
+  }, {
+    "shape" : 5,
+    "shapeName" : "bellArrowR",
+    "drawObjId" : "c0c0195e-a5ba-4796-9e53-65df18dc5540",
+    "valueTarget" : 0.49169985812544664,
+    "defaultAG" : 4,
+    "agPrefs" : [ 0.05, 0.65, 0.35, 0.95 ]
+  }, {
+    "shape" : 6,
+    "shapeName" : "bellArrowBTM",
+    "drawObjId" : "5b4f4852-bf79-4a8c-b9d4-da4ecf94ee9e",
+    "valueTarget" : 0.8040704118547704,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 7,
+    "shapeName" : "bellArrowTOPchopd",
+    "drawObjId" : "fb6f2fb3-9b0b-4228-811a-535464a08992",
+    "valueTarget" : 0.6535902326639805,
+    "defaultAG" : 4,
+    "agPrefs" : [ 0.05, 0.65, 0.35, 0.95 ]
+  }, {
+    "shape" : 8,
+    "shapeName" : "biggestRINGchopd",
+    "drawObjId" : "928385ce-8b9d-43d6-a203-8b2ee751c2a0",
+    "valueTarget" : 0.5973062045866239,
+    "defaultAG" : 3,
+    "agPrefs" : [ 0.65, 0.05, 0.95, 0.35 ]
+  }, {
+    "shape" : 9,
+    "shapeName" : "ArcChopdUpprL",
+    "drawObjId" : "fcbe495f-7a6c-495c-8f0a-fa576813d4ef",
+    "valueTarget" : 0.7579378324014886,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  }, {
+    "shape" : 10,
+    "shapeName" : "ArcChopdBtmR",
+    "drawObjId" : "b5e4f0f9-6d4f-4d3d-a9b8-5cada5d0f90c",
+    "valueTarget" : 0.6909930892870941,
+    "defaultAG" : 3,
+    "agPrefs" : [ 0.65, 0.05, 0.95, 0.35 ]
+  }, {
+    "shape" : 11,
+    "shapeName" : "EYEbigUpprRight",
+    "drawObjId" : "42963250-168e-440b-9368-d1830f573f4b",
+    "valueTarget" : 0.6056665266967773,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  }, {
+    "shape" : 12,
+    "shapeName" : "EYEbigLwrLeft",
+    "drawObjId" : "6118e8d3-9ccc-4f54-83ff-b133df600b70",
+    "valueTarget" : 0.8807171503734543,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 13,
+    "shapeName" : "armHookUpprLeft",
+    "drawObjId" : "cf6df7ad-8cf1-4f2a-9d62-46db31efc61d",
+    "valueTarget" : 0.6737339587223706,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  }, {
+    "shape" : 14,
+    "shapeName" : "armHookUpprRight",
+    "drawObjId" : "59849497-5a4e-4884-9423-017fe5f077ef",
+    "valueTarget" : 0.831107671456141,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 15,
+    "shapeName" : "armHookLwrRight",
+    "drawObjId" : "daff43ba-3f44-4b6b-bc8f-70cd6516fdeb",
+    "valueTarget" : 0.6737339587223706,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  }, {
+    "shape" : 16,
+    "shapeName" : "armHookLwrLeft",
+    "drawObjId" : "b1e6624d-f242-4dda-b199-e7b197cd918e",
+    "valueTarget" : 0.6909930892870941,
+    "defaultAG" : 3,
+    "agPrefs" : [ 0.65, 0.05, 0.95, 0.35 ]
+  }, {
+    "shape" : 17,
+    "shapeName" : "LINE4petals",
+    "drawObjId" : "e9fa0bea-7e0a-46f6-85be-7ae25e768c63",
+    "valueTarget" : 0.9263091341837669,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 18,
+    "shapeName" : "LINEtopEye",
+    "drawObjId" : "dbefa697-d3d2-4470-945e-e61e22fc3dcf",
+    "valueTarget" : 0.8040704118547704,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 19,
+    "shapeName" : "LINEtopRight",
+    "drawObjId" : "54061c9a-fae7-4980-baf3-4c2bc8033823",
+    "valueTarget" : 0.9216854243884844,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  }, {
+    "shape" : 20,
+    "shapeName" : "LINEbtmLeft",
+    "drawObjId" : "d4291610-57af-4c30-b681-e4e0649339b3",
+    "valueTarget" : 0.9173323660170324,
+    "defaultAG" : 4,
+    "agPrefs" : [ 0.05, 0.65, 0.35, 0.95 ]
+  }, {
+    "shape" : 21,
+    "shapeName" : "LINEbtmEye",
+    "drawObjId" : "72f34181-960b-490e-b630-01a7ef5a9e8e",
+    "valueTarget" : 0.7579378324014886,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  } ]
+}

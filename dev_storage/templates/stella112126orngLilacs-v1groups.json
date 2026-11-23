@@ -1782,25 +1782,13 @@
         "type" : "CLOSE"
       } ]
     },
-    "hueNum" : 3,
+    "hueNum" : 5,
     "fillOrderNum" : 14
   } ],
   "theTemplateName" : "stella112126orngLilacs-v1groups",
   "drawObjRoster" : {
     "selectedDrawObjs" : [ ],
     "simplifiedDisplayEnabled" : false,
-    "occupiedPositionsWithHues" : {
-      "{\"positionNum\":1,\"column\":1,\"step\":1,\"whiteSeries\":0,\"blackSeries\":0,\"drawOrderNum\":1}" : [ 6, 8, 10, 13 ],
-      "{\"positionNum\":17,\"column\":7,\"step\":7,\"whiteSeries\":6,\"blackSeries\":0,\"drawOrderNum\":28}" : [ 13 ],
-      "{\"positionNum\":2,\"column\":2,\"step\":1,\"whiteSeries\":0,\"blackSeries\":1,\"drawOrderNum\":2}" : [ 6, 10 ],
-      "{\"positionNum\":18,\"column\":8,\"step\":8,\"whiteSeries\":7,\"blackSeries\":0,\"drawOrderNum\":36}" : [ 13 ],
-      "{\"positionNum\":19,\"column\":9,\"step\":9,\"whiteSeries\":8,\"blackSeries\":0,\"drawOrderNum\":45}" : [ 6, 13 ],
-      "{\"positionNum\":20,\"column\":10,\"step\":10,\"whiteSeries\":9,\"blackSeries\":0,\"drawOrderNum\":55}" : [ 10, 13 ],
-      "{\"positionNum\":14,\"column\":4,\"step\":4,\"whiteSeries\":3,\"blackSeries\":0,\"drawOrderNum\":10}" : [ 4, 6, 8, 13 ],
-      "{\"positionNum\":15,\"column\":5,\"step\":5,\"whiteSeries\":4,\"blackSeries\":0,\"drawOrderNum\":15}" : [ 10 ]
-    },
-    "selectedPositionsWithHues" : { },
-    "allOstPositionsForCurrPalette" : [ "{\"positionNum\":1,\"column\":1,\"step\":1,\"whiteSeries\":0,\"blackSeries\":0,\"drawOrderNum\":1}", "{\"positionNum\":17,\"column\":7,\"step\":7,\"whiteSeries\":6,\"blackSeries\":0,\"drawOrderNum\":28}", "{\"positionNum\":2,\"column\":2,\"step\":1,\"whiteSeries\":0,\"blackSeries\":1,\"drawOrderNum\":2}", "{\"positionNum\":18,\"column\":8,\"step\":8,\"whiteSeries\":7,\"blackSeries\":0,\"drawOrderNum\":36}", "{\"positionNum\":19,\"column\":9,\"step\":9,\"whiteSeries\":8,\"blackSeries\":0,\"drawOrderNum\":45}", "{\"positionNum\":20,\"column\":10,\"step\":10,\"whiteSeries\":9,\"blackSeries\":0,\"drawOrderNum\":55}", "{\"positionNum\":14,\"column\":4,\"step\":4,\"whiteSeries\":3,\"blackSeries\":0,\"drawOrderNum\":10}", "{\"positionNum\":15,\"column\":5,\"step\":5,\"whiteSeries\":4,\"blackSeries\":0,\"drawOrderNum\":15}" ],
     "numDrawObjs" : 21,
     "currPalette" : {
       "size" : 21,
@@ -1945,7 +1933,7 @@
         "seriesW" : 9,
         "seriesB" : 0
       }, {
-        "hueNum" : 3,
+        "hueNum" : 5,
         "column" : 4,
         "step" : 4,
         "fillOrderNum" : 14,
@@ -1959,8 +1947,19 @@
     },
     "occupiedPositions" : [ "{\"positionNum\":1,\"column\":1,\"step\":1,\"whiteSeries\":0,\"blackSeries\":0,\"drawOrderNum\":1}", "{\"positionNum\":17,\"column\":7,\"step\":7,\"whiteSeries\":6,\"blackSeries\":0,\"drawOrderNum\":28}", "{\"positionNum\":2,\"column\":2,\"step\":1,\"whiteSeries\":0,\"blackSeries\":1,\"drawOrderNum\":2}", "{\"positionNum\":18,\"column\":8,\"step\":8,\"whiteSeries\":7,\"blackSeries\":0,\"drawOrderNum\":36}", "{\"positionNum\":19,\"column\":9,\"step\":9,\"whiteSeries\":8,\"blackSeries\":0,\"drawOrderNum\":45}", "{\"positionNum\":20,\"column\":10,\"step\":10,\"whiteSeries\":9,\"blackSeries\":0,\"drawOrderNum\":55}", "{\"positionNum\":14,\"column\":4,\"step\":4,\"whiteSeries\":3,\"blackSeries\":0,\"drawOrderNum\":10}", "{\"positionNum\":15,\"column\":5,\"step\":5,\"whiteSeries\":4,\"blackSeries\":0,\"drawOrderNum\":15}" ],
     "selectedPositions" : [ ],
+    "occupiedPositionsWithHues" : {
+      "{\"positionNum\":1,\"column\":1,\"step\":1,\"whiteSeries\":0,\"blackSeries\":0,\"drawOrderNum\":1}" : [ 6, 8, 10, 13 ],
+      "{\"positionNum\":17,\"column\":7,\"step\":7,\"whiteSeries\":6,\"blackSeries\":0,\"drawOrderNum\":28}" : [ 13 ],
+      "{\"positionNum\":2,\"column\":2,\"step\":1,\"whiteSeries\":0,\"blackSeries\":1,\"drawOrderNum\":2}" : [ 6, 10 ],
+      "{\"positionNum\":18,\"column\":8,\"step\":8,\"whiteSeries\":7,\"blackSeries\":0,\"drawOrderNum\":36}" : [ 13 ],
+      "{\"positionNum\":19,\"column\":9,\"step\":9,\"whiteSeries\":8,\"blackSeries\":0,\"drawOrderNum\":45}" : [ 6, 13 ],
+      "{\"positionNum\":20,\"column\":10,\"step\":10,\"whiteSeries\":9,\"blackSeries\":0,\"drawOrderNum\":55}" : [ 10, 13 ],
+      "{\"positionNum\":14,\"column\":4,\"step\":4,\"whiteSeries\":3,\"blackSeries\":0,\"drawOrderNum\":10}" : [ 6, 8, 13 ],
+      "{\"positionNum\":15,\"column\":5,\"step\":5,\"whiteSeries\":4,\"blackSeries\":0,\"drawOrderNum\":15}" : [ 10 ]
+    },
+    "selectedPositionsWithHues" : { },
+    "allOstPositionsForCurrPalette" : [ "{\"positionNum\":1,\"column\":1,\"step\":1,\"whiteSeries\":0,\"blackSeries\":0,\"drawOrderNum\":1}", "{\"positionNum\":17,\"column\":7,\"step\":7,\"whiteSeries\":6,\"blackSeries\":0,\"drawOrderNum\":28}", "{\"positionNum\":2,\"column\":2,\"step\":1,\"whiteSeries\":0,\"blackSeries\":1,\"drawOrderNum\":2}", "{\"positionNum\":18,\"column\":8,\"step\":8,\"whiteSeries\":7,\"blackSeries\":0,\"drawOrderNum\":36}", "{\"positionNum\":19,\"column\":9,\"step\":9,\"whiteSeries\":8,\"blackSeries\":0,\"drawOrderNum\":45}", "{\"positionNum\":20,\"column\":10,\"step\":10,\"whiteSeries\":9,\"blackSeries\":0,\"drawOrderNum\":55}", "{\"positionNum\":14,\"column\":4,\"step\":4,\"whiteSeries\":3,\"blackSeries\":0,\"drawOrderNum\":10}", "{\"positionNum\":15,\"column\":5,\"step\":5,\"whiteSeries\":4,\"blackSeries\":0,\"drawOrderNum\":15}" ],
     "usePositionTrackers" : true,
-    "selectedMap" : { },
     "occupiedMap" : {
       "{\"positionNum\":1,\"column\":1,\"step\":1,\"whiteSeries\":0,\"blackSeries\":0,\"drawOrderNum\":1}" : [ 6, 8, 10, 13 ],
       "{\"positionNum\":17,\"column\":7,\"step\":7,\"whiteSeries\":6,\"blackSeries\":0,\"drawOrderNum\":28}" : [ 13 ],
@@ -1968,9 +1967,10 @@
       "{\"positionNum\":18,\"column\":8,\"step\":8,\"whiteSeries\":7,\"blackSeries\":0,\"drawOrderNum\":36}" : [ 13 ],
       "{\"positionNum\":19,\"column\":9,\"step\":9,\"whiteSeries\":8,\"blackSeries\":0,\"drawOrderNum\":45}" : [ 6, 13 ],
       "{\"positionNum\":20,\"column\":10,\"step\":10,\"whiteSeries\":9,\"blackSeries\":0,\"drawOrderNum\":55}" : [ 10, 13 ],
-      "{\"positionNum\":14,\"column\":4,\"step\":4,\"whiteSeries\":3,\"blackSeries\":0,\"drawOrderNum\":10}" : [ 4, 6, 8, 13 ],
+      "{\"positionNum\":14,\"column\":4,\"step\":4,\"whiteSeries\":3,\"blackSeries\":0,\"drawOrderNum\":10}" : [ 6, 8, 13 ],
       "{\"positionNum\":15,\"column\":5,\"step\":5,\"whiteSeries\":4,\"blackSeries\":0,\"drawOrderNum\":15}" : [ 10 ]
-    }
+    },
+    "selectedMap" : { }
   },
   "svgViewBox" : "0 0 100 100",
   "svgWidth" : 100.0,
@@ -1979,31 +1979,31 @@
   "originalSvgFilePath" : null,
   "namedSelectionGroups" : {
     "LINES-all (5)" : {
-      "drawObjUniqueIds" : [ "72f34181960b490eb63001a7ef5a9e8e", "d429161057af4c30b681e4e0649339b3", "e9fa0bea7e0a46f685be7ae25e768c63", "dbefa697d3d24470945ee61e22fc3dcf", "54061c9afae74980baf34c2bc8033823" ]
+      "drawObjUniqueIds" : [ "e9fa0bea7e0a46f685be7ae25e768c63", "dbefa697d3d24470945ee61e22fc3dcf", "72f34181960b490eb63001a7ef5a9e8e", "d429161057af4c30b681e4e0649339b3", "54061c9afae74980baf34c2bc8033823" ]
     },
     "bellARROWS-all (4)" : {
-      "drawObjUniqueIds" : [ "95c055e60d944148a50c6d9db68dc0ae", "c0c0195ea5ba47969e5365df18dc5540", "fb6f2fb39b0b4228811a535464a08992", "5b4f4852bf794a8cb9d4da4ecf94ee9e" ]
+      "drawObjUniqueIds" : [ "c0c0195ea5ba47969e5365df18dc5540", "95c055e60d944148a50c6d9db68dc0ae", "5b4f4852bf794a8cb9d4da4ecf94ee9e", "fb6f2fb39b0b4228811a535464a08992" ]
     },
     "smallEYES (2)" : {
       "drawObjUniqueIds" : [ "96c637333c7a4aee99f242237a9fbc37", "74f34ead70084e3bbe19877d569d69f7" ]
     },
     "ARC-bigBrokenL (2)" : {
-      "drawObjUniqueIds" : [ "fcbe495f7a6c495c8f0afa576813d4ef", "b1e6624df2424ddab199e7b197cd918e" ]
+      "drawObjUniqueIds" : [ "b1e6624df2424ddab199e7b197cd918e", "fcbe495f7a6c495c8f0afa576813d4ef" ]
     },
     "ARC-bigBrokenR (2)" : {
-      "drawObjUniqueIds" : [ "598494975a4e48849423017fe5f077ef", "b5e4f0f96d4f4d3da9b85cada5d0f90c" ]
+      "drawObjUniqueIds" : [ "b5e4f0f96d4f4d3da9b85cada5d0f90c", "598494975a4e48849423017fe5f077ef" ]
     },
     "ARC wHookEye-R (4)" : {
-      "drawObjUniqueIds" : [ "598494975a4e48849423017fe5f077ef", "42963250168e440b9368d1830f573f4b", "b5e4f0f96d4f4d3da9b85cada5d0f90c", "daff43ba3f444b6bbc8f70cd6516fdeb" ]
+      "drawObjUniqueIds" : [ "daff43ba3f444b6bbc8f70cd6516fdeb", "42963250168e440b9368d1830f573f4b", "b5e4f0f96d4f4d3da9b85cada5d0f90c", "598494975a4e48849423017fe5f077ef" ]
     },
     "semiCirc-L +RbigEyeRbell (8)" : {
-      "drawObjUniqueIds" : [ "95c055e60d944148a50c6d9db68dc0ae", "2e8dadf9fa24479bb41bb218b16141db", "42963250168e440b9368d1830f573f4b", "c0c0195ea5ba47969e5365df18dc5540", "cf6df7ad8cf14f2a9d6246db31efc61d", "b1e6624df2424ddab199e7b197cd918e", "fb6f2fb39b0b4228811a535464a08992", "5b4f4852bf794a8cb9d4da4ecf94ee9e" ]
+      "drawObjUniqueIds" : [ "42963250168e440b9368d1830f573f4b", "b1e6624df2424ddab199e7b197cd918e", "c0c0195ea5ba47969e5365df18dc5540", "cf6df7ad8cf14f2a9d6246db31efc61d", "2e8dadf9fa24479bb41bb218b16141db", "95c055e60d944148a50c6d9db68dc0ae", "5b4f4852bf794a8cb9d4da4ecf94ee9e", "fb6f2fb39b0b4228811a535464a08992" ]
     },
     "smallEyes (2)" : {
       "drawObjUniqueIds" : [ "96c637333c7a4aee99f242237a9fbc37", "74f34ead70084e3bbe19877d569d69f7" ]
     },
     "tempLINESexcludeLight (4)" : {
-      "drawObjUniqueIds" : [ "72f34181960b490eb63001a7ef5a9e8e", "d429161057af4c30b681e4e0649339b3", "dbefa697d3d24470945ee61e22fc3dcf", "54061c9afae74980baf34c2bc8033823" ]
+      "drawObjUniqueIds" : [ "dbefa697d3d24470945ee61e22fc3dcf", "72f34181960b490eb63001a7ef5a9e8e", "d429161057af4c30b681e4e0649339b3", "54061c9afae74980baf34c2bc8033823" ]
     }
   }
 }
