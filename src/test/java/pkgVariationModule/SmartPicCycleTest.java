@@ -33,7 +33,7 @@ class SmartPicCycleTest {
 
     private static final String TEMPLATE_NAME = "heroEye111726purplsFewBrwns-v1wAGs";
     private static final String AGPREFS_NAME = "authored-defaults-v1.json";
-    private static final int HUE_SET = 1;
+    private static final String HUE_SET = "04-05-02-07-legacyTableRowNum1";
 
     @Test
     void realTemplateCycle_frozenDrawObjsReinstateSlot1() {

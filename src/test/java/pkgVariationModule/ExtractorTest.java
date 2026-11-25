@@ -22,7 +22,7 @@ import java.util.Set;
 class ExtractorTest {
 
     private static final Facts FACTS = AuthoredFactsTable.instance();
-    private static final int HUE_SET = 13;
+    private static final String HUE_SET = "05-03-06-08-legacyTableRowNum13";
 
     @Test
     void palettesReinstateFrozenShapes_fromSlot1_forAllSets() {

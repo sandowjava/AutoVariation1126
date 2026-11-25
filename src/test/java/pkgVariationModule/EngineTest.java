@@ -19,11 +19,11 @@ import java.util.Set;
 class EngineTest {
 
     private static final Facts FACTS = AuthoredFactsTable.instance();
-    private static final int HUE_SET = 13;   // "very nice w yellow-tan" — a non-default row
+    private static final String AGHUE_PATTERN = "05-03-06-08-legacyTableRowNum13"; // "very nice w yellow-tan"
     private static final int FROZEN_SET = 2; // {5,6,7,19,20,21}
 
     private final ColorChangeEngine engine = new ColorChangeEngine();
-    private final List<ArtisticGoalSpec> recipe = new FrozenShapesCategory().cook(HUE_SET, FROZEN_SET);
+    private final List<ArtisticGoalSpec> recipe = new FrozenShapesCategory().cook(AGHUE_PATTERN, FROZEN_SET);
 
     // ---------- engine: bootstrap run ----------
 
@@ -38,7 +38,7 @@ class EngineTest {
         Assertions.assertTrue(result.frozenShapes().isEmpty());
         Assertions.assertSame(recipe.get(0), result.getArtGoalSpec());
 
-        // row 1 = {921(4), 555(3), 255(1)} → AGs = authored defaults; hues = hueSet[13] = (5,3,6,8)
+        // row 1 = {921(4), 555(3), 255(1)} → AGs = authored defaults; hues = AGHUE_PATTERN = (5,3,6,8)
         Assertions.assertEquals(4, result.decidedAG().get(13).intValue());      // authored defaultAG
         Assertions.assertEquals(8, result.decidedHue().get(13).getUserFacingHueNum()); // AG4 → hue 8
         Assertions.assertEquals(5, result.decidedHue().get(1).getUserFacingHueNum());  // AG1 → hue 5
@@ -57,7 +57,7 @@ class EngineTest {
                                 .bind(StratgParam.VALUE_RANGE, 0.055)),
                 new PartialGoalSpec(PartialGoalType.PG3).addStratgSpec(
                         new StratgSpec(StratgType.ASSIGN_ANCHOR_HUES)
-                                .bind(StratgParam.CONTROL_LEVEL, 3).bind(StratgParam.HUE_SET, HUE_SET)),
+                                .bind(StratgParam.CONTROL_LEVEL, 3).bind(StratgParam.AGHUE_PATTERN, AGHUE_PATTERN)),
                 new PartialGoalSpec(PartialGoalType.PG2).addStratgSpec(
                         new StratgSpec(StratgType.ASSIGN_AGS)
                                 .bind(StratgParam.CONTROL_LEVEL, 4))));

@@ -15,7 +15,7 @@ import com.csurf.variationmodule.model.SmartPicFactoryException;
 import com.csurf.variationmodule.model.TemplateVariationsResult;
 import com.csurf.variationmodule.varyengine.controller.PalettesThe12Variations;
 import com.csurf.variationmodule.varyengine.controller.VariationPaletteExtractor;
-import com.csurf.variationmodule.varyengine.model.AnchorHueSets;
+import com.csurf.variationmodule.varyengine.model.AGHuePatterns;
 import com.csurf.variationmodule.varyengine.model.Facts;
 import com.csurf.variationmodule.varyengine.model.FrozenSets;
 import com.csurf.variationmodule.varyengine.model.SmartPicFacts;
@@ -57,7 +57,7 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
     private static final String BUNDLED_AGPREFS_FILENAME = "authored-defaults-v1.json";
 
     /** Initial selections for the run-parameters dialog and the info frame. */
-    private static final int DEFAULT_HUE_SET = 18;
+    private static final String DEFAULT_AGHUE_PATTERN = "13-10-06-08-legacyTableRowNum18";
     private static final int DEFAULT_FROZEN_SET = 4;
 
     private final ApplicationMediator mediator;
@@ -72,7 +72,7 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
     private SmartPic smartPic;
 
     /** Parameters of the last variation run (or the dialog defaults). */
-    private int lastHueSet = DEFAULT_HUE_SET;
+    private String lastAgHuePattern = DEFAULT_AGHUE_PATTERN;
     private int lastFrozenSet = DEFAULT_FROZEN_SET;
 
     /**
@@ -174,20 +174,20 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
             showError("Create a SmartPic first (SmartPic menu).");
             return;
         }
-        int[] params = chooseRunParameters();
+        RunParams params = chooseRunParameters();
         if (params == null) {
             return; // user cancelled
         }
-        int hueSet = params[0];
-        int frozenSet = params[1];
-        lastHueSet = hueSet;
+        String agHuePattern = params.agHuePattern();
+        int frozenSet = params.frozenSet();
+        lastAgHuePattern = agHuePattern;
         lastFrozenSet = frozenSet;
 
         Facts facts = new SmartPicFacts(smartPic);
         PalettesThe12Variations palettes;
         try {
             List<VariationResult> results =
-                    VariationPaletteExtractor.runCleanCycle(hueSet, frozenSet, facts);
+                    VariationPaletteExtractor.runCleanCycle(agHuePattern, frozenSet, facts);
             palettes = new VariationPaletteExtractor().extract12VariationPalettes(results);
         } catch (RuntimeException e) {
             LOG.warning("Variation run failed: " + e);
@@ -212,14 +212,14 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
         VariationDisplayFrame display = new VariationDisplayFrame(
                 new TemplateVariationsResult(variationTemplates),
                 UUID.randomUUID(), "Frzn:" + frozenSet
-                +" (hueSet " + hueSet + ")" + displayName );
+                +" (" + agHuePattern + ") " + displayName );
         display.setVariationSelectionListener(
                 slot -> openVariationInWorkFrame(display, slot));
         display.setLocation(frame.getX() + frame.getWidth() + 10, frame.getY());
         display.setVisible(true);
 
-        frame.setStatus("Created 12 variations: hueSet " + hueSet
-                + ", frozenSet " + frozenSet);
+        frame.setStatus("Created 12 variations: agHuePattern '" + agHuePattern
+                + "', frozenSet " + frozenSet);
     }
 
     /** Opens the clicked variation's Template in a new TemplateWorkFrame. */
@@ -252,7 +252,7 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
             return;
         }
         SmartPicAGCtrsFrozenSetFrame infoFrame = new SmartPicAGCtrsFrozenSetFrame(
-                smartPic, lastHueSet, lastFrozenSet);
+                smartPic, lastAgHuePattern, lastFrozenSet);
         infoFrame.setLocation(frame.getX() + frame.getWidth() + 10, frame.getY());
         infoFrame.setVisible(true);
     }
@@ -288,19 +288,20 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
         return copies;
     }
 
+    /** The chosen run parameters: a canonical AGHuePattern name + a frozenSet index. */
+    private record RunParams(String agHuePattern, int frozenSet) {
+    } // end record RunParams
+
     /**
      * Minimal V1 chooser for the two cycle parameters the recipe needs:
-     * hueSet (0..24, indexes {@link AnchorHueSets}) and frozenSet (0..5,
-     * indexes {@link FrozenSets}). Returns {hueSet, frozenSet}, or null on
-     * cancel.
+     * agHuePattern (a canonical {@link AGHuePatterns} name) and frozenSet
+     * (0..5, indexes {@link FrozenSets}). Returns the chosen pair, or
+     * null on cancel.
      */
-    private int[] chooseRunParameters() {
-        Integer[] hueSetOptions = new Integer[AnchorHueSets.HUE_SET_COUNT];
-        for (int i = 0; i < hueSetOptions.length; i++) {
-            hueSetOptions[i] = i;
-        }
-        JComboBox<Integer> hueSetBox = new JComboBox<>(hueSetOptions);
-        hueSetBox.setSelectedIndex(DEFAULT_HUE_SET);
+    private RunParams chooseRunParameters() {
+        JComboBox<String> hueSetBox = new JComboBox<>(
+                AGHuePatterns.allNames().toArray(new String[0]));
+        hueSetBox.setSelectedItem(DEFAULT_AGHUE_PATTERN);
 
         Integer[] frozenSetOptions = new Integer[FrozenSets.FROZEN_SET_COUNT];
         for (int i = 0; i < frozenSetOptions.length; i++) {
@@ -310,7 +311,7 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
         frozenSetBox.setSelectedIndex(DEFAULT_FROZEN_SET);
 
         JPanel controlAGCtrsFrozenPanel = new JPanel(new GridLayout(2, 2, 6, 6));
-        controlAGCtrsFrozenPanel.add(new JLabel("hueSet (0.." + (AnchorHueSets.HUE_SET_COUNT - 1) + "):"));
+        controlAGCtrsFrozenPanel.add(new JLabel("agHuePattern (" + AGHuePatterns.count() + "):"));
         controlAGCtrsFrozenPanel.add(hueSetBox);
         controlAGCtrsFrozenPanel.add(new JLabel("frozenSet (0.." + (FrozenSets.FROZEN_SET_COUNT - 1) + "):"));
         controlAGCtrsFrozenPanel.add(frozenSetBox);
@@ -320,8 +321,8 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
         if (choice != JOptionPane.OK_OPTION) {
             return null;
         }
-        return new int[]{(Integer) hueSetBox.getSelectedItem(),
-                (Integer) frozenSetBox.getSelectedItem()};
+        return new RunParams((String) hueSetBox.getSelectedItem(),
+                (Integer) frozenSetBox.getSelectedItem());
     }
 
     // ---------- internals ----------

@@ -32,8 +32,8 @@ public class CreateRMatrixFrame extends JFrame {
     /** Guidance text shown verbatim above the assignment rows. */
     private static final String GUIDANCE_TEXT =
             "Choose hue for AG1 as central to the graphic-design focus. "
-            + "Choose the hue for AG2 as the hue which is closest to being "
-            + "complementary to AG1. Choose the hue for AG3 (from the "
+            + "Choose hue for AG2 as hue which is closest to being "
+            + "complementary to AG1. NOW choose hue for AG3 (from the "
             + "remaining 2 hues) as the hue which is closest to AG1 "
             + "(analogous considering warm/cool ranges). The last remaining "
             + "hue will be AG4, and is likely to be analogous to AG2.";

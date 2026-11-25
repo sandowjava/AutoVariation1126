@@ -11,7 +11,8 @@ import java.util.*;
  * {@code required ⊆ bound keys}. Binding an undeclared param, or a value whose
  * Java type mismatches the param's {@link ParamKind}, fails fast.
  *
- * v1 param values are Number only (Integer for INT/TABLE_KEY, Double for DOUBLE).
+ * v1 param values: Numbers (Integer for INT/TABLE_KEY, Double for DOUBLE)
+ * and Strings (NAMED_KEY — a canonical name into a named catalog).
  */
 public class StratgSpec {
 
@@ -56,6 +57,10 @@ public class StratgSpec {
         return ((Number) requireBound(param)).doubleValue();
     } // end method getDoubleParam
 
+    public String getStringParam(StratgParam param) {
+        return (String) requireBound(param);
+    } // end method getStringParam
+
     /**
      * Binds an int param (INT or TABLE_KEY kind). Returns this for chaining.
      * The cook binds open params; binding over a bound key replaces the value.
@@ -79,6 +84,18 @@ public class StratgSpec {
                             + " param on " + stratgType.getExternalId());
         } // end IF
         boundParams.put(param, value);
+        return this;
+    } // end method bind
+
+    /** Binds a String param (NAMED_KEY kind). Returns this for chaining. */
+    public StratgSpec bind(StratgParam param, String value) {
+        checkDeclared(param);
+        if (param.getKind() != ParamKind.NAMED_KEY) {
+            throw new IllegalArgumentException(
+                    param.getExternalName() + " is a " + param.getKind()
+                            + " param on " + stratgType.getExternalId());
+        } // end IF
+        boundParams.put(param, Objects.requireNonNull(value, "value"));
         return this;
     } // end method bind
 

@@ -6,9 +6,9 @@ import java.util.Optional;
 
 
 /**
- * Stratg 555 — decided AG → that AG's anchor hue from the selected
- * {@code hueSet} row of {@link AnchorHueSets} (OQ4: {@code hueSet} is
- * the aux-control kernel param indexing {@code AnchorHuesForAGsSet};
+ * Stratg 555 — decided AG → that AG's anchor hue from the {@link AGHuePattern}
+ * named by the {@code agHuePattern} param (NAMED_KEY into
+ * {@link AGHuePatterns}; OQ4: the aux-control kernel param —
  * {@code controlLevel} is vestigial — bound for provenance, inert).
  *
  * <p>Reads the decided layer; skips shapes whose AG is still
@@ -30,7 +30,9 @@ public final class AssignAnchorHuesStratg implements Stratg {
     @Override
     public void execute(StratgContext ctx, StratgSpec params) {
         StratgSupport.requireType(params, type());
-        AnchorHueSet hueSet = AnchorHueSets.get(params.getIntParam(StratgParam.HUE_SET));
+        AnchorHueSet hueSet = AGHuePatterns
+                .get(params.getStringParam(StratgParam.AGHUE_PATTERN))
+                .getAnchorHueSet();
 
         RunState state = ctx.runState();
         for (int shape : state.shapeIds()) {

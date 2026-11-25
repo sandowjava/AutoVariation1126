@@ -57,13 +57,13 @@ public final class VariationPaletteExtractor {
 
 
     /**
-     * Runs the FrozenShapes cycle: {@code cook(hueSet, frozenSet)} then
+     * Runs the FrozenShapes cycle: {@code cook(agHuePattern, frozenSet)} then
      * {@code VariationDriver.run(artGoalSpecList, facts)}. Returns results in
      * recipe order — index 0 = the bootstrap result (recipe row 1,
      * display slot 1).
      */
-    public static List<VariationResult> runCleanCycle(int hueSet, int frozenSet, Facts facts) {
-        List<ArtisticGoalSpec> artGoalSpecList = new FrozenShapesCategory().cook(hueSet, frozenSet);
+    public static List<VariationResult> runCleanCycle(String agHuePattern, int frozenSet, Facts facts) {
+        List<ArtisticGoalSpec> artGoalSpecList = new FrozenShapesCategory().cook(agHuePattern, frozenSet);
         return new VariationDriver().run(artGoalSpecList, facts);
     } // end method runCleanCycle
 

@@ -26,7 +26,7 @@ public enum StratgType {
             EnumSet.noneOf(StratgParam.class)),
 
     ASSIGN_ANCHOR_HUES(555, "555", Phase.HUE,
-            EnumSet.of(StratgParam.HUE_SET, StratgParam.CONTROL_LEVEL),
+            EnumSet.of(StratgParam.AGHUE_PATTERN, StratgParam.CONTROL_LEVEL),
             EnumSet.noneOf(StratgParam.class)),
 
     ASSIGN_OST_DOTS(255, "255", Phase.COLOR,

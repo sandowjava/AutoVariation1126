@@ -1,0 +1,153 @@
+{
+  "name" : "heroEye112326TanMauvDk-Rmtrx-v1",
+  "description" : "Tailored RMatrix generated from Template 'heroEye112326TanMauvsDk-v2wAGs.json' with anchor hues AnchorHueSet(8,13,10,11) (AG1-AG4).",
+  "formatVersion" : 2,
+  "shapes" : [ {
+    "shape" : 1,
+    "shapeName" : "noseBottom",
+    "drawObjId" : "5abdc424-959d-4899-914b-6143bb55ccfc",
+    "valueTarget" : 0.31116669740141406,
+    "defaultAG" : 4,
+    "agPrefs" : [ 0.05, 0.65, 0.35, 0.95 ]
+  }, {
+    "shape" : 2,
+    "shapeName" : "noseVerticalShadow",
+    "drawObjId" : "da2007dc-d1e4-41fd-9bec-5cc7417a94dc",
+    "valueTarget" : 0.2352574808078325,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 3,
+    "shapeName" : "noseDentMid",
+    "drawObjId" : "54c569a0-4c32-4d27-a0a8-d8832931ac35",
+    "valueTarget" : 0.34457806191566565,
+    "defaultAG" : 4,
+    "agPrefs" : [ 0.05, 0.65, 0.35, 0.95 ]
+  }, {
+    "shape" : 4,
+    "shapeName" : "eyeCornerTriangle",
+    "drawObjId" : "da991f7f-5172-4209-bd8c-9e4bc10d7cc2",
+    "valueTarget" : 0.22582784609242063,
+    "defaultAG" : 4,
+    "agPrefs" : [ 0.05, 0.65, 0.35, 0.95 ]
+  }, {
+    "shape" : 5,
+    "shapeName" : "cheekLowerRCorner",
+    "drawObjId" : "cff9c6be-88ac-4807-9c20-f1352973534a",
+    "valueTarget" : 0.34457806191566565,
+    "defaultAG" : 4,
+    "agPrefs" : [ 0.05, 0.65, 0.35, 0.95 ]
+  }, {
+    "shape" : 6,
+    "shapeName" : "underEyeCheekCtr",
+    "drawObjId" : "f3ab421b-fe4e-448e-a041-50f7e0bdafb7",
+    "valueTarget" : 0.6098929762852716,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  }, {
+    "shape" : 7,
+    "shapeName" : "cheekUprCurve",
+    "drawObjId" : "dd9e35f1-72ad-4ccb-8d0a-80df1c0377d5",
+    "valueTarget" : 0.45314842894394297,
+    "defaultAG" : 4,
+    "agPrefs" : [ 0.05, 0.65, 0.35, 0.95 ]
+  }, {
+    "shape" : 8,
+    "shapeName" : "cheekLwrCurve",
+    "drawObjId" : "23bd08fd-0978-48e0-9aa0-c0c267851928",
+    "valueTarget" : 0.44408860226195557,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 9,
+    "shapeName" : "nearNoseSloping",
+    "drawObjId" : "39eb4096-a1e6-4801-be44-bf26a7c265d4",
+    "valueTarget" : 0.5604366672316337,
+    "defaultAG" : 3,
+    "agPrefs" : [ 0.65, 0.05, 0.95, 0.35 ]
+  }, {
+    "shape" : 10,
+    "shapeName" : "nearNoseCrease",
+    "drawObjId" : "4564dedd-a65f-4462-aea0-f1c153712836",
+    "valueTarget" : 0.46805428892162876,
+    "defaultAG" : 4,
+    "agPrefs" : [ 0.05, 0.65, 0.35, 0.95 ]
+  }, {
+    "shape" : 11,
+    "shapeName" : "templeDiagUppr",
+    "drawObjId" : "5e401bab-61e2-4358-aae3-4105cfa93c07",
+    "valueTarget" : 0.3647965942427205,
+    "defaultAG" : 4,
+    "agPrefs" : [ 0.05, 0.65, 0.35, 0.95 ]
+  }, {
+    "shape" : 12,
+    "shapeName" : "underBrowOuter",
+    "drawObjId" : "9bb9de5a-f0d3-42bd-aa51-cb69c8589963",
+    "valueTarget" : 0.5672022979072365,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  }, {
+    "shape" : 13,
+    "shapeName" : "underBrowInner",
+    "drawObjId" : "b1fe74bb-d9c2-4bec-8f5d-15203aafe560",
+    "valueTarget" : 0.46663097573188944,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  }, {
+    "shape" : 14,
+    "shapeName" : "foreheadBigCtr",
+    "drawObjId" : "cd2a4703-cc0b-4a98-bfc4-41ebc307f4c8",
+    "valueTarget" : 0.46251539662849706,
+    "defaultAG" : 3,
+    "agPrefs" : [ 0.65, 0.05, 0.95, 0.35 ]
+  }, {
+    "shape" : 15,
+    "shapeName" : "noseTopRect",
+    "drawObjId" : "7f608469-c669-4a95-a793-d1ca4cfd96f2",
+    "valueTarget" : 0.4046519191869145,
+    "defaultAG" : 4,
+    "agPrefs" : [ 0.05, 0.65, 0.35, 0.95 ]
+  }, {
+    "shape" : 16,
+    "shapeName" : "eyeBrow",
+    "drawObjId" : "a22fdee7-0913-4684-af12-255bcde9ecee",
+    "valueTarget" : 0.10538817137927135,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 17,
+    "shapeName" : "eyeBallWhite",
+    "drawObjId" : "0f6f3ddf-fa29-4785-89f6-cff9a305a019",
+    "valueTarget" : 0.9685691575695572,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 18,
+    "shapeName" : "eyeLidUpper",
+    "drawObjId" : "5ba3c327-724a-43bd-9ea9-a35be0373b94",
+    "valueTarget" : 0.32220510898622373,
+    "defaultAG" : 4,
+    "agPrefs" : [ 0.05, 0.65, 0.35, 0.95 ]
+  }, {
+    "shape" : 19,
+    "shapeName" : "underEyeBag",
+    "drawObjId" : "295fecf5-1360-4715-af81-76ac65e946ef",
+    "valueTarget" : 0.5028256030492994,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  }, {
+    "shape" : 20,
+    "shapeName" : "eyePupil",
+    "drawObjId" : "69af10e0-92c2-4ad2-8509-073776a167fa",
+    "valueTarget" : 0.15460482795125197,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 21,
+    "shapeName" : "eyeLash",
+    "drawObjId" : "79c09afd-f144-457d-bf4b-c3609f9dbb41",
+    "valueTarget" : 0.15460482795125197,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  } ]
+}

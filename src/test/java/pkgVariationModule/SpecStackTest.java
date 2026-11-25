@@ -34,9 +34,9 @@ class SpecStackTest {
                 .bind(StratgParam.SECOND_PREF_LEVEL, 2);
         Assertions.assertTrue(s920.isFullySpecified());
 
-        // 555: hueSet + controlLevel (controlLevel recorded for provenance, inert in legacy)
+        // 555: agHuePattern + controlLevel (controlLevel recorded for provenance, inert in legacy)
         StratgSpec s555 = new StratgSpec(StratgType.ASSIGN_ANCHOR_HUES)
-                .bind(StratgParam.HUE_SET, 0);
+                .bind(StratgParam.AGHUE_PATTERN, "06-09-04-02-legacyTableRowNum0");
         Assertions.assertFalse(s555.isFullySpecified());
         s555.bind(StratgParam.CONTROL_LEVEL, 3);
         Assertions.assertTrue(s555.isFullySpecified());
@@ -58,7 +58,7 @@ class SpecStackTest {
     void paramKindsMatchSchema() {
         Assertions.assertEquals(ParamKind.INT, StratgParam.CONTROL_LEVEL.getKind());
         Assertions.assertEquals(ParamKind.DOUBLE, StratgParam.VALUE_RANGE.getKind());
-        Assertions.assertEquals(ParamKind.TABLE_KEY, StratgParam.HUE_SET.getKind());
+        Assertions.assertEquals(ParamKind.NAMED_KEY, StratgParam.AGHUE_PATTERN.getKind());
         Assertions.assertEquals(ParamKind.TABLE_KEY, StratgParam.FROZEN_SET.getKind());
     }
 
@@ -68,7 +68,7 @@ class SpecStackTest {
     void bindingUndeclaredParamFails() {
         StratgSpec spec = new StratgSpec(StratgType.ASSIGN_AGS); // 921 declares controlLevel only
         Assertions.assertThrows(IllegalArgumentException.class,
-                () -> spec.bind(StratgParam.HUE_SET, 3));
+                () -> spec.bind(StratgParam.AGHUE_PATTERN, "06-09-04-02-legacyTableRowNum0"));
     }
 
     @Test
@@ -104,15 +104,15 @@ class SpecStackTest {
     @Test
     void copyForCookingIsIndependentAndFillable() {
         StratgSpec open = new StratgSpec(StratgType.ASSIGN_ANCHOR_HUES)
-                .bind(StratgParam.CONTROL_LEVEL, 3); // hueSet left open — the cook fills it
+                .bind(StratgParam.CONTROL_LEVEL, 3); // agHuePattern left open — the cook fills it
 
         StratgSpec copy = open.copyForCooking();
         Assertions.assertEquals(open, copy);
         Assertions.assertNotSame(open, copy);
 
-        copy.bind(StratgParam.HUE_SET, 2); // fill the open param on the copy
+        copy.bind(StratgParam.AGHUE_PATTERN, "06-09-04-02-legacyTableRowNum0"); // fill the open param on the copy
         Assertions.assertTrue(copy.isFullySpecified());
-        Assertions.assertFalse(open.isBound(StratgParam.HUE_SET)); // original untouched
+        Assertions.assertFalse(open.isBound(StratgParam.AGHUE_PATTERN)); // original untouched
         Assertions.assertNotEquals(open, copy);
     }
 
@@ -196,7 +196,7 @@ class SpecStackTest {
 
     // ---------- fixtures ----------
 
-    /** The bootstrap spec: {921(4), 555(3, hueSet), 255(1)} — recipe row 1, no FREEZE goal. */
+    /** The bootstrap spec: {921(4), 555(3, agHuePattern), 255(1)} — recipe row 1, no FREEZE goal. */
     private ArtisticGoalSpec buildBootstrapSpec(int recipeRow) {
         PartialGoalSpec agGoal = new PartialGoalSpec(PartialGoalType.PG2)
                 .addStratgSpec(new StratgSpec(StratgType.ASSIGN_AGS)
@@ -205,7 +205,7 @@ class SpecStackTest {
         PartialGoalSpec hueGoal = new PartialGoalSpec(PartialGoalType.PG3)
                 .addStratgSpec(new StratgSpec(StratgType.ASSIGN_ANCHOR_HUES)
                         .bind(StratgParam.CONTROL_LEVEL, 3)
-                        .bind(StratgParam.HUE_SET, 0));
+                        .bind(StratgParam.AGHUE_PATTERN, "06-09-04-02-legacyTableRowNum0"));
 
         PartialGoalSpec colorGoal = new PartialGoalSpec(PartialGoalType.PG4)
                 .addStratgSpec(new StratgSpec(StratgType.ASSIGN_OST_DOTS)

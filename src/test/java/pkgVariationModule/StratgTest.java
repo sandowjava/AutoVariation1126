@@ -175,7 +175,8 @@ class StratgTest {
                 spec(StratgType.ASSIGN_AGS).bind(StratgParam.CONTROL_LEVEL, 5)));
         Assertions.assertThrows(IllegalArgumentException.class, () -> ASSIGN_AGS.compute(facts,
                 spec(StratgType.ASSIGN_ANCHOR_HUES)
-                        .bind(StratgParam.CONTROL_LEVEL, 4).bind(StratgParam.HUE_SET, 0)));
+                        .bind(StratgParam.CONTROL_LEVEL, 4)
+                        .bind(StratgParam.AGHUE_PATTERN, "06-09-04-02-legacyTableRowNum0")));
     }
 
     // ---------- 555 — AG → anchor hue ----------
@@ -190,10 +191,11 @@ class StratgTest {
         // shape 4 left UNDECIDED → skipped
 
         StratgSpec spec = spec(StratgType.ASSIGN_ANCHOR_HUES)
-                .bind(StratgParam.CONTROL_LEVEL, 3).bind(StratgParam.HUE_SET, 0);
+                .bind(StratgParam.CONTROL_LEVEL, 3)
+                .bind(StratgParam.AGHUE_PATTERN, "06-09-04-02-legacyTableRowNum0");
         ASSIGN_HUES.execute(ctx(facts, state), spec);
 
-        // hueSet 0 = (6,9,4,2): AG1→6, AG2→9, AG4→2
+        // '06-09-04-02-legacyTableRowNum0' = (6,9,4,2): AG1→6, AG2→9, AG4→2
         Assertions.assertEquals(6, state.hue(1).get().getUserFacingHueNum());
         Assertions.assertEquals(9, state.hue(2).get().getUserFacingHueNum());
         Assertions.assertEquals(2, state.hue(3).get().getUserFacingHueNum());
@@ -206,7 +208,8 @@ class StratgTest {
         VariationRunState state = VariationRunState.noBase(1);
         state.setAG(1, 9);   // corrupt decided value — a bug, not a skip
         StratgSpec spec = spec(StratgType.ASSIGN_ANCHOR_HUES)
-                .bind(StratgParam.CONTROL_LEVEL, 1).bind(StratgParam.HUE_SET, 0);
+                .bind(StratgParam.CONTROL_LEVEL, 1)
+                .bind(StratgParam.AGHUE_PATTERN, "06-09-04-02-legacyTableRowNum0");
         Assertions.assertThrows(IllegalArgumentException.class, () -> ASSIGN_HUES.execute(ctx(facts, state), spec));
     }
 

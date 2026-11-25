@@ -11,7 +11,7 @@ public enum StratgParam {
     CONTROL_LEVEL("controlLevel", ParamKind.INT),
     FIRST_PREF_LEVEL("firstPrefLevel", ParamKind.INT),
     SECOND_PREF_LEVEL("secondPrefLevel", ParamKind.INT),
-    HUE_SET("hueSet", ParamKind.TABLE_KEY),
+    AGHUE_PATTERN("agHuePattern", ParamKind.NAMED_KEY),
     FROZEN_SET("frozenSet", ParamKind.TABLE_KEY),
     VALUE_RANGE("valueRange", ParamKind.DOUBLE);
 

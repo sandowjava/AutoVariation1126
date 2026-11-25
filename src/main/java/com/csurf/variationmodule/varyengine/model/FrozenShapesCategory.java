@@ -16,7 +16,7 @@ import java.util.Set;
  * {@code BroadCategoryFrozenShapes.createAndRun12Variations} plus
  * {@code StratgForSetAFakeStartFrozen999}'s verified inner kernel set:
  * <ul>
- *   <li><b>Row 1 = the bootstrap spec</b> {@code {921(4), 555(3,hueSet),
+ *   <li><b>Row 1 = the bootstrap spec</b> {@code {921(4), 555(3,agHuePattern),
  *       255(1)}} — the 999 decomposition (Option B): it consumes no base
  *       and no freeze goal; the driver runs it first and promotes the
  *       result to the shared base.</li>
@@ -28,7 +28,7 @@ import java.util.Set;
  *       and the same {@code 031(frozenSet)}.</li>
  * </ul>
  *
- * <p>Uniform dialog bindings — {@code hueSet}, {@code frozenSet},
+ * <p>Uniform dialog bindings — {@code agHuePattern}, {@code frozenSet},
  * {@code valueRange} — are filled into the rows' open params at cook
  * time (defaults live at the binding layer: {@code valueRange} defaults
  * to {@link VariationConstants#VALUE_RANGE}). Legacy 999 is not
@@ -67,8 +67,8 @@ public final class FrozenShapesCategory {
     /**
      * Cook from a dialog-produced {@link BroadCategorySpec}: validates
      * the category type, extracts the uniform bindings from the
-     * template's member StratgSpecs — {@code HUE_SET} from the 555 spec,
-     * {@code FROZEN_SET} from the 031 spec, {@code VALUE_RANGE} from the
+     * template's member StratgSpecs — {@code AGHUE_PATTERN} from the
+     * 555 spec, {@code FROZEN_SET} from the 031 spec, {@code VALUE_RANGE} from the
      * 255 spec (default {@link VariationConstants#VALUE_RANGE} when the
      * template leaves it open).
      */
@@ -79,14 +79,14 @@ public final class FrozenShapesCategory {
                     "FrozenShapesCategory can only cook a FROZEN_SHAPES BroadCategorySpec");
         } // end IF
 
-        Integer hueSet = null;
+        String agHuePattern = null;
         Integer frozenSet = null;
         double valueRange = VariationConstants.VALUE_RANGE;
         for (PartialGoalSpec goal : categorySpec.getPartialGoalSpecs()) {
             for (StratgSpec stratg : goal.getStratgSpecs()) {
                 if (stratg.getStratgType() == StratgType.ASSIGN_ANCHOR_HUES
-                        && stratg.isBound(StratgParam.HUE_SET)) {
-                    hueSet = stratg.getIntParam(StratgParam.HUE_SET);
+                        && stratg.isBound(StratgParam.AGHUE_PATTERN)) {
+                    agHuePattern = stratg.getStringParam(StratgParam.AGHUE_PATTERN);
                 } else if (stratg.getStratgType() == StratgType.FREEZE_SHAPES
                         && stratg.isBound(StratgParam.FROZEN_SET)) {
                     frozenSet = stratg.getIntParam(StratgParam.FROZEN_SET);
@@ -97,25 +97,26 @@ public final class FrozenShapesCategory {
             } // end FOR
         } // end FOR
 
-        if (hueSet == null) {
+        if (agHuePattern == null) {
             throw new IllegalArgumentException(
-                    "the category spec binds no HUE_SET — the dialog must bind a hueSet "
-                            + "into its 555 StratgSpec (range 0.." + (AnchorHueSets.HUE_SET_COUNT - 1) + ")");
+                    "the category spec binds no AGHUE_PATTERN — the dialog must bind "
+                            + "a canonical AGHuePatterns name into its 555 StratgSpec "
+                            + "(" + AGHuePatterns.count() + " entries in catalog)");
         } // end IF
         if (frozenSet == null) {
             throw new IllegalArgumentException(
                     "the category spec binds no FROZEN_SET — the dialog must bind a frozenSet "
                             + "into its 031 StratgSpec (range 0.." + (FrozenSets.FROZEN_SET_COUNT - 1) + ")");
         } // end IF
-        return cook(hueSet, frozenSet, valueRange);
+        return cook(agHuePattern, frozenSet, valueRange);
     } // end method cook(BroadCategorySpec)
 
 
 
     /** Cook with the standard valueRange default. */
-    public List<ArtisticGoalSpec> cook(int hueSet, int frozenSet) {
-        return cook(hueSet, frozenSet, VariationConstants.VALUE_RANGE);
-    } // end method cook(int, int)
+    public List<ArtisticGoalSpec> cook(String agHuePattern, int frozenSet) {
+        return cook(agHuePattern, frozenSet, VariationConstants.VALUE_RANGE);
+    } // end method cook(String, int)
 
 
 
@@ -124,23 +125,23 @@ public final class FrozenShapesCategory {
      * order (row 1 = bootstrap). Table-key bounds are validated here —
      * bad keys fail loudly at cook time rather than inside a run.
      */
-    public List<ArtisticGoalSpec> cook(int hueSet, int frozenSet, double valueRange) {
+    public List<ArtisticGoalSpec> cook(String agHuePattern, int frozenSet, double valueRange) {
         // fail-fast on table keys (specs remain self-contained — these are bound values, not defaults)
-        AnchorHueSets.get(hueSet);
+        AGHuePatterns.get(agHuePattern);
         FrozenSets.get(frozenSet);
 
         List<ArtisticGoalSpec> results = new ArrayList<>(howManyVariations);
         for (RecipeRow row : RECIPE) {
-            results.add(buildRow(row, hueSet, frozenSet, valueRange));
+            results.add(buildRow(row, agHuePattern, frozenSet, valueRange));
         } // end FOR
         return results;
-    } // end method cook(int, int, double)
+    } // end method cook(String, int, double)
 
 
 
     // ---------- the recipe table ----------
 
-    private ArtisticGoalSpec buildRow(RecipeRow row, int hueSet, int frozenSet, double valueRange) {
+    private ArtisticGoalSpec buildRow(RecipeRow row, String agHuePattern, int frozenSet, double valueRange) {
         List<PartialGoalSpec> goals = new ArrayList<>();
 
         StratgSpec ag = new StratgSpec(row.agType);
@@ -155,7 +156,7 @@ public final class FrozenShapesCategory {
         goals.add(new PartialGoalSpec(PartialGoalType.PG3).addStratgSpec(
                 new StratgSpec(StratgType.ASSIGN_ANCHOR_HUES)
                         .bind(StratgParam.CONTROL_LEVEL, row.hueControl)
-                        .bind(StratgParam.HUE_SET, hueSet)));
+                        .bind(StratgParam.AGHUE_PATTERN, agHuePattern)));
 
         goals.add(new PartialGoalSpec(PartialGoalType.PG4).addStratgSpec(
                 new StratgSpec(StratgType.ASSIGN_OST_DOTS)

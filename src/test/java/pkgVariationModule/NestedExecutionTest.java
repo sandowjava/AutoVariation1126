@@ -34,9 +34,9 @@ class NestedExecutionTest {
         return spec(StratgType.ASSIGN_AGS).bind(StratgParam.CONTROL_LEVEL, level);
     }
 
-    private static StratgSpec spec555(int hueSet) {
+    private static StratgSpec spec555(String agHuePattern) {
         return spec(StratgType.ASSIGN_ANCHOR_HUES)
-                .bind(StratgParam.CONTROL_LEVEL, 1).bind(StratgParam.HUE_SET, hueSet);
+                .bind(StratgParam.CONTROL_LEVEL, 1).bind(StratgParam.AGHUE_PATTERN, agHuePattern);
     }
 
     private static VariationRunState liveStateWithAGs() {
@@ -82,7 +82,7 @@ class NestedExecutionTest {
     void dependentInner_blankSeedFailsUnderRequireFull() {
         VariationRunState live = liveStateWithAGs();
         Proposal empty = DefaultNestedRunner.boundTo(FACTS, live, Inputs.noBase())
-                .run(spec555(0));   // blank seed → no decided AGs in scratch → nothing written
+                .run(spec555("06-09-04-02-legacyTableRowNum0"));   // blank seed → no decided AGs in scratch → nothing written
 
         Assertions.assertTrue(empty.isEmpty());
         // the outer stratg consumes this via REQUIRE_FULL apply → fails naming channels
@@ -98,10 +98,10 @@ class NestedExecutionTest {
         VariationRunState chained = liveStateWithAGs();
         BasicStratgContext ctx = BasicStratgContext.withoutRunner(FACTS, chained, Inputs.noBase());
         new AssignAnchorHuesStratg()
-                .execute(ctx, spec555(0));
+                .execute(ctx, spec555("06-09-04-02-legacyTableRowNum0"));
 
         Proposal nested = DefaultNestedRunner.boundTo(FACTS, live, Inputs.noBase())
-                .run(spec555(0), Seed.of(Channel.AG));
+                .run(spec555("06-09-04-02-legacyTableRowNum0"), Seed.of(Channel.AG));
 
         // the proposal equals what the live-chain 555 wrote — and live AGs were never touched
         Assertions.assertEquals(FACTS.numShapes(), nested.writtenShapes(Channel.HUE).size());
