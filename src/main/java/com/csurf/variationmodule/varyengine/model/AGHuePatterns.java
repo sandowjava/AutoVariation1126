@@ -1,10 +1,19 @@
 package com.csurf.variationmodule.varyengine.model;
 
+import com.csurf.templatecore.storage.config.StorageConfig;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.logging.Logger;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 /**
@@ -21,13 +30,30 @@ import java.util.TreeMap;
  *
  * <p>555's {@code agHuePattern} param (NAMED_KEY) resolves a canonical
  * name here: "AG → that AG's center hue from the named pattern" (OQ4).
+ *
+ * <p><b>Persistence (Phase 2).</b> User-authored patterns live in
+ * {@link #USER_TABLE}, a separate map so built-ins are never shadowed at
+ * load and user entries can be cleared for tests. JSON files in
+ * {@code dev_storage/aghuepatterns} ({@link AGHuePatternDoc}) are folded
+ * in lazily on first access; collision policy is existing-wins + loud
+ * skip. Lookups consult {@code USER_TABLE} first, so a save-time
+ * overwrite is honored in-session (a user file colliding with a built-in
+ * is still skipped at next launch — see {@link #loadFrom}).
  */
 public final class AGHuePatterns {
+
+    private static final Logger LOG = Logger.getLogger(AGHuePatterns.class.getName());
 
     /** Count of built-in rows — 25 legacy rows minus rows 19 and 23. */
     public static final int BUILTIN_COUNT = 23;
 
     private static final Map<String, AGHuePattern> TABLE = new TreeMap<>();
+
+    /** User-authored entries — loaded from disk or saved this session. */
+    private static final Map<String, AGHuePattern> USER_TABLE = new TreeMap<>();
+
+    /** True once the on-disk user patterns have been folded in. */
+    private static boolean userLoaded;
 
     static {
         put(legacy(0, 6, 9, 4, 2));      //  0 — literal (unchanged in legacy)
@@ -128,11 +154,16 @@ public final class AGHuePatterns {
 
     /** The pattern bound to {@code name}; throws for an unknown key. */
     public static AGHuePattern get(String name) {
-        AGHuePattern pattern = TABLE.get(canonicalKey(name));
+        ensureUserLoaded();
+        String key = canonicalKey(name);
+        AGHuePattern pattern = USER_TABLE.get(key);
+        if (pattern == null) {
+            pattern = TABLE.get(key);
+        } // end IF
         if (pattern == null) {
             throw new IllegalArgumentException(
                     "unknown AGHuePattern name: '" + name + "'"
-                            + " — " + TABLE.size() + " entries in catalog");
+                            + " — " + count() + " entries in catalog");
         } // end IF
         return pattern;
     } // end method get
@@ -142,25 +173,201 @@ public final class AGHuePatterns {
         if (name == null) {
             return false;
         } // end IF
-        return TABLE.containsKey(canonicalKey(name));
+        ensureUserLoaded();
+        String key = canonicalKey(name);
+        return USER_TABLE.containsKey(key) || TABLE.containsKey(key);
     } // end method exists
+
+    /** True when {@code name} resolves to a built-in (non-user) entry. */
+    public static boolean isBuiltIn(String name) {
+        if (name == null) {
+            return false;
+        } // end IF
+        return TABLE.containsKey(canonicalKey(name));
+    } // end method isBuiltIn
 
     /** All entries, sorted by canonical name (lexicographic == hue order). */
     public static List<AGHuePattern> all() {
-        return Collections.unmodifiableList(new ArrayList<>(TABLE.values()));
+        ensureUserLoaded();
+        return Collections.unmodifiableList(new ArrayList<>(merged().values()));
     } // end method all
 
     /** Sorted view of the canonical names — for pickers and diagnostics. */
     public static List<String> allNames() {
-        List<String> names = new ArrayList<>(TABLE.size());
-        for (AGHuePattern pattern : TABLE.values()) {
+        ensureUserLoaded();
+        List<String> names = new ArrayList<>();
+        for (AGHuePattern pattern : merged().values()) {
             names.add(pattern.getName());
         } // end FOR
         return Collections.unmodifiableList(names);
     } // end method allNames
 
     public static int count() {
-        return TABLE.size();
+        ensureUserLoaded();
+        return TABLE.size() + USER_TABLE.size();
     } // end method count
+
+    /** Built-ins plus user entries; user entries win same-key conflicts. */
+    private static Map<String, AGHuePattern> merged() {
+        Map<String, AGHuePattern> merged = new TreeMap<>(TABLE);
+        merged.putAll(USER_TABLE);
+        return merged;
+    } // end method merged
+
+    // ============================================================================
+    // Persistence — dev_storage/aghuepatterns/*.json (one file per pattern)
+    // ============================================================================
+
+    /**
+     * Registers {@code pattern} (overwriting a same-key user entry — the
+     * caller's overwrite-confirm is the policy) and writes it to
+     * {@code dev_storage/aghuepatterns/{name}.json}.
+     *
+     * @param pattern     the pattern to save
+     * @param description provenance note stored in the file, or null
+     */
+    public static void saveUserPattern(AGHuePattern pattern, String description) {
+        saveTo(StorageConfig.getAGHuePatternsPath(), pattern, description);
+    } // end method saveUserPattern
+
+    /**
+     * As {@link #saveUserPattern} but writing into {@code dir} — the seam
+     * tests use with a {@code @TempDir}.
+     */
+    public static void saveTo(Path dir, AGHuePattern pattern, String description) {
+        writeDoc(dir.resolve(pattern.getName() + ".json"), pattern, description);
+        USER_TABLE.put(canonicalKey(pattern.getName()), pattern);
+    } // end method saveTo
+
+    /**
+     * Loads every valid {@code *.json} in the default aghuepatterns dir
+     * into the catalog; returns the number loaded. Idempotent — collisions
+     * with existing entries (built-in or earlier) are skipped with a
+     * warning, so a repeat call is a no-op.
+     */
+    public static int loadUserPatterns() {
+        userLoaded = true;
+        return loadFrom(StorageConfig.getAGHuePatternsPath());
+    } // end method loadUserPatterns
+
+    /**
+     * Loads every valid {@code *.json} in {@code dir} — the seam tests use
+     * with a {@code @TempDir}. Files are processed in sorted file-name
+     * order; per-file failures warn and skip without blocking the rest.
+     *
+     * @return the number of patterns registered from this dir
+     */
+    public static int loadFrom(Path dir) {
+        if (dir == null || !Files.isDirectory(dir)) {
+            return 0;
+        } // end IF
+        List<Path> files;
+        try (Stream<Path> stream = Files.list(dir)) {
+            files = stream
+                    .filter(p -> p.getFileName().toString().endsWith(".json"))
+                    .sorted()
+                    .collect(Collectors.toList());
+        } catch (IOException e) {
+            LOG.warning("AGHuePatterns: cannot list " + dir + ": " + e.getMessage());
+            return 0;
+        } // end try
+        int loaded = 0;
+        for (Path file : files) {
+            if (loadOne(file)) {
+                loaded++;
+            } // end IF
+        } // end FOR
+        return loaded;
+    } // end method loadFrom
+
+    /** Loads one pattern file; false = skipped (reason logged). */
+    private static boolean loadOne(Path file) {
+        AGHuePatternDoc doc;
+        try {
+            doc = new ObjectMapper().readValue(file.toFile(), AGHuePatternDoc.class);
+        } catch (IOException | RuntimeException e) {
+            LOG.warning("AGHuePatterns: skipping unreadable file " + file
+                    + ": " + e.getMessage());
+            return false;
+        } // end try
+        AGHuePattern pattern;
+        try {
+            pattern = toPattern(doc);
+        } catch (IllegalArgumentException e) {
+            LOG.warning("AGHuePatterns: skipping invalid file " + file
+                    + ": " + e.getMessage());
+            return false;
+        } // end try
+        String key = canonicalKey(pattern.getName());
+        if (TABLE.containsKey(key) || USER_TABLE.containsKey(key)) {
+            // existing entry wins — built-ins and earlier files are never shadowed
+            LOG.warning("AGHuePatterns: skipping " + file
+                    + " — name '" + pattern.getName() + "' already in catalog");
+            return false;
+        } // end IF
+        USER_TABLE.put(key, pattern);
+        return true;
+    } // end method loadOne
+
+    /** Validates {@code doc} and builds the pattern; throws on any defect. */
+    private static AGHuePattern toPattern(AGHuePatternDoc doc) {
+        if (doc.formatVersion() != AGHuePatternDoc.FORMAT_VERSION) {
+            throw new IllegalArgumentException("unsupported formatVersion "
+                    + doc.formatVersion() + " (supported: "
+                    + AGHuePatternDoc.FORMAT_VERSION + ")");
+        } // end IF
+        String name = canonicalize(doc.name); // throws on null/blank
+        if (doc.anchorHues == null || doc.anchorHues.length != 4) {
+            throw new IllegalArgumentException("anchorHues must have exactly 4 entries");
+        } // end IF
+        for (int hue : doc.anchorHues) {
+            if (hue < 1 || hue > 36) {
+                throw new IllegalArgumentException(
+                        "anchorHues entries must be 1..36, got " + hue);
+            } // end IF
+        } // end FOR
+        // integrity: the name's NN-NN-NN-NN prefix must match the hues
+        String prefix = canonicalPrefix(doc.anchorHues[0], doc.anchorHues[1],
+                doc.anchorHues[2], doc.anchorHues[3]);
+        if (!name.startsWith(prefix)) {
+            throw new IllegalArgumentException("name '" + name
+                    + "' does not start with its anchorHues prefix " + prefix);
+        } // end IF
+        return new AGHuePattern(name, doc.anchorHues[0], doc.anchorHues[1],
+                doc.anchorHues[2], doc.anchorHues[3]);
+    } // end method toPattern
+
+    private static void writeDoc(Path file, AGHuePattern pattern, String description) {
+        AGHuePatternDoc doc = new AGHuePatternDoc();
+        doc.formatVersion = AGHuePatternDoc.FORMAT_VERSION;
+        doc.name = pattern.getName();
+        doc.description = description;
+        doc.anchorHues = pattern.hueNums();
+        try {
+            Files.createDirectories(file.getParent());
+            new ObjectMapper().writerWithDefaultPrettyPrinter()
+                    .writeValue(file.toFile(), doc);
+        } catch (IOException e) {
+            throw new IllegalStateException(
+                    "Failed to write AGHuePattern file: " + file, e);
+        } // end try
+    } // end method writeDoc
+
+    /** Folds on-disk user patterns into the catalog — once per JVM. */
+    private static void ensureUserLoaded() {
+        if (!userLoaded) {
+            loadUserPatterns();
+        } // end IF
+    } // end method ensureUserLoaded
+
+    /**
+     * Removes all user entries and marks the load as done, so tests see
+     * the built-in catalog regardless of what lives in
+     * {@code dev_storage/aghuepatterns} or what other tests registered.
+     */
+    public static void clearUserPatternsForTests() {
+        USER_TABLE.clear();
+        userLoaded = true;
+    } // end method clearUserPatternsForTests
 
 } // end class AGHuePatterns

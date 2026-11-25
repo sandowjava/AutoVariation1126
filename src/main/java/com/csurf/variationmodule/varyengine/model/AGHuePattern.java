@@ -56,6 +56,12 @@ public final class AGHuePattern {
         return anchorHueSet.hueNumForAG(ag);
     } // end method hueNumForAG
 
+    /** The four anchor hues in AG order — for JSON serialization. */
+    public int[] hueNums() {
+        return new int[]{hueNumForAG(1), hueNumForAG(2),
+                hueNumForAG(3), hueNumForAG(4)};
+    } // end method hueNums
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {

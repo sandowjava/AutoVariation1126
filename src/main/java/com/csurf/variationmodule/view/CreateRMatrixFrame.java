@@ -52,6 +52,8 @@ public class CreateRMatrixFrame extends JFrame {
         void confirmAnchorHues();
         /** User chose "Create RMatrix file...". */
         void createRMatrix();
+        /** User chose "Save anchor hues as AGHuePattern..." (Patterns menu). */
+        void saveAnchorHuesAsPattern();
         /** User changed a hue→AG selector (resets the confirmed assignment). */
         void assignmentChanged();
     }
@@ -59,6 +61,7 @@ public class CreateRMatrixFrame extends JFrame {
     private final JLabel templateLabel;
     private final JLabel statusLabel;
     private final JMenuItem createItem;
+    private final JMenuItem savePatternItem;
     private final JButton confirmButton;
     private final JPanel assignRowsPanel;
     private final JPanel assignPanel;
@@ -88,9 +91,16 @@ public class CreateRMatrixFrame extends JFrame {
         createItem.addActionListener(e -> actions.createRMatrix());
         rMatrixMenu.add(createItem);
 
+        JMenu patternsMenu = new JMenu("Patterns");
+        savePatternItem = new JMenuItem("Save anchor hues as AGHuePattern...");
+        savePatternItem.setEnabled(false); // enabled once anchor hues are confirmed
+        savePatternItem.addActionListener(e -> actions.saveAnchorHuesAsPattern());
+        patternsMenu.add(savePatternItem);
+
         JMenuBar menuBar = new JMenuBar();
         menuBar.add(templateMenu);
         menuBar.add(rMatrixMenu);
+        menuBar.add(patternsMenu);
         setJMenuBar(menuBar);
 
         // Top: template + status lines
@@ -256,5 +266,10 @@ public class CreateRMatrixFrame extends JFrame {
     /** Enables/disables the "Create RMatrix file..." menu item. */
     public void setCreateEnabled(boolean enabled) {
         createItem.setEnabled(enabled);
+    }
+
+    /** Enables/disables the "Save anchor hues as AGHuePattern..." menu item. */
+    public void setSavePatternEnabled(boolean enabled) {
+        savePatternItem.setEnabled(enabled);
     }
 } // end class CreateRMatrixFrame

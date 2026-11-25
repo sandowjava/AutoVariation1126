@@ -11,6 +11,7 @@ public class StorageConfig {
     private static final String TEMPLATES_DIR = "templates";
     private static final String PALETTES_DIR = "palettes";
     private static final String AGPREFS_DIR = "agprefs";
+    private static final String AGHUE_PATTERNS_DIR = "aghuepatterns";
     
     public static Path getDevStoragePath() {
         return Paths.get(System.getProperty("user.dir"))
@@ -27,5 +28,9 @@ public class StorageConfig {
 
     public static Path getAgPrefsPath() {
         return getDevStoragePath().resolve(AGPREFS_DIR);
+    }
+
+    public static Path getAGHuePatternsPath() {
+        return getDevStoragePath().resolve(AGHUE_PATTERNS_DIR);
     }
 }

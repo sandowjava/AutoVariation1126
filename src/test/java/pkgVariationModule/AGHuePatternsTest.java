@@ -3,6 +3,7 @@ package pkgVariationModule;
 import com.csurf.variationmodule.varyengine.model.AGHuePattern;
 import com.csurf.variationmodule.varyengine.model.AGHuePatterns;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -15,6 +16,12 @@ import java.util.List;
  * deduped legacy rows, sorted access, and loud failure on unknown names.
  */
 class AGHuePatternsTest {
+
+    /** Built-in-only catalog regardless of dev_storage files or other tests. */
+    @BeforeEach
+    void cleanUserEntries() {
+        AGHuePatterns.clearUserPatternsForTests();
+    }
 
     // ---------- canonical naming ----------
 

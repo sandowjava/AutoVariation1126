@@ -1,0 +1,132 @@
+{
+  "name" : "ehWhat112326orngPurp-RmtrxDUPE-v1",
+  "description" : "Tailored RMatrix generated from Template 'ehWhat112326orngPurplBlu-4huesv1.json' with anchor hues AnchorHueSet(10,22,16,20) (AG1-AG4).",
+  "formatVersion" : 2,
+  "shapes" : [ {
+    "shape" : 1,
+    "shapeName" : "fullBackgrRect",
+    "drawObjId" : "5c14f629-8a30-4b9d-aaed-5fefc5a67212",
+    "valueTarget" : 0.5215219203618542,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 2,
+    "shapeName" : "bigTriangleTop",
+    "drawObjId" : "cf7d7610-4fc7-4b10-a873-fcbce0945b50",
+    "valueTarget" : 0.6001128818586573,
+    "defaultAG" : 4,
+    "agPrefs" : [ 0.05, 0.65, 0.35, 0.95 ]
+  }, {
+    "shape" : 3,
+    "shapeName" : "mediumTriangleBtm",
+    "drawObjId" : "8926a5d3-d3cf-4058-a78e-677af1fbf655",
+    "valueTarget" : 0.610144057462959,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 4,
+    "shapeName" : "behindBangDot",
+    "drawObjId" : "3858a5e1-9e6b-4b2a-b11b-7758e7f5b731",
+    "valueTarget" : 0.33257725092893514,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 5,
+    "shapeName" : "behindBangR",
+    "drawObjId" : "88b54881-a4ad-4499-bdc2-39937ac9fa15",
+    "valueTarget" : 0.33257725092893514,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 6,
+    "shapeName" : "egadBang-backR",
+    "drawObjId" : "7b5ac07e-6566-4d3f-9496-65a3b541c2cc",
+    "valueTarget" : 0.30677852631185676,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 7,
+    "shapeName" : "bigglyH",
+    "drawObjId" : "21921350-c403-4863-951f-88f7485e1d3c",
+    "valueTarget" : 0.4674804570256218,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  }, {
+    "shape" : 8,
+    "shapeName" : "egadBang-backMid",
+    "drawObjId" : "3efd94de-2001-4128-a883-59f686d97609",
+    "valueTarget" : 0.40574333131118573,
+    "defaultAG" : 4,
+    "agPrefs" : [ 0.05, 0.65, 0.35, 0.95 ]
+  }, {
+    "shape" : 9,
+    "shapeName" : "bigBankerA",
+    "drawObjId" : "1aaa76de-9ae9-48ef-a10c-2883069c6892",
+    "valueTarget" : 0.40631465090515356,
+    "defaultAG" : 3,
+    "agPrefs" : [ 0.65, 0.05, 0.95, 0.35 ]
+  }, {
+    "shape" : 10,
+    "shapeName" : "bigBankerC",
+    "drawObjId" : "0f0aeeee-d79e-44b5-943a-c6dc6aeb31e8",
+    "valueTarget" : 0.34042341954566435,
+    "defaultAG" : 3,
+    "agPrefs" : [ 0.65, 0.05, 0.95, 0.35 ]
+  }, {
+    "shape" : 11,
+    "shapeName" : "bigScript-E",
+    "drawObjId" : "19f809a5-0778-43cf-bc4e-c7bdc64a7541",
+    "valueTarget" : 0.5401222325953551,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  }, {
+    "shape" : 12,
+    "shapeName" : "egad-A",
+    "drawObjId" : "a2ccb7bc-b13e-4ab4-8675-01fd26da077c",
+    "valueTarget" : 0.2861806453691956,
+    "defaultAG" : 4,
+    "agPrefs" : [ 0.05, 0.65, 0.35, 0.95 ]
+  }, {
+    "shape" : 13,
+    "shapeName" : "egad-D",
+    "drawObjId" : "13764d11-1482-4912-b4f9-bd82d87bf99e",
+    "valueTarget" : 0.2089475651146006,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 14,
+    "shapeName" : "egad-G",
+    "drawObjId" : "dee188c8-8279-48c7-95e6-a495f72a1bcd",
+    "valueTarget" : 0.3820033998049159,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 15,
+    "shapeName" : "egad-E",
+    "drawObjId" : "2537f0d2-53b1-4413-9b81-f4889d89bd13",
+    "valueTarget" : 0.3820033998049159,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 16,
+    "shapeName" : "egadBang-uppr",
+    "drawObjId" : "bb3f9ea2-ddb2-4646-89ec-2aca52ba8236",
+    "valueTarget" : 0.3032811722392815,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 17,
+    "shapeName" : "egadBang-lwr",
+    "drawObjId" : "387b498a-bc70-44fd-b248-82f3c825b69b",
+    "valueTarget" : 0.33774779303970454,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 18,
+    "shapeName" : "egadG-uppr",
+    "drawObjId" : "5870fc73-f7d3-4f01-9ce9-089650c08c0c",
+    "valueTarget" : 0.24320432345051174,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  } ]
+}

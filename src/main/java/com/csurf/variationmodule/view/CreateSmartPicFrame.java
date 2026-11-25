@@ -34,6 +34,8 @@ public class CreateSmartPicFrame extends JFrame {
         void showTemplateDrawObjList();
         /** User chose "Hue anchors/ frozen" (Controls-info menu). */
         void showHueAnchorsFrozen();
+        /** User chose "Save new AGHuePattern..." (Patterns menu). */
+        void saveAGHuePattern();
     }
 
     private final JLabel templateLabel;
@@ -72,6 +74,11 @@ public class CreateSmartPicFrame extends JFrame {
         createVariationsItem.addActionListener(e -> actions.createVariations());
         smartPicMenu.add(createVariationsItem);
 
+        JMenu patternsMenu = new JMenu("Patterns");
+        JMenuItem savePatternItem = new JMenuItem("Save new AGHuePattern...");
+        savePatternItem.addActionListener(e -> actions.saveAGHuePattern());
+        patternsMenu.add(savePatternItem);
+
         JMenu controlsInfoMenu = new JMenu("Controls-info");
         drawObjListItem = new JMenuItem("Template drawObj list");
         drawObjListItem.setEnabled(false); // enabled once a Template is chosen
@@ -87,6 +94,7 @@ public class CreateSmartPicFrame extends JFrame {
         menuBar.add(templateMenu);
         menuBar.add(agPrefsMenu);
         menuBar.add(smartPicMenu);
+        menuBar.add(patternsMenu);
         menuBar.add(controlsInfoMenu);
         setJMenuBar(menuBar);
 

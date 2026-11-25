@@ -20,6 +20,7 @@ import com.csurf.variationmodule.varyengine.model.Facts;
 import com.csurf.variationmodule.varyengine.model.FrozenSets;
 import com.csurf.variationmodule.varyengine.model.SmartPicFacts;
 import com.csurf.variationmodule.varyengine.model.VariationResult;
+import com.csurf.variationmodule.view.AGHuePatternSaveDialog;
 import com.csurf.variationmodule.view.CreateSmartPicFrame;
 import com.csurf.variationmodule.view.SmartPicAGCtrsFrozenSetFrame;
 import com.csurf.variationmodule.view.TemplateDrawObjListFrame;
@@ -243,6 +244,36 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
                 displayName, chosenTemplate.getAllDrawObjs());
         listFrame.setLocation(frame.getX() + frame.getWidth() + 10, frame.getY());
         listFrame.setVisible(true);
+    }
+
+    /**
+     * "Save new AGHuePattern..." — the pick-4-hues dialog, then the
+     * save-side collision policy: an existing catalog name gets the usual
+     * overwrite-confirm; a built-in name additionally warns that the
+     * overwrite is session-only (the load rule skips the file at the next
+     * launch, restoring the built-in).
+     */
+    @Override
+    public void saveAGHuePattern() {
+        AGHuePatternSaveDialog.SaveResult result =
+                AGHuePatternSaveDialog.showDialog(frame, null, null);
+        if (result == null) {
+            return; // user cancelled
+        }
+        String name = result.pattern().getName();
+        try {
+            if (!AGHuePatternSaveDialog.saveWithConfirm(frame, result)) {
+                return; // user declined the overwrite
+            }
+        } catch (IllegalStateException e) {
+            LOG.warning("Could not save AGHuePattern: " + e);
+            showError("Could not save AGHuePattern: " + e.getMessage());
+            return;
+        }
+        frame.setStatus("Saved AGHuePattern '" + name + "' — "
+                + AGHuePatterns.count() + " patterns in catalog");
+        LOG.info("Saved AGHuePattern '" + name + "' to "
+                + StorageConfig.getAGHuePatternsPath());
     }
 
     @Override

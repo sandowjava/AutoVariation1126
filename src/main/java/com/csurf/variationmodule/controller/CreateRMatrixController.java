@@ -9,7 +9,9 @@ import com.csurf.templatecore.view.TemplateWorkFrame;
 import com.csurf.variationmodule.model.SmartPicFactory;
 import com.csurf.variationmodule.model.SmartPicFactory.AgPrefsDocument;
 import com.csurf.variationmodule.model.SmartPicFactoryException;
+import com.csurf.variationmodule.varyengine.model.AGHuePatterns;
 import com.csurf.variationmodule.varyengine.model.AnchorHueSet;
+import com.csurf.variationmodule.view.AGHuePatternSaveDialog;
 import com.csurf.variationmodule.view.CreateRMatrixFrame;
 
 import javax.swing.*;
@@ -110,6 +112,7 @@ public class CreateRMatrixController implements CreateRMatrixFrame.Actions {
         chosenTemplateFile = selected;
         anchorHueSet = null;
         frame.setCreateEnabled(false);
+        frame.setSavePatternEnabled(false);
 
         String displayName = chosenTemplate.getTheTemplateName();
         if (displayName == null || displayName.isEmpty()) {
@@ -137,6 +140,7 @@ public class CreateRMatrixController implements CreateRMatrixFrame.Actions {
         }
         anchorHueSet = new AnchorHueSet(byAG[0], byAG[1], byAG[2], byAG[3]);
         frame.setCreateEnabled(true);
+        frame.setSavePatternEnabled(true);
         frame.setStatus("Anchor hues confirmed: " + anchorHueSet
                 + " — ready to create the RMatrix file.");
         LOG.info("AnchorHueSet confirmed for template file " + chosenTemplateFile
@@ -186,12 +190,50 @@ public class CreateRMatrixController implements CreateRMatrixFrame.Actions {
                 + destination);
     }
 
+    /**
+     * "Save anchor hues as AGHuePattern..." — Phase 3 hook: persists the
+     * confirmed tailored set into the named catalog so the same four
+     * AG-order hues can be selected by name in the variation run dialog
+     * and the diagnostic frame. Reuses the Phase 2 dialog pre-filled with
+     * the confirmed {@link AnchorHueSet} and a Template-derived suffix
+     * suggestion (e.g. {@code heroEyeTailored}) so the saved name records
+     * which RMatrix the pattern was tailored for.
+     */
+    @Override
+    public void saveAnchorHuesAsPattern() {
+        if (anchorHueSet == null) {
+            showError("Confirm the hue→AG assignment first.");
+            return;
+        }
+        AGHuePatternSaveDialog.SaveResult result = AGHuePatternSaveDialog
+                .showDialog(frame, anchorHueSet, suggestedPatternSuffix());
+        if (result == null) {
+            return; // user cancelled
+        }
+        String name = result.pattern().getName();
+        try {
+            if (!AGHuePatternSaveDialog.saveWithConfirm(frame, result)) {
+                return; // user declined the overwrite
+            }
+        } catch (IllegalStateException e) {
+            LOG.warning("Could not save AGHuePattern: " + e);
+            showError("Could not save AGHuePattern: " + e.getMessage());
+            return;
+        }
+        frame.setStatus("Saved AGHuePattern '" + name + "' — "
+                + AGHuePatterns.count() + " patterns in catalog");
+        LOG.info("Saved tailored AGHuePattern '" + name + "' (from "
+                + chosenTemplateFile.getName() + ") to "
+                + StorageConfig.getAGHuePatternsPath());
+    }
+
     @Override
     public void assignmentChanged() {
         // Any selector change invalidates the confirmed AnchorHueSet
         if (anchorHueSet != null) {
             anchorHueSet = null;
             frame.setCreateEnabled(false);
+            frame.setSavePatternEnabled(false);
             frame.setStatus("Assignment changed — confirm the anchor hues again.");
         }
     }
@@ -254,6 +296,22 @@ public class CreateRMatrixController implements CreateRMatrixFrame.Actions {
             }
         }
         return chosen.toPath();
+    }
+
+    /**
+     * Suggested pattern-name suffix: the Template display name (or file
+     * stem) truncated to {@value #SUGGESTED_NAME_CHARS} chars plus
+     * "Tailored" — records which RMatrix the pattern was created for.
+     */
+    private String suggestedPatternSuffix() {
+        String base = chosenTemplate.getTheTemplateName();
+        if (base == null || base.isEmpty()) {
+            base = stripJsonExtension(chosenTemplateFile.getName());
+        }
+        if (base.length() > SUGGESTED_NAME_CHARS) {
+            base = base.substring(0, SUGGESTED_NAME_CHARS);
+        }
+        return base + "Tailored";
     }
 
     private void showError(String message) {
