@@ -1,5 +1,6 @@
 package com.csurf.variationmodule.controller;
 
+import com.csurf.app.HelpTextWindow;
 import com.csurf.core.ApplicationMediator;
 import com.csurf.ostwald.domainmonotri.model.ColorPtOstDot;
 import com.csurf.templatecore.model.DrawObj;
@@ -56,6 +57,9 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
 
     private static final String BUNDLED_AGPREFS_RESOURCE = "/agprefs/authored-defaults-v1.json";
     private static final String BUNDLED_AGPREFS_FILENAME = "authored-defaults-v1.json";
+
+    /** Classpath resource for the SmartPic help manual (src/main/resources/help). */
+    private static final String HELP_DOC_RESOURCE = "help/smartpic_creation_help_manual.rtf";
 
     /** Initial selections for the run-parameters dialog and the info frame. */
     private static final String DEFAULT_AGHUE_PATTERN = "13-10-06-08-legacyTableRowNum18";
@@ -286,6 +290,19 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
                 smartPic, lastAgHuePattern, lastFrozenSet);
         infoFrame.setLocation(frame.getX() + frame.getWidth() + 10, frame.getY());
         infoFrame.setVisible(true);
+    }
+
+    /**
+     * "Help -open help doc" — opens the SmartPic creation Help Manual in a
+     * {@link HelpTextWindow}. The doc ships as a classpath resource under
+     * {@code src/main/resources/help} (see {@link #HELP_DOC_RESOURCE}).
+     */
+    @Override
+    public void showHelpDoc() {
+        HelpTextWindow helpWindow = new HelpTextWindow(
+                "SmartPic creation Help Manual", HELP_DOC_RESOURCE);
+        helpWindow.setLocationRelativeTo(frame);
+        helpWindow.setVisible(true);
     }
 
     /**

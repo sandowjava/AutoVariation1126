@@ -36,6 +36,8 @@ public class CreateSmartPicFrame extends JFrame {
         void showHueAnchorsFrozen();
         /** User chose "Save new AGHuePattern..." (Patterns menu). */
         void saveAGHuePattern();
+        /** User chose "Help -open help doc" (Controls-info menu). */
+        void showHelpDoc();
     }
 
     private final JLabel templateLabel;
@@ -53,17 +55,17 @@ public class CreateSmartPicFrame extends JFrame {
 
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        JMenu templateMenu = new JMenu("Template");
+        JMenu templateMenu = new JMenu("1)Template");
         JMenuItem chooseTemplateItem = new JMenuItem("Choose saved Template...");
         chooseTemplateItem.addActionListener(e -> actions.chooseTemplate());
         templateMenu.add(chooseTemplateItem);
 
-        JMenu agPrefsMenu = new JMenu("Shape-AGprefs");
-        JMenuItem chooseAgPrefsItem = new JMenuItem("Choose AGprefs defaults file...");
+        JMenu agPrefsMenu = new JMenu("2)RMatrix");
+        JMenuItem chooseAgPrefsItem = new JMenuItem("Choose AGprefs file (RMatrix)");
         chooseAgPrefsItem.addActionListener(e -> actions.chooseAgPrefsFile());
         agPrefsMenu.add(chooseAgPrefsItem);
 
-        JMenu smartPicMenu = new JMenu("SmartPic");
+        JMenu smartPicMenu = new JMenu("3)SmartPic");
         JMenuItem createItem = new JMenuItem("Create SmartPic");
         createItem.addActionListener(e -> actions.createSmartPic());
         smartPicMenu.add(createItem);
@@ -74,27 +76,31 @@ public class CreateSmartPicFrame extends JFrame {
         createVariationsItem.addActionListener(e -> actions.createVariations());
         smartPicMenu.add(createVariationsItem);
 
-        JMenu patternsMenu = new JMenu("Patterns");
-        JMenuItem savePatternItem = new JMenuItem("Save new AGHuePattern...");
-        savePatternItem.addActionListener(e -> actions.saveAGHuePattern());
-        patternsMenu.add(savePatternItem);
-
         JMenu controlsInfoMenu = new JMenu("Controls-info");
         drawObjListItem = new JMenuItem("Template drawObj list");
         drawObjListItem.setEnabled(false); // enabled once a Template is chosen
         drawObjListItem.addActionListener(e -> actions.showTemplateDrawObjList());
         controlsInfoMenu.add(drawObjListItem);
 
+        JMenuItem saveAGHuePatternItem = new JMenuItem("Save AGHuePattern...");
+        saveAGHuePatternItem.addActionListener(e -> actions.saveAGHuePattern());
+        controlsInfoMenu.add(saveAGHuePatternItem);
+
         hueAnchorsItem = new JMenuItem("Hue anchors/ frozen");
         hueAnchorsItem.setEnabled(false); // enabled once a SmartPic is created
         hueAnchorsItem.addActionListener(e -> actions.showHueAnchorsFrozen());
         controlsInfoMenu.add(hueAnchorsItem);
 
+        controlsInfoMenu.addSeparator();
+
+        JMenuItem helpDocItem = new JMenuItem("Help -open help doc");
+        helpDocItem.addActionListener(e -> actions.showHelpDoc());
+        controlsInfoMenu.add(helpDocItem);
+
         JMenuBar menuBar = new JMenuBar();
         menuBar.add(templateMenu);
         menuBar.add(agPrefsMenu);
         menuBar.add(smartPicMenu);
-        menuBar.add(patternsMenu);
         menuBar.add(controlsInfoMenu);
         setJMenuBar(menuBar);
 

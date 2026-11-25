@@ -1,0 +1,404 @@
+{
+  "size" : 57,
+  "colorPtOstdotArray" : [ {
+    "hueNum" : 23,
+    "column" : 8,
+    "step" : 8,
+    "fillOrderNum" : 18,
+    "seriesW" : 7,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 21,
+    "column" : 6,
+    "step" : 6,
+    "fillOrderNum" : 16,
+    "seriesW" : 5,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 8,
+    "step" : 8,
+    "fillOrderNum" : 18,
+    "seriesW" : 7,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 21,
+    "column" : 6,
+    "step" : 6,
+    "fillOrderNum" : 16,
+    "seriesW" : 5,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 8,
+    "step" : 8,
+    "fillOrderNum" : 18,
+    "seriesW" : 7,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 23,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 21,
+    "column" : 7,
+    "step" : 7,
+    "fillOrderNum" : 17,
+    "seriesW" : 6,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 10,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 3,
+    "step" : 1,
+    "fillOrderNum" : 3,
+    "seriesW" : 0,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 8,
+    "column" : 3,
+    "step" : 1,
+    "fillOrderNum" : 3,
+    "seriesW" : 0,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 23,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 23,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 10,
+    "column" : 3,
+    "step" : 1,
+    "fillOrderNum" : 3,
+    "seriesW" : 0,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 8,
+    "column" : 3,
+    "step" : 1,
+    "fillOrderNum" : 3,
+    "seriesW" : 0,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 21,
+    "column" : 6,
+    "step" : 6,
+    "fillOrderNum" : 16,
+    "seriesW" : 5,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 4,
+    "step" : 4,
+    "fillOrderNum" : 14,
+    "seriesW" : 3,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 4,
+    "step" : 4,
+    "fillOrderNum" : 14,
+    "seriesW" : 3,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 10,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 10,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 4,
+    "step" : 4,
+    "fillOrderNum" : 14,
+    "seriesW" : 3,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 4,
+    "step" : 4,
+    "fillOrderNum" : 14,
+    "seriesW" : 3,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 4,
+    "step" : 4,
+    "fillOrderNum" : 14,
+    "seriesW" : 3,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 4,
+    "step" : 4,
+    "fillOrderNum" : 14,
+    "seriesW" : 3,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 3,
+    "step" : 1,
+    "fillOrderNum" : 3,
+    "seriesW" : 0,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 10,
+    "column" : 3,
+    "step" : 1,
+    "fillOrderNum" : 3,
+    "seriesW" : 0,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 8,
+    "column" : 3,
+    "step" : 1,
+    "fillOrderNum" : 3,
+    "seriesW" : 0,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 10,
+    "column" : 4,
+    "step" : 4,
+    "fillOrderNum" : 14,
+    "seriesW" : 3,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 10,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 3,
+    "step" : 1,
+    "fillOrderNum" : 3,
+    "seriesW" : 0,
+    "seriesB" : 2
+  }, {
+    "hueNum" : 10,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 10,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 10,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 10,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 10,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 10,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 10,
+    "column" : 1,
+    "step" : 1,
+    "fillOrderNum" : 1,
+    "seriesW" : 0,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 4,
+    "step" : 4,
+    "fillOrderNum" : 14,
+    "seriesW" : 3,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 4,
+    "step" : 4,
+    "fillOrderNum" : 14,
+    "seriesW" : 3,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 4,
+    "step" : 4,
+    "fillOrderNum" : 14,
+    "seriesW" : 3,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 4,
+    "step" : 4,
+    "fillOrderNum" : 14,
+    "seriesW" : 3,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 4,
+    "step" : 4,
+    "fillOrderNum" : 14,
+    "seriesW" : 3,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 4,
+    "step" : 4,
+    "fillOrderNum" : 14,
+    "seriesW" : 3,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 21,
+    "column" : 5,
+    "step" : 5,
+    "fillOrderNum" : 15,
+    "seriesW" : 4,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 2,
+    "step" : 2,
+    "fillOrderNum" : 12,
+    "seriesW" : 1,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 8,
+    "column" : 2,
+    "step" : 2,
+    "fillOrderNum" : 12,
+    "seriesW" : 1,
+    "seriesB" : 0
+  }, {
+    "hueNum" : 23,
+    "column" : 2,
+    "step" : 1,
+    "fillOrderNum" : 2,
+    "seriesW" : 0,
+    "seriesB" : 1
+  }, {
+    "hueNum" : 10,
+    "column" : 3,
+    "step" : 1,
+    "fillOrderNum" : 3,
+    "seriesW" : 0,
+    "seriesB" : 2
+  } ],
+  "paletteName" : "slamDunk112526orngRedBlu-4hues-v1"
+}
