@@ -1,0 +1,405 @@
+{
+  "name" : "slamDunk112526orngTealMgnta-Rmtrx-v2",
+  "description" : "Tailored RMatrix generated from Template 'slamDunk112526orngTealMgnta-4hues-v1groups.json' with anchor hues AnchorHueSet(7,26,10,17) (AG1-AG4).",
+  "formatVersion" : 2,
+  "shapes" : [ {
+    "shape" : 1,
+    "shapeName" : "bigBackgrSquare1",
+    "drawObjId" : "6f8103c2-6654-4cd5-b7ee-bfd31ceae7a9",
+    "valueTarget" : 0.8531434152845844,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  }, {
+    "shape" : 2,
+    "shapeName" : "btmDecoThinBar1",
+    "drawObjId" : "db5653ce-9bb6-4270-9146-63d5603d3786",
+    "valueTarget" : 0.6389290226934323,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  }, {
+    "shape" : 3,
+    "shapeName" : "backgrUpperRect1",
+    "drawObjId" : "259b4e6c-d721-4f4a-82e7-a256aad52ded",
+    "valueTarget" : 0.7315583215675092,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 4,
+    "shapeName" : "midDecoBigBackgrDiamd1",
+    "drawObjId" : "41d07901-be7e-45aa-bd95-e28ef06c444c",
+    "valueTarget" : 0.6389290226934323,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  }, {
+    "shape" : 5,
+    "shapeName" : "backgrLwrRect1",
+    "drawObjId" : "ceedc55a-4d3b-4745-8f36-cb142ba52f30",
+    "valueTarget" : 0.7315583215675092,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 6,
+    "shapeName" : "lwrDiamond1",
+    "drawObjId" : "f7a543e1-a974-4be5-937e-266356714ba6",
+    "valueTarget" : 0.4975354716594589,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 7,
+    "shapeName" : "upprDiamond1",
+    "drawObjId" : "3e0344bd-18f3-4247-9493-eacefabbcb08",
+    "valueTarget" : 0.6389290226934323,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  }, {
+    "shape" : 8,
+    "shapeName" : "bigCtrCircle1",
+    "drawObjId" : "ae681996-a79a-49b0-9d41-e4c027593064",
+    "valueTarget" : 0.6709239842896639,
+    "defaultAG" : 4,
+    "agPrefs" : [ 0.05, 0.65, 0.35, 0.95 ]
+  }, {
+    "shape" : 9,
+    "shapeName" : "bigFrontDiamondCtr1",
+    "drawObjId" : "b8238808-6f20-44cb-8f6f-8bf9515d9de0",
+    "valueTarget" : 0.511143218154746,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  }, {
+    "shape" : 10,
+    "shapeName" : "bigEllipsShadoRight1",
+    "drawObjId" : "eff48aff-14ec-4876-8953-845b7753829e",
+    "valueTarget" : 0.49169985812544664,
+    "defaultAG" : 3,
+    "agPrefs" : [ 0.65, 0.05, 0.95, 0.35 ]
+  }, {
+    "shape" : 11,
+    "shapeName" : "bigEllipsShadoLeft1",
+    "drawObjId" : "c9f91c63-2dc2-4082-8f17-4f5299a10598",
+    "valueTarget" : 0.49169985812544664,
+    "defaultAG" : 3,
+    "agPrefs" : [ 0.65, 0.05, 0.95, 0.35 ]
+  }, {
+    "shape" : 12,
+    "shapeName" : "ellipseLeft1",
+    "drawObjId" : "1f71cee4-e76a-422c-ba44-f1970a3867a0",
+    "valueTarget" : 0.6389290226934323,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  }, {
+    "shape" : 13,
+    "shapeName" : "ellipseRight1",
+    "drawObjId" : "5e402b0a-9e33-4831-8877-4665f010cec4",
+    "valueTarget" : 0.6389290226934323,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  }, {
+    "shape" : 14,
+    "shapeName" : "midBackgrDecoSlimDiamd1",
+    "drawObjId" : "de33914d-42ab-49c0-8cb8-07578feee287",
+    "valueTarget" : 0.4975354716594589,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 15,
+    "shapeName" : "midDiamdShadoLeft1",
+    "drawObjId" : "bd479244-3aef-4f93-a86c-9f0ec524c7ab",
+    "valueTarget" : 0.4230080487462547,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 16,
+    "shapeName" : "midDiamdShadoRight1",
+    "drawObjId" : "a519edff-932a-47d9-8f0f-e759a9352b6f",
+    "valueTarget" : 0.4230080487462547,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 17,
+    "shapeName" : "btmDiamdClustrCtrSmall1",
+    "drawObjId" : "151ff339-4757-492a-997a-7eac4c5b6e0b",
+    "valueTarget" : 0.6389290226934323,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  }, {
+    "shape" : 18,
+    "shapeName" : "btmDiamdClustrRight1",
+    "drawObjId" : "af291bf7-a01d-4939-a51b-da14a0d126a5",
+    "valueTarget" : 0.5857798030837905,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 19,
+    "shapeName" : "btmDiamdClustrleft1",
+    "drawObjId" : "0b6b78b2-f313-40a5-8f45-eadb3d6d5071",
+    "valueTarget" : 0.5857798030837905,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 20,
+    "shapeName" : "btmDiamdClustrCtrBig1",
+    "drawObjId" : "3671b7dc-9090-4853-89d0-ec5b8204f978",
+    "valueTarget" : 0.4975354716594589,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 21,
+    "shapeName" : "midDiamdCtr1",
+    "drawObjId" : "9b1fb933-2cad-4b78-9e7d-82ae29904a2c",
+    "valueTarget" : 0.4975354716594589,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 22,
+    "shapeName" : "midDiamdLeft1",
+    "drawObjId" : "596a785c-7bec-44b2-96a6-10a18303a8f6",
+    "valueTarget" : 0.4975354716594589,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 23,
+    "shapeName" : "midDiamdRight1",
+    "drawObjId" : "381622a7-5d27-46b1-bad6-80e728b337c0",
+    "valueTarget" : 0.4975354716594589,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 24,
+    "shapeName" : "midOutrOvalLeft1",
+    "drawObjId" : "35776830-006b-40f7-b165-ebac3ad3140b",
+    "valueTarget" : 0.5857798030837905,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 25,
+    "shapeName" : "midOutrOvalRight1",
+    "drawObjId" : "cba91f08-459e-4f15-81f2-73e5175611a6",
+    "valueTarget" : 0.5857798030837905,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 26,
+    "shapeName" : "midVerticOvalLeft1",
+    "drawObjId" : "e68fa906-bf84-47f5-8534-4a6be24feb6f",
+    "valueTarget" : 0.5857798030837905,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 27,
+    "shapeName" : "midVerticOvalRight1",
+    "drawObjId" : "6ad315b0-1409-4273-a90a-1b5ceecef3ca",
+    "valueTarget" : 0.5857798030837905,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 28,
+    "shapeName" : "smallDaggerLeft1",
+    "drawObjId" : "c74ef8dc-e39e-4e61-8a5a-b9faa94c2814",
+    "valueTarget" : 0.4230080487462547,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 29,
+    "shapeName" : "smallDaggerRight1",
+    "drawObjId" : "701baeb0-c6fe-426a-bcdf-e8010acb1fa1",
+    "valueTarget" : 0.4230080487462547,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 30,
+    "shapeName" : "ctrSlicedPieShado1",
+    "drawObjId" : "85fb292c-bf32-4bef-bdb9-cf2a086c3fca",
+    "valueTarget" : 0.4230080487462547,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 31,
+    "shapeName" : "ctrSlicedPie1",
+    "drawObjId" : "f4ee6992-ead0-4899-9a60-6c7a8635e4da",
+    "valueTarget" : 0.5857798030837905,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 32,
+    "shapeName" : "triangleDaggerLeft1",
+    "drawObjId" : "9d9ac659-c118-4096-b5e1-c4dcedd1c402",
+    "valueTarget" : 0.4975354716594589,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 33,
+    "shapeName" : "triangleDaggerRight1",
+    "drawObjId" : "eedbcffc-2a5c-4e7c-8e33-ae2c5b46a7eb",
+    "valueTarget" : 0.4975354716594589,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 34,
+    "shapeName" : "bigSlicedDaimdCtr1",
+    "drawObjId" : "7a205d83-355e-4169-8b0e-889dbd5a8ea6",
+    "valueTarget" : 0.4230080487462547,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 35,
+    "shapeName" : "ctrLonelyAccentSlice1",
+    "drawObjId" : "f1df3a19-a30d-4665-8d67-6389d9906e00",
+    "valueTarget" : 0.4975354716594589,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 36,
+    "shapeName" : "SLAMunderlineLeft1",
+    "drawObjId" : "c54394aa-b722-4ac4-98e4-94b76f51c7ee",
+    "valueTarget" : 0.4975354716594589,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 37,
+    "shapeName" : "SLAMunderlineRight1",
+    "drawObjId" : "687fc75b-3fe4-4707-9af0-204c4e8f3870",
+    "valueTarget" : 0.4975354716594589,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 38,
+    "shapeName" : "letterM1",
+    "drawObjId" : "8bd99380-1062-4b52-be84-a9efb2c569d9",
+    "valueTarget" : 0.4975354716594589,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 39,
+    "shapeName" : "letterA1",
+    "drawObjId" : "c83d5bd8-c761-4c40-a178-7914171cefab",
+    "valueTarget" : 0.4975354716594589,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 40,
+    "shapeName" : "letterL1",
+    "drawObjId" : "180e7cfe-b491-4d9b-ade3-22fada33cdab",
+    "valueTarget" : 0.4975354716594589,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 41,
+    "shapeName" : "letterS1",
+    "drawObjId" : "dfeed9ce-c2ad-407b-ad8d-a027a89c9257",
+    "valueTarget" : 0.4975354716594589,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 42,
+    "shapeName" : "letterK1",
+    "drawObjId" : "9e3643c3-5cb1-43a5-ac39-5282111fd363",
+    "valueTarget" : 0.4975354716594589,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 43,
+    "shapeName" : "letterN1",
+    "drawObjId" : "78b5ede6-0fef-440a-90eb-0ebe03ee041a",
+    "valueTarget" : 0.4975354716594589,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 44,
+    "shapeName" : "letterU1",
+    "drawObjId" : "067fe691-319c-4569-aba4-b6b0d2fb26fc",
+    "valueTarget" : 0.4975354716594589,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 45,
+    "shapeName" : "letterD1",
+    "drawObjId" : "4aa26c36-4fb5-4507-88f1-d403581843f5",
+    "valueTarget" : 0.4975354716594589,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 46,
+    "shapeName" : "topDecoThinBar1",
+    "drawObjId" : "10177d42-6b3c-4991-8c0c-6ed057680547",
+    "valueTarget" : 0.4975354716594589,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 47,
+    "shapeName" : "top3DiamdLeftMid1",
+    "drawObjId" : "9d7241d6-bf43-4184-bbd1-39aa5078a5ad",
+    "valueTarget" : 0.5857798030837905,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 48,
+    "shapeName" : "top3DiamdRightMid1",
+    "drawObjId" : "bcedcedf-fc14-4bc6-9046-438afcc291b2",
+    "valueTarget" : 0.5857798030837905,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 49,
+    "shapeName" : "top3DiamdLeftLeft1",
+    "drawObjId" : "fee8e0c4-8a76-4d7d-9003-f0732f0aff5d",
+    "valueTarget" : 0.5857798030837905,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 50,
+    "shapeName" : "top3DiamdRightLeft1",
+    "drawObjId" : "6e45d5af-ec03-4e7f-8612-566aadb68b3b",
+    "valueTarget" : 0.5857798030837905,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 51,
+    "shapeName" : "top3DiamdLeftRight1",
+    "drawObjId" : "8811035a-5153-46cd-b577-e7a58163cb97",
+    "valueTarget" : 0.5857798030837905,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 52,
+    "shapeName" : "top3DiamdRightRight1",
+    "drawObjId" : "e3e10883-0d88-4f31-9c9a-e823991185cc",
+    "valueTarget" : 0.5857798030837905,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 53,
+    "shapeName" : "top3DiamdCtrMid1",
+    "drawObjId" : "7145f438-10bd-42ee-9da0-fce792a69fcf",
+    "valueTarget" : 0.511143218154746,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  }, {
+    "shape" : 54,
+    "shapeName" : "top3DiamdCtrLeft1",
+    "drawObjId" : "aab77585-1234-4b6b-8b60-3927cc3c8dcd",
+    "valueTarget" : 0.4975354716594589,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 55,
+    "shapeName" : "top3DiamdCtrRight1",
+    "drawObjId" : "dabb0b41-ef4b-4a18-a431-80ed70680e32",
+    "valueTarget" : 0.4975354716594589,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  }, {
+    "shape" : 56,
+    "shapeName" : "triangleUpDaggerBtm1",
+    "drawObjId" : "4cf06019-d145-496f-91b6-a45293d19f22",
+    "valueTarget" : 0.574118798884519,
+    "defaultAG" : 1,
+    "agPrefs" : [ 0.95, 0.05, 0.65, 0.35 ]
+  }, {
+    "shape" : 57,
+    "shapeName" : "triangleDaggerCtr1",
+    "drawObjId" : "d2db7253-dc90-4e50-9dcc-bd1bdc723f45",
+    "valueTarget" : 0.4230080487462547,
+    "defaultAG" : 2,
+    "agPrefs" : [ 0.05, 0.95, 0.35, 0.65 ]
+  } ]
+}

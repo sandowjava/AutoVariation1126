@@ -11,8 +11,10 @@ import java.util.*;
  * {@code required ⊆ bound keys}. Binding an undeclared param, or a value whose
  * Java type mismatches the param's {@link ParamKind}, fails fast.
  *
- * v1 param values: Numbers (Integer for INT/TABLE_KEY, Double for DOUBLE)
- * and Strings (NAMED_KEY — a canonical name into a named catalog).
+ * v1 param values: Numbers (Integer for INT/TABLE_KEY, Double for DOUBLE),
+ * Strings (NAMED_KEY — a canonical name into a named catalog), and
+ * immutable {@code Set<Integer>}s (SHAPE_SET — a set of 1-based shape IDs).
+ * All bound values are immutable — see {@link #copyForCooking()}.
  */
 public class StratgSpec {
 
@@ -61,6 +63,12 @@ public class StratgSpec {
         return (String) requireBound(param);
     } // end method getStringParam
 
+    /** Reads a bound SHAPE_SET param — the stored set is already unmodifiable. */
+    @SuppressWarnings("unchecked")
+    public Set<Integer> getIntSetParam(StratgParam param) {
+        return (Set<Integer>) requireBound(param);
+    } // end method getIntSetParam
+
     /**
      * Binds an int param (INT or TABLE_KEY kind). Returns this for chaining.
      * The cook binds open params; binding over a bound key replaces the value.
@@ -100,8 +108,25 @@ public class StratgSpec {
     } // end method bind
 
     /**
-     * Deep-enough copy for cooking: v1 param values are immutable Numbers,
-     * so a new map over the same values is a safe copy.
+     * Binds a shape-set param (SHAPE_SET kind) — e.g. {@code FROZEN_SHAPES},
+     * an explicit set of 1-based shape IDs. Stores an immutable copy so the
+     * bound-value immutability contract holds. Returns this for chaining.
+     */
+    public StratgSpec bind(StratgParam param, Set<Integer> value) {
+        checkDeclared(param);
+        if (param.getKind() != ParamKind.SHAPE_SET) {
+            throw new IllegalArgumentException(
+                    param.getExternalName() + " is a " + param.getKind()
+                            + " param on " + stratgType.getExternalId());
+        } // end IF
+        boundParams.put(param, Set.copyOf(Objects.requireNonNull(value, param.getExternalName())));
+        return this;
+    } // end method bind
+
+    /**
+     * Deep-enough copy for cooking: bound param values are immutable
+     * (Numbers, Strings, and {@code Set.copyOf} shape sets), so a new map
+     * over the same values is a safe copy.
      */
     public StratgSpec copyForCooking() {
         StratgSpec copy = new StratgSpec(stratgType);

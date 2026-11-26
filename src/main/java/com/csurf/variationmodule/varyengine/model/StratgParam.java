@@ -13,6 +13,7 @@ public enum StratgParam {
     SECOND_PREF_LEVEL("secondPrefLevel", ParamKind.INT),
     AGHUE_PATTERN("agHuePattern", ParamKind.NAMED_KEY),
     FROZEN_SET("frozenSet", ParamKind.TABLE_KEY),
+    FROZEN_SHAPES("frozenShapes", ParamKind.SHAPE_SET),
     VALUE_RANGE("valueRange", ParamKind.DOUBLE);
 
     private final String externalName;

@@ -7,9 +7,11 @@ import java.util.Set;
 
 /**
  * Stratg 031 — writes {@code frozen} flags for the shapes named by its
- * {@code frozenSet} param (a TABLE_KEY index 0–5 into {@link FrozenSets};
+ * params. The shapes are named one of two ways — exactly one must be bound:
+ * {@code frozenSet} (a TABLE_KEY index 0–5 into {@link FrozenSets};
  * in legacy this was the controlLevel indexing
- * {@code arrayofSetsOfFrozenDrawObjs}).
+ * {@code arrayofSetsOfFrozenDrawObjs}) or {@code frozenShapes} (a SHAPE_SET
+ * of explicit 1-based shape IDs — the userSelectFrozen path).
  *
  * <p>Touches nothing else: the flag covers all three channels and
  * {@code effective} resolves against the base at read time — matching
@@ -31,7 +33,20 @@ public final class FreezeShapesStratg implements Stratg {
     @Override
     public void execute(StratgContext ctx, StratgSpec params) {
         StratgSupport.requireType(params, type());
-        Set<Integer> frozenSet = FrozenSets.get(params.getIntParam(StratgParam.FROZEN_SET));
+
+        // exactly one of the two alternate params names the frozen shapes
+        // (isFullySpecified is requiredness-only and cannot express the XOR)
+        boolean hasTable = params.isBound(StratgParam.FROZEN_SET);
+        boolean hasSet = params.isBound(StratgParam.FROZEN_SHAPES);
+        if (hasTable == hasSet) {
+            throw new IllegalStateException(
+                    "031: exactly one of frozenSet / frozenShapes must be bound"
+                            + " (frozenSet bound=" + hasTable
+                            + ", frozenShapes bound=" + hasSet + ")");
+        } // end IF
+        Set<Integer> frozenSet = hasTable
+                ? FrozenSets.get(params.getIntParam(StratgParam.FROZEN_SET))
+                : params.getIntSetParam(StratgParam.FROZEN_SHAPES);
         RunState state = ctx.runState();
 
         for (int shape : frozenSet) {

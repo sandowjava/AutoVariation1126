@@ -38,13 +38,16 @@ public class CreateSmartPicFrame extends JFrame {
         void saveAGHuePattern();
         /** User chose "Help -open help doc" (Controls-info menu). */
         void showHelpDoc();
-    }
+
+        void showUserSelectFrozenFrame();
+    } // end interface Actions
 
     private final JLabel templateLabel;
-    private final JLabel agPrefsLabel;
+    private final JLabel relationMatrixLabel;
     private final JLabel statusLabel;
     private final JMenuItem drawObjListItem;
     private final JMenuItem hueAnchorsItem;
+    private final JMenuItem userSelectFrozenItem;
 
     /**
      * @param actions menu-action callbacks (the controller)
@@ -60,10 +63,10 @@ public class CreateSmartPicFrame extends JFrame {
         chooseTemplateItem.addActionListener(e -> actions.chooseTemplate());
         templateMenu.add(chooseTemplateItem);
 
-        JMenu agPrefsMenu = new JMenu("2)RMatrix");
+        JMenu relationMatrixMenu = new JMenu("2)RMatrix");
         JMenuItem chooseAgPrefsItem = new JMenuItem("Choose AGprefs file (RMatrix)");
         chooseAgPrefsItem.addActionListener(e -> actions.chooseAgPrefsFile());
-        agPrefsMenu.add(chooseAgPrefsItem);
+        relationMatrixMenu.add(chooseAgPrefsItem);
 
         JMenu smartPicMenu = new JMenu("3)SmartPic");
         JMenuItem createItem = new JMenuItem("Create SmartPic");
@@ -77,6 +80,12 @@ public class CreateSmartPicFrame extends JFrame {
         smartPicMenu.add(createVariationsItem);
 
         JMenu controlsInfoMenu = new JMenu("Controls-info");
+
+        userSelectFrozenItem = new JMenuItem("Select Frozen drawObjs");
+        userSelectFrozenItem.setEnabled(false); // enabled once a SmartPic is created
+        userSelectFrozenItem.addActionListener(e -> actions.showUserSelectFrozenFrame());
+        controlsInfoMenu.add(userSelectFrozenItem);
+
         drawObjListItem = new JMenuItem("Template drawObj list");
         drawObjListItem.setEnabled(false); // enabled once a Template is chosen
         drawObjListItem.addActionListener(e -> actions.showTemplateDrawObjList());
@@ -99,18 +108,18 @@ public class CreateSmartPicFrame extends JFrame {
 
         JMenuBar menuBar = new JMenuBar();
         menuBar.add(templateMenu);
-        menuBar.add(agPrefsMenu);
+        menuBar.add(relationMatrixMenu);
         menuBar.add(smartPicMenu);
         menuBar.add(controlsInfoMenu);
         setJMenuBar(menuBar);
 
         JPanel content = new JPanel(new GridLayout(3, 1, 0, 6));
         content.setBorder(new EmptyBorder(12, 12, 12, 12));
-        templateLabel = new JLabel("Template: (none chosen)");
-        agPrefsLabel = new JLabel("AGprefs defaults: (none chosen)");
+        templateLabel = new JLabel("Template for shapes: (none chosen)");
+        relationMatrixLabel = new JLabel("RMatrix for AGprefs: (none chosen)");
         statusLabel = new JLabel(" ");
         content.add(templateLabel);
-        content.add(agPrefsLabel);
+        content.add(relationMatrixLabel);
         content.add(statusLabel);
 
         getContentPane().setLayout(new BorderLayout());
@@ -123,7 +132,7 @@ public class CreateSmartPicFrame extends JFrame {
 
     /** Displays the chosen Template's display name. */
     public void setTemplateName(String name) {
-        templateLabel.setText("Template: " + name);
+        templateLabel.setText("Template for shapes: " + name);
     }
 
     /** Enables/disables the "Template drawObj list" menu item. */
@@ -136,9 +145,14 @@ public class CreateSmartPicFrame extends JFrame {
         hueAnchorsItem.setEnabled(enabled);
     }
 
+    /** Enables/disables the "Select Frozen drawObjs" menu item. */
+    public void setUserSelectFrozenEnabled(boolean enabled) {
+        userSelectFrozenItem.setEnabled(enabled);
+    }
+
     /** Displays the chosen AGprefs defaults file's label. */
     public void setAgPrefsName(String name) {
-        agPrefsLabel.setText("AGprefs defaults: " + name);
+        relationMatrixLabel.setText("RMatrix for AGprefs: " + name);
     }
 
     /** Displays a status line, e.g. the create result. */

@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 
 import java.util.List;
+import java.util.Set;
 
 
 /**
@@ -132,6 +133,68 @@ class CookTest {
 
     private static StratgSpec find(List<StratgSpec> flat, StratgType type) {
         return flat.stream().filter(s -> s.getStratgType() == type).findFirst().get();
+    }
+
+    // ---------- userSelectFrozen: cook with an explicit shape set ----------
+
+    private static final Set<Integer> USER_FROZEN = Set.of(3, 5, 12);
+
+    @Test
+    void cookWithUserFrozenSet_rows2to12_carryFrozenShapes() {
+        List<ArtisticGoalSpec> specs = new FrozenShapesCategory().cook(AGHUE_PATTERN, USER_FROZEN);
+        Assertions.assertEquals(VariationConstants.STANDARD_VARIATION_COUNT, specs.size());
+        for (int i = 0; i < specs.size(); i++) {
+            Assertions.assertEquals(i + 1, specs.get(i).getRecipeRow(), "row " + (i + 1));
+            Assertions.assertTrue(specs.get(i).isFullySpecified(), "row " + (i + 1) + " fully specified");
+        } // end FOR
+
+        // row 1 = bootstrap — no freeze goal at all
+        Assertions.assertTrue(specs.get(0).flattenStratgSpecs().stream()
+                .noneMatch(s -> s.getStratgType() == StratgType.FREEZE_SHAPES));
+
+        for (int i = 1; i < specs.size(); i++) {
+            StratgSpec freeze = find(specs.get(i).flattenStratgSpecs(), StratgType.FREEZE_SHAPES);
+            Assertions.assertFalse(freeze.isBound(StratgParam.FROZEN_SET),
+                    "row " + (i + 1) + " must not bind frozenSet on the userSet path");
+            Assertions.assertEquals(USER_FROZEN, freeze.getIntSetParam(StratgParam.FROZEN_SHAPES),
+                    "row " + (i + 1) + " frozenShapes");
+        } // end FOR
+    }
+
+    @Test
+    void cookWithUserFrozenSet_nullSetFailsLoudly() {
+        Assertions.assertThrows(NullPointerException.class,
+                () -> new FrozenShapesCategory().cook(AGHUE_PATTERN, (Set<Integer>) null));
+    }
+
+    @Test
+    void cookFromTemplate_extractsFrozenShapesBinding() {
+        BroadCategorySpec template = new BroadCategorySpec(BroadCategoryType.FROZEN_SHAPES)
+                .addPartialGoalSpec(new PartialGoalSpec(PartialGoalType.PG3).addStratgSpec(
+                        new StratgSpec(StratgType.ASSIGN_ANCHOR_HUES)
+                                .bind(StratgParam.AGHUE_PATTERN, "08-02-04-09-legacyTableRowNum20")))
+                .addPartialGoalSpec(new PartialGoalSpec(PartialGoalType.PG1A).addStratgSpec(
+                        new StratgSpec(StratgType.FREEZE_SHAPES)
+                                .bind(StratgParam.FROZEN_SHAPES, USER_FROZEN)));
+
+        List<ArtisticGoalSpec> specs = new FrozenShapesCategory().cook(template);
+        Assertions.assertEquals(12, specs.size());
+        Assertions.assertEquals(USER_FROZEN,
+                find(specs.get(11).flattenStratgSpecs(), StratgType.FREEZE_SHAPES)
+                        .getIntSetParam(StratgParam.FROZEN_SHAPES));
+    }
+
+    @Test
+    void cookFromTemplate_freezeSpecBindsNeitherParamFailsLoudly() {
+        // an 031 spec with neither frozenSet nor frozenShapes bound — the XOR check must fire
+        BroadCategorySpec template = new BroadCategorySpec(BroadCategoryType.FROZEN_SHAPES)
+                .addPartialGoalSpec(new PartialGoalSpec(PartialGoalType.PG3).addStratgSpec(
+                        new StratgSpec(StratgType.ASSIGN_ANCHOR_HUES)
+                                .bind(StratgParam.AGHUE_PATTERN, "08-02-04-09-legacyTableRowNum20")))
+                .addPartialGoalSpec(new PartialGoalSpec(PartialGoalType.PG1A).addStratgSpec(
+                        new StratgSpec(StratgType.FREEZE_SHAPES)));
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> new FrozenShapesCategory().cook(template));
     }
 
     @Test

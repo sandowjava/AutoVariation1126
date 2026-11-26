@@ -3,6 +3,7 @@ package com.csurf.variationmodule.varyengine.model;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 
@@ -68,7 +69,8 @@ public final class FrozenShapesCategory {
      * Cook from a dialog-produced {@link BroadCategorySpec}: validates
      * the category type, extracts the uniform bindings from the
      * template's member StratgSpecs — {@code AGHUE_PATTERN} from the
-     * 555 spec, {@code FROZEN_SET} from the 031 spec, {@code VALUE_RANGE} from the
+     * 555 spec, {@code FROZEN_SET} or {@code FROZEN_SHAPES} from the 031 spec,
+     * {@code VALUE_RANGE} from the
      * 255 spec (default {@link VariationConstants#VALUE_RANGE} when the
      * template leaves it open).
      */
@@ -81,15 +83,20 @@ public final class FrozenShapesCategory {
 
         String agHuePattern = null;
         Integer frozenSet = null;
+        Set<Integer> frozenShapes = null;
         double valueRange = VariationConstants.VALUE_RANGE;
         for (PartialGoalSpec goal : categorySpec.getPartialGoalSpecs()) {
             for (StratgSpec stratg : goal.getStratgSpecs()) {
                 if (stratg.getStratgType() == StratgType.ASSIGN_ANCHOR_HUES
                         && stratg.isBound(StratgParam.AGHUE_PATTERN)) {
                     agHuePattern = stratg.getStringParam(StratgParam.AGHUE_PATTERN);
-                } else if (stratg.getStratgType() == StratgType.FREEZE_SHAPES
-                        && stratg.isBound(StratgParam.FROZEN_SET)) {
-                    frozenSet = stratg.getIntParam(StratgParam.FROZEN_SET);
+                } else if (stratg.getStratgType() == StratgType.FREEZE_SHAPES) {
+                    if (stratg.isBound(StratgParam.FROZEN_SET)) {
+                        frozenSet = stratg.getIntParam(StratgParam.FROZEN_SET);
+                    } // end IF
+                    if (stratg.isBound(StratgParam.FROZEN_SHAPES)) {
+                        frozenShapes = stratg.getIntSetParam(StratgParam.FROZEN_SHAPES);
+                    } // end IF
                 } else if (stratg.getStratgType() == StratgType.ASSIGN_OST_DOTS
                         && stratg.isBound(StratgParam.VALUE_RANGE)) {
                     valueRange = stratg.getDoubleParam(StratgParam.VALUE_RANGE);
@@ -103,12 +110,15 @@ public final class FrozenShapesCategory {
                             + "a canonical AGHuePatterns name into its 555 StratgSpec "
                             + "(" + AGHuePatterns.count() + " entries in catalog)");
         } // end IF
-        if (frozenSet == null) {
+        if ((frozenSet == null) == (frozenShapes == null)) {
             throw new IllegalArgumentException(
-                    "the category spec binds no FROZEN_SET — the dialog must bind a frozenSet "
-                            + "into its 031 StratgSpec (range 0.." + (FrozenSets.FROZEN_SET_COUNT - 1) + ")");
+                    "the category spec must bind exactly one of FROZEN_SET (a frozenSet "
+                            + "index 0.." + (FrozenSets.FROZEN_SET_COUNT - 1) + ") or "
+                            + "FROZEN_SHAPES (an explicit shape set) into its 031 StratgSpec");
         } // end IF
-        return cook(agHuePattern, frozenSet, valueRange);
+        return frozenShapes != null
+                ? cook(agHuePattern, frozenShapes, valueRange)
+                : cook(agHuePattern, frozenSet, valueRange);
     } // end method cook(BroadCategorySpec)
 
 
@@ -117,6 +127,13 @@ public final class FrozenShapesCategory {
     public List<ArtisticGoalSpec> cook(String agHuePattern, int frozenSet) {
         return cook(agHuePattern, frozenSet, VariationConstants.VALUE_RANGE);
     } // end method cook(String, int)
+
+
+
+    /** Cook with the standard valueRange default, using an explicit frozen-shape set. */
+    public List<ArtisticGoalSpec> cook(String agHuePattern, Set<Integer> frozenShapes) {
+        return cook(agHuePattern, frozenShapes, VariationConstants.VALUE_RANGE);
+    } // end method cook(String, Set)
 
 
 
@@ -132,16 +149,40 @@ public final class FrozenShapesCategory {
 
         List<ArtisticGoalSpec> results = new ArrayList<>(howManyVariations);
         for (RecipeRow row : RECIPE) {
-            results.add(buildRow(row, agHuePattern, frozenSet, valueRange));
+            results.add(buildRow(row, agHuePattern, frozenSet, null, valueRange));
         } // end FOR
         return results;
     } // end method cook(String, int, double)
 
 
 
+    /**
+     * Emits the 12 fully-specified {@link ArtisticGoalSpec}s in recipe
+     * order (row 1 = bootstrap), binding an explicit frozen-shape set
+     * (the userSelectFrozen path) instead of a {@link FrozenSets} table key.
+     * Shape-ID membership is NOT checked here — only the run knows valid
+     * IDs; {@code FreezeShapesStratg} validates them at execute time.
+     */
+    public List<ArtisticGoalSpec> cook(String agHuePattern, Set<Integer> frozenShapes, double valueRange) {
+        // the named key still fails fast; set membership is a run-time concern
+        AGHuePatterns.get(agHuePattern);
+        Set<Integer> shapes = Set.copyOf(Objects.requireNonNull(frozenShapes, "frozenShapes"));
+
+        List<ArtisticGoalSpec> results = new ArrayList<>(howManyVariations);
+        for (RecipeRow row : RECIPE) {
+            results.add(buildRow(row, agHuePattern, null, shapes, valueRange));
+        } // end FOR
+        return results;
+    } // end method cook(String, Set, double)
+
+
+
     // ---------- the recipe table ----------
 
-    private ArtisticGoalSpec buildRow(RecipeRow row, String agHuePattern, int frozenSet, double valueRange) {
+    /** Builds one recipe row; exactly one of frozenSet / frozenShapes is non-null (XOR by construction). */
+    private ArtisticGoalSpec buildRow(RecipeRow row, String agHuePattern,
+                                      Integer frozenSet, Set<Integer> frozenShapes,
+                                      double valueRange) {
         List<PartialGoalSpec> goals = new ArrayList<>();
 
         StratgSpec ag = new StratgSpec(row.agType);
@@ -164,9 +205,13 @@ public final class FrozenShapesCategory {
                         .bind(StratgParam.VALUE_RANGE, valueRange)));
 
         if (row.freeze) {
-            goals.add(new PartialGoalSpec(PartialGoalType.PG1A).addStratgSpec(
-                    new StratgSpec(StratgType.FREEZE_SHAPES)
-                            .bind(StratgParam.FROZEN_SET, frozenSet)));
+            StratgSpec freeze = new StratgSpec(StratgType.FREEZE_SHAPES);
+            if (frozenShapes != null) {
+                freeze.bind(StratgParam.FROZEN_SHAPES, frozenShapes);
+            } else {
+                freeze.bind(StratgParam.FROZEN_SET, frozenSet);
+            } // end IF-ELSE
+            goals.add(new PartialGoalSpec(PartialGoalType.PG1A).addStratgSpec(freeze));
         } // end IF
 
         return new ArtisticGoalSpec(goals, row.recipeRow);

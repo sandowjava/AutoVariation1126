@@ -13,5 +13,7 @@ public enum ParamKind {
     INT,
     DOUBLE,
     TABLE_KEY,
-    NAMED_KEY
+    NAMED_KEY,
+    /** An immutable set of 1-based shape IDs (e.g., a user-selected frozen set). */
+    SHAPE_SET
 } // end enum ParamKind

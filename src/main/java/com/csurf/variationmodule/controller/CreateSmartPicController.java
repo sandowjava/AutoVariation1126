@@ -25,6 +25,7 @@ import com.csurf.variationmodule.view.AGHuePatternSaveDialog;
 import com.csurf.variationmodule.view.CreateSmartPicFrame;
 import com.csurf.variationmodule.view.SmartPicAGCtrsFrozenSetFrame;
 import com.csurf.variationmodule.view.TemplateDrawObjListFrame;
+import com.csurf.variationmodule.view.UserSelectFrozenFrame;
 import com.csurf.variationmodule.view.VariationDisplayFrame;
 
 import javax.swing.*;
@@ -37,6 +38,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 import java.util.logging.Logger;
 
@@ -65,6 +67,14 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
     private static final String DEFAULT_AGHUE_PATTERN = "13-10-06-08-legacyTableRowNum18";
     private static final int DEFAULT_FROZEN_SET = 4;
 
+    /**
+     * frozenSet sentinel meaning "the run used the user-selected set":
+     * {@link RunParams} and {@link #lastFrozenSet} carry it whenever
+     * {@link #userFrozenShapes} is the frozen-set key (exactly-one-of,
+     * mirroring the engine's frozenSet/frozenShapes XOR).
+     */
+    private static final int USER_FROZEN = -1;
+
     private final ApplicationMediator mediator;
     private final TemplateWorkFrame ownerFrame;
     private final TemplateStorage storage;
@@ -78,7 +88,15 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
 
     /** Parameters of the last variation run (or the dialog defaults). */
     private String lastAgHuePattern = DEFAULT_AGHUE_PATTERN;
-    private int lastFrozenSet = DEFAULT_FROZEN_SET;
+    private int lastFrozenSet = DEFAULT_FROZEN_SET;   // USER_FROZEN when the last run used the user set
+
+    /**
+     * The user-selected frozen shape set for the current SmartPic — 1-based
+     * shape IDs, session-only (userSelectFrozen feature, Phase B plumbing).
+     * Cleared whenever the Template or SmartPic changes: shape IDs are
+     * SmartPic-relative, so a new SmartPic makes an old set stale.
+     */
+    private Set<Integer> userFrozenShapes;
 
     /**
      * Creates a controller with no owning TemplateWorkFrame — for launches
@@ -126,6 +144,7 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
             return;
         }
         chosenTemplateFile = selected;
+        userFrozenShapes = null; // a new Template makes any frozen set stale
         String displayName = chosenTemplate.getTheTemplateName();
         if (displayName == null || displayName.isEmpty()) {
             displayName = templateName;
@@ -167,8 +186,10 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
             showError(e.getMessage());
             return;
         }
+        userFrozenShapes = null; // shape IDs are SmartPic-relative — a rebuilt SmartPic invalidates the set
         frame.setStatus("Created SmartPic: " + smartPic.numShapes() + " shapes");
         frame.setHueAnchorsEnabled(true);
+        frame.setUserSelectFrozenEnabled(true);
         LOG.info("Created " + smartPic + " from template file " + chosenTemplateFile
                 + " and AGprefs " + chosenAgPrefsPath);
     }
@@ -184,15 +205,16 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
             return; // user cancelled
         }
         String agHuePattern = params.agHuePattern();
-        int frozenSet = params.frozenSet();
+        Set<Integer> frozenShapes = params.frozenShapes();
         lastAgHuePattern = agHuePattern;
-        lastFrozenSet = frozenSet;
+        lastFrozenSet = frozenShapes != null ? USER_FROZEN : params.frozenSet();
 
         Facts facts = new SmartPicFacts(smartPic);
         PalettesThe12Variations palettes;
         try {
-            List<VariationResult> results =
-                    VariationPaletteExtractor.runCleanCycle(agHuePattern, frozenSet, facts);
+            List<VariationResult> results = frozenShapes != null
+                    ? VariationPaletteExtractor.runCleanCycle(agHuePattern, frozenShapes, facts)
+                    : VariationPaletteExtractor.runCleanCycle(agHuePattern, params.frozenSet(), facts);
             palettes = new VariationPaletteExtractor().extract12VariationPalettes(results);
         } catch (RuntimeException e) {
             LOG.warning("Variation run failed: " + e);
@@ -214,9 +236,10 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
         if (displayName == null || displayName.isEmpty()) {
             displayName = templateName;
         }
+        String frozenLabel = frozenShapes != null ? "Frzn:user" : "Frzn:" + params.frozenSet();
         VariationDisplayFrame display = new VariationDisplayFrame(
                 new TemplateVariationsResult(variationTemplates),
-                UUID.randomUUID(), "Frzn:" + frozenSet
+                UUID.randomUUID(), frozenLabel
                 +" (" + agHuePattern + ") " + displayName );
         display.setVariationSelectionListener(
                 slot -> openVariationInWorkFrame(display, slot));
@@ -224,7 +247,9 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
         display.setVisible(true);
 
         frame.setStatus("Created 12 variations: agHuePattern '" + agHuePattern
-                + "', frozenSet " + frozenSet);
+                + "', " + (frozenShapes != null
+                        ? "frozen set = user (" + frozenShapes.size() + " shapes)"
+                        : "frozenSet " + params.frozenSet()));
     }
 
     /** Opens the clicked variation's Template in a new TemplateWorkFrame. */
@@ -248,6 +273,36 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
                 displayName, chosenTemplate.getAllDrawObjs());
         listFrame.setLocation(frame.getX() + frame.getWidth() + 10, frame.getY());
         listFrame.setVisible(true);
+    }
+
+
+    /**
+     * "Select Frozen drawObjs" — opens a scratch TemplateWorkFrame on a fresh
+     * copy of the SmartPic's Template plus the modeless UserSelectFrozenFrame;
+     * its one-shot commit installs the mapped shape IDs via
+     * {@link #setUserFrozenShapes}.
+     */
+    @Override
+    public void showUserSelectFrozenFrame() {
+        if (smartPic == null) {
+            showError("Create a SmartPic first (SmartPic menu).");
+            return;
+        }
+        String templateName = stripJsonExtension(chosenTemplateFile.getName());
+        Template copy;
+        try {
+            copy = storage.loadTemplate(templateName);
+        } catch (TemplateStorageException e) {
+            LOG.warning("Could not load template for frozen selection: " + e);
+            showError("Could not load template: " + e.getMessage());
+            return;
+        }
+        TemplateWorkFrame selectionWorkFrame = new TemplateWorkFrame(mediator, copy); // self-shows
+        UserSelectFrozenFrame selectFrame =
+                new UserSelectFrozenFrame(this, smartPic, selectionWorkFrame);
+        selectFrame.setLocation(frame.getX() + frame.getWidth() + 10,
+                frame.getY() + frame.getHeight() + 10);
+        selectFrame.setVisible(true);
     }
 
     /**
@@ -287,7 +342,7 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
             return;
         }
         SmartPicAGCtrsFrozenSetFrame infoFrame = new SmartPicAGCtrsFrozenSetFrame(
-                smartPic, lastAgHuePattern, lastFrozenSet);
+                smartPic, lastAgHuePattern, lastFrozenSet, userFrozenShapes);
         infoFrame.setLocation(frame.getX() + frame.getWidth() + 10, frame.getY());
         infoFrame.setVisible(true);
     }
@@ -336,14 +391,20 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
         return copies;
     }
 
-    /** The chosen run parameters: a canonical AGHuePattern name + a frozenSet index. */
-    private record RunParams(String agHuePattern, int frozenSet) {
+    /**
+     * The chosen run parameters: a canonical AGHuePattern name plus exactly
+     * one frozen-set key — a {@link FrozenSets} index ({@code frozenSet},
+     * {@code frozenShapes == null}) or an explicit user-selected shape set
+     * ({@code frozenShapes}, {@code frozenSet == USER_FROZEN}).
+     */
+    private record RunParams(String agHuePattern, int frozenSet, Set<Integer> frozenShapes) {
     } // end record RunParams
 
     /**
      * Minimal V1 chooser for the two cycle parameters the recipe needs:
-     * agHuePattern (a canonical {@link AGHuePatterns} name) and frozenSet
-     * (0..5, indexes {@link FrozenSets}). Returns the chosen pair, or
+     * agHuePattern (a canonical {@link AGHuePatterns} name) and the frozen-set
+     * key — a {@link FrozenSets} index (0..5) or, when a user-selected set
+     * exists, a seventh "user (N shapes)" entry. Returns the choice, or
      * null on cancel.
      */
     private RunParams chooseRunParameters() {
@@ -351,17 +412,21 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
                 AGHuePatterns.allNames().toArray(new String[0]));
         hueSetBox.setSelectedItem(DEFAULT_AGHUE_PATTERN);
 
-        Integer[] frozenSetOptions = new Integer[FrozenSets.FROZEN_SET_COUNT];
-        for (int i = 0; i < frozenSetOptions.length; i++) {
-            frozenSetOptions[i] = i;
-        }
-        JComboBox<Integer> frozenSetBox = new JComboBox<>(frozenSetOptions);
+        List<Object> frozenSetOptions = new ArrayList<>(FrozenSets.FROZEN_SET_COUNT + 1);
+        for (int i = 0; i < FrozenSets.FROZEN_SET_COUNT; i++) {
+            frozenSetOptions.add(i);
+        } // end FOR
+        if (userFrozenShapes != null) {
+            frozenSetOptions.add(userSetLabel(userFrozenShapes.size())); // seventh entry
+        } // end IF
+        JComboBox<Object> frozenSetBox = new JComboBox<>(frozenSetOptions.toArray());
         frozenSetBox.setSelectedIndex(DEFAULT_FROZEN_SET);
 
         JPanel controlAGCtrsFrozenPanel = new JPanel(new GridLayout(2, 2, 6, 6));
-        controlAGCtrsFrozenPanel.add(new JLabel("agHuePattern (" + AGHuePatterns.count() + "):"));
+        controlAGCtrsFrozenPanel.add(new JLabel("Anchor Groups AGPattern (choose from :" + AGHuePatterns.count() + "):"));
         controlAGCtrsFrozenPanel.add(hueSetBox);
-        controlAGCtrsFrozenPanel.add(new JLabel("frozenSet (0.." + (FrozenSets.FROZEN_SET_COUNT - 1) + "):"));
+        controlAGCtrsFrozenPanel.add(new JLabel("frozenSet (0.." + (FrozenSets.FROZEN_SET_COUNT - 1)
+                + (userFrozenShapes != null ? " or user" : "") + "):"));
         controlAGCtrsFrozenPanel.add(frozenSetBox);
 
         int choice = JOptionPane.showConfirmDialog(frame, controlAGCtrsFrozenPanel,
@@ -369,9 +434,17 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
         if (choice != JOptionPane.OK_OPTION) {
             return null;
         }
-        return new RunParams((String) hueSetBox.getSelectedItem(),
-                (Integer) frozenSetBox.getSelectedItem());
+        Object chosen = frozenSetBox.getSelectedItem();
+        if (chosen instanceof Integer) {
+            return new RunParams((String) hueSetBox.getSelectedItem(), (Integer) chosen, null);
+        } // end IF
+        return new RunParams((String) hueSetBox.getSelectedItem(), USER_FROZEN, userFrozenShapes);
     }
+
+    /** The frozenSet combo's user-set entry label. */
+    private static String userSetLabel(int shapeCount) {
+        return "user (" + shapeCount + " shapes)";
+    } // end method userSetLabel
 
     // ---------- internals ----------
 
@@ -439,6 +512,23 @@ public class CreateSmartPicController implements CreateSmartPicFrame.Actions {
     }
 
     // ---------- accessors ----------
+
+    /**
+     * Installs the user-selected frozen set — 1-based shape IDs validated
+     * against the current SmartPic by the caller (Phase C:
+     * {@code UserSelectFrozenController} calls this on commit).
+     */
+    public void setUserFrozenShapes(Set<Integer> shapeIds) {
+        this.userFrozenShapes = shapeIds == null ? null : Set.copyOf(shapeIds);
+        frame.setStatus(userFrozenShapes != null
+                ? "User frozen set: " + userFrozenShapes.size() + " shapes selected"
+                : "User frozen set cleared");
+    } // end method setUserFrozenShapes
+
+    /** The user-selected frozen set for the current SmartPic, or null. */
+    public Set<Integer> getUserFrozenShapes() {
+        return userFrozenShapes;
+    } // end method getUserFrozenShapes
 
     /** The created SmartPic, or null if not yet created. */
     public SmartPic getSmartPic() {

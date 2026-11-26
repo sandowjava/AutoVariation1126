@@ -95,17 +95,52 @@ class SmartPicCycleTest {
         }
     }
 
+    /** userSelectFrozen path: an explicit shape set freezes the same way a table row does. */
+    @Test
+    void realTemplateCycle_userSelectedFrozenShapesReinstateSlot1() {
+        Set<Integer> userFrozen = Set.of(2, 6, 9);
+        List<Template> slots = buildVariationTemplates(userFrozen);
+        ColorPtOstDot slot1AtFrozen;
+        for (int v = 1; v < slots.size(); v++) {
+            List<DrawObj> drawObjs = slots.get(v).getAllDrawObjs();
+            for (int shape : userFrozen) {
+                slot1AtFrozen = slots.get(0).getAllDrawObjs().get(shape - 1)
+                        .getColorPtOstDotFillColor();
+                Assertions.assertEquals(
+                        loc(slot1AtFrozen),
+                        loc(drawObjs.get(shape - 1).getColorPtOstDotFillColor()),
+                        "userFrozen slot " + (v + 1) + " shape " + shape);
+            } // end FOR shape
+        } // end FOR slot
+    }
+
     // ---------- the exact controller seam ----------
 
     private static List<Template> buildVariationTemplates(int frozenSet) {
         TemplateStorage storage = new TemplateStorage(new ApplicationMediator());
+        Facts facts = loadSmartPicFacts(storage);
+        List<VariationResult> results =
+                VariationPaletteExtractor.runCleanCycle(HUE_SET, frozenSet, facts);
+        return applyResultsToFreshCopies(storage, results);
+    }
+
+    private static List<Template> buildVariationTemplates(Set<Integer> frozenShapes) {
+        TemplateStorage storage = new TemplateStorage(new ApplicationMediator());
+        Facts facts = loadSmartPicFacts(storage);
+        List<VariationResult> results =
+                VariationPaletteExtractor.runCleanCycle(HUE_SET, frozenShapes, facts);
+        return applyResultsToFreshCopies(storage, results);
+    }
+
+    private static Facts loadSmartPicFacts(TemplateStorage storage) {
         Template template = storage.loadTemplate(TEMPLATE_NAME);
         SmartPic smartPic = new SmartPicFactory().createSmartPic(
                 template, StorageConfig.getAgPrefsPath().resolve(AGPREFS_NAME));
+        return new SmartPicFacts(smartPic);
+    }
 
-        Facts facts = new SmartPicFacts(smartPic);
-        List<VariationResult> results =
-                VariationPaletteExtractor.runCleanCycle(HUE_SET, frozenSet, facts);
+    private static List<Template> applyResultsToFreshCopies(
+            TemplateStorage storage, List<VariationResult> results) {
         PalettesThe12Variations palettes =
                 new VariationPaletteExtractor().extract12VariationPalettes(results);
 

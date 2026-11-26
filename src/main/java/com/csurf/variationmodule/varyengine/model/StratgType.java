@@ -33,9 +33,13 @@ public enum StratgType {
             EnumSet.of(StratgParam.CONTROL_LEVEL, StratgParam.VALUE_RANGE),
             EnumSet.noneOf(StratgParam.class)),
 
+    // 031 accepts two alternate ways to name the frozen shapes — a FrozenSets
+    // table key (frozenSet) or an explicit shape-ID set (frozenShapes). Both
+    // optional: "exactly one bound" is enforced by FreezeShapesStratg.execute
+    // and by-construction in FrozenShapesCategory.cook.
     FREEZE_SHAPES(31, "031", Phase.OVERRIDE,
-            EnumSet.of(StratgParam.FROZEN_SET),
-            EnumSet.noneOf(StratgParam.class));
+            EnumSet.noneOf(StratgParam.class),
+            EnumSet.of(StratgParam.FROZEN_SET, StratgParam.FROZEN_SHAPES));
 
     private final int id;
     private final String externalId;   // written exactly as legacy: "031", "921", ...

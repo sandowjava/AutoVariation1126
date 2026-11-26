@@ -69,6 +69,19 @@ public final class VariationPaletteExtractor {
 
 
     /**
+     * Runs the FrozenShapes cycle with an explicit frozen-shape set (the
+     * userSelectFrozen path): {@code cook(agHuePattern, frozenShapes)} then
+     * {@code VariationDriver.run(artGoalSpecList, facts)}. Returns results in
+     * recipe order — index 0 = the bootstrap result (recipe row 1,
+     * display slot 1).
+     */
+    public static List<VariationResult> runCleanCycle(String agHuePattern, Set<Integer> frozenShapes, Facts facts) {
+        List<ArtisticGoalSpec> artGoalSpecList = new FrozenShapesCategory().cook(agHuePattern, frozenShapes);
+        return new VariationDriver().run(artGoalSpecList, facts);
+    } // end method runCleanCycle
+
+
+    /**
      * Projects a cycle's {@link VariationResult}s into a
      * {@link PalettesThe12Variations} DTO — pure extraction, no run.
      *
